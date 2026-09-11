@@ -40,7 +40,6 @@ export function Footer() {
     // { label: t('footer.links.imprint'), href: '/imprint' },
     { label: t('footer.links.privacyPolicy'), href: '/privacy-policy' },
     { label: t('footer.links.terms'), href: '/terms' },
-    { label: t('footer.links.community'), href: '/community' },
   ]
 
   return (

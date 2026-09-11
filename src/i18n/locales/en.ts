@@ -30,7 +30,6 @@ export const en = {
       imprint: 'Imprint',
       privacyPolicy: 'Privacy Policy',
       terms: 'Terms',
-      community: 'Community',
     },
     registeredAddress:
       'Qubite International Cloud Services - L.L.C — Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE · Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE',

@@ -32,7 +32,6 @@ export const ar: TranslationSchema = {
       imprint: 'بيانات الشركة',
       privacyPolicy: 'سياسة الخصوصية',
       terms: 'الشروط والأحكام',
-      community: 'المجتمع',
     },
     registeredAddress:
       'Qubite International Cloud Services - L.L.C — عنوان التشغيل: 20 شارع الرسمي، جرن اليافور، المنطقة الصناعية بالمفرق، أبوظبي، الإمارات · العنوان المسجل: المنطقة الصناعية الصفرة، مبنى 118، شارع حصة بنت محمد، بلدية مدينة العين، أبوظبي، الإمارات',
