@@ -52,6 +52,7 @@ export function ContactSection() {
     { icon: MailIcon, label: t('about.contact.email'), value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
     { icon: PhoneIcon, label: t('about.contact.phone'), value: CONTACT_PHONE, href: 'tel:+971556615745' },
     { icon: PinIcon, label: t('about.contact.region'), value: t('about.contact.regionValue') },
+    { icon: PinIcon, label: t('about.contact.registeredAddress'), value: t('about.contact.registeredAddressValue') },
   ]
 
   const handleSubmit = (e: React.FormEvent) => {

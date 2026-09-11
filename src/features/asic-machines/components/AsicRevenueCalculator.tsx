@@ -170,7 +170,7 @@ export function AsicRevenueCalculator() {
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-text-subtle">
                 <BoltIcon className="size-3.5 text-[#4ade80]" />
                 {t('asicMachines.calculator.hosting')}:{' '}
-                <span className="font-semibold text-white">{hostingTiers[hostingRateIndex].rate}¢/kWh</span>
+                <span className="font-semibold text-white">{(hostingTiers[hostingRateIndex].rate * 100).toFixed(1)}¢/kWh</span>
               </span>
             </div>
 
@@ -247,7 +247,7 @@ export function AsicRevenueCalculator() {
                   >
                     <span className="flex flex-col">
                       <span className="text-xs font-bold text-white">{tier.name}</span>
-                      <span className="text-[11px] text-text-faint">{tier.rate}¢/kWh</span>
+                      <span className="text-[11px] text-text-faint">{(tier.rate * 100).toFixed(1)}¢/kWh</span>
                     </span>
                     <span
                       className={`flex size-4 shrink-0 items-center justify-center rounded-full border transition-colors duration-200 ${

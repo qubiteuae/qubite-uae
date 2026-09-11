@@ -91,7 +91,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border-slate pt-6">
+        <div className="flex flex-col gap-1.5 border-t border-border-slate pt-6">
+          <p className="text-xs text-text-faint">{t('footer.registeredAddress')}</p>
           <p className="text-xs text-text-faint">{t('footer.copyright')}</p>
         </div>
       </Container>

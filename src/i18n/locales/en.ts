@@ -32,7 +32,9 @@ export const en = {
       terms: 'Terms',
       community: 'Community',
     },
-    copyright: '© 2026 Qubite International. All rights reserved. Crypto mining hardware hosting is subject to local energy regulations.',
+    registeredAddress:
+      'Qubite International Cloud Services - L.L.C — Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE · Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE',
+    copyright: '© 2026 Qubite International Cloud Services - L.L.C. All rights reserved. Crypto mining hardware hosting is subject to local energy regulations.',
   },
   common: {
     talkToHuman: 'Talk to human',
@@ -45,11 +47,11 @@ export const en = {
       heading1: 'Powering the',
       heading2: 'Future of Mining',
       paragraph:
-        'Qubite supplies ASIC mining and GPU servers, installs them in our UAE hosting facilities, and operates them around the clock. Mining performance and operating costs vary based on network conditions, electricity consumption, machine efficiency and uptime.',
+        'Qubite supplies ASIC mining equipment, installs it in our UAE hosting facilities, and operates it around the clock. Mining performance and operating costs vary based on network conditions, electricity consumption, machine efficiency and uptime.',
       discoverMachines: 'Discover Machines',
       talkToHuman: 'Talk to human',
       scroll: 'Scroll',
-      meetExperts: 'Meet with 10+ infrastructure experts',
+      meetExperts: 'Speak with our infrastructure team',
       miningExperts: 'Mining experts',
       hostingCard: {
         title: 'ASIC Hosting',
@@ -86,17 +88,19 @@ export const en = {
         bestPrice: 'Best Price',
       },
       noResults: 'No miners match your search.',
+      disclaimer:
+        'Prices, specifications and availability are subject to confirmation before purchase. Hosting, installation, delivery, customs and VAT are included only where expressly stated in the quotation or agreement.',
     },
     miningProcess: {
-      badge: 'Fastest Deployment in the Market',
+      badge: 'Professional ASIC Deployment Support',
       heading1: 'Mining,',
       heading2: 'Without The Complexity',
       subtitle: 'Buy. Deploy. Mine. Scale.',
       steps: [
         { num: '01', title: 'Hardware', description: 'Choose the right ASIC miners optimized for your target efficiency & hashrate goals.' },
         { num: '02', title: 'Deployment', description: 'Turn-key assembly, safe express transit, and full rack-mount setup overseen by our experts.' },
-        { num: '03', title: 'Hosting', description: 'Zero delays. Secure, ultra-efficient operation in our premium tier-3 data centers.' },
-        { num: '04', title: 'Rewards', description: 'Enjoy daily automated distributions directly to your preferred self-custodied wallet.' },
+        { num: '03', title: 'Hosting', description: 'Secure hosting with professional installation, cooling and operational support. Deployment timelines depend on site and equipment availability.' },
+        { num: '04', title: 'Rewards', description: "Connect supported mining pools to your compatible wallet. Pool payouts follow the selected pool's terms, schedules and fees." },
       ],
       cta: 'Start Mining with Qubite',
     },
@@ -107,13 +111,12 @@ export const en = {
       paragraph:
         'Qubite enables companies, investors and operators reliable access to high-performance compute infrastructure — legally secure and scalable.',
       features: [
-        { title: 'Fixed Hosting Rates', description: 'Fixed hosting and energy rates with no hidden fees. Know exactly what you pay, every month.' },
-        { title: 'Cost-Efficient Hardware', description: 'Bulk purchasing power means industry-low hardware and energy costs, passed directly to you.' },
-        { title: 'Specialist-Led Operations', description: 'Our certified blockchain engineers keep every miner running at peak performance, 24/7.' },
-        { title: 'Direct Payouts', description: 'Crypto goes straight to your wallet — zero commissions, zero middlemen. Every coin is yours.' },
+        { title: 'Fixed Hosting Rates', description: 'Hosting and energy rates are stated in the service agreement and depend on location, equipment and contract terms.' },
+        { title: 'Cost-Efficient Hardware', description: 'Hardware and hosting options selected according to your requirements and available pricing.' },
+        { title: 'Specialist-Led Operations', description: 'Our technical team monitors supported equipment and assists with maintenance and troubleshooting.' },
+        { title: 'Direct Payouts', description: "Pool payouts can be directed to the customer's compatible wallet, subject to pool terms and fees." },
       ],
       verticals: [
-        { title: 'AI & Machine Learning', subtitle: 'GPU clusters for training and inference' },
         { title: 'Crypto Mining', subtitle: 'Professional mining with solar power' },
         { title: 'Cloud Computing', subtitle: 'Enterprise hosting worldwide' },
       ],
@@ -134,21 +137,21 @@ export const en = {
       badge: 'Global Footprint',
       heading: 'Designed for Stability in a Changing World',
       paragraph:
-        "Geopolitical uncertainty doesn't stop when you plug in a miner. That's why we deploy infrastructure across multiple jurisdictions — so your operations stay online regardless of what happens in any single country.",
+        "Geopolitical uncertainty doesn't stop when you plug in a miner. That's why we work with hosting partners across multiple jurisdictions — multiple locations can help reduce dependence on a single facility, subject to availability and contract terms.",
       cards: [
         {
           title: 'Multi-Country Deployment',
-          description: 'Operations across 8 countries and 4 continents reduce exposure to any single jurisdiction. No single point of failure.',
+          description: 'Hosting infrastructure is available through selected facilities in the UAE, Germany and Switzerland, subject to capacity and service availability.',
         },
         {
           title: 'Hardware Relocation Flexibility',
-          description: 'If conditions change, we relocate your machines to another site with minimal disruption to operations.',
+          description: 'Relocation options may be available depending on capacity, logistics and contractual approval.',
           transRoute: 'TRANS-ROUTE',
           ready: 'ROUTE READY',
         },
         {
           title: 'Diversified Energy Sources',
-          description: 'Georgian hydro, Texas grid, Paraguay renewables. No single energy dependency — always the cheapest, most stable option.',
+          description: 'Energy sources and locations are evaluated based on cost, availability and operational requirements.',
           tags: ['HYDRO', 'GRID', 'SOLAR'],
         },
         {
@@ -160,7 +163,8 @@ export const en = {
     globalInfrastructure: {
       badge: 'Ecosystem Categories',
       heading: 'Global Mining Infrastructure',
-      paragraph: 'Strategic deployment across six countries, with continuous monitoring and industry-leading uptime.',
+      paragraph:
+        'Hosting infrastructure is available through selected facilities in the UAE, Germany and Switzerland, subject to capacity and service availability. Continuous infrastructure monitoring and technical support — actual uptime depends on site, network, maintenance and energy conditions.',
       allLocations: 'All Locations',
       operational: 'Operational',
       locations: [
@@ -171,7 +175,7 @@ export const en = {
     },
     facilitiesGallery: {
       badge: 'Inside Our Facilities',
-      heading: 'Where your machines live & earn',
+      heading: 'Inside Our Hosting Facilities',
     },
     ctaBanner: {
       heading: 'Ready to deploy?',
@@ -210,7 +214,7 @@ export const en = {
       plans: [
         {
           name: 'Turnkey Site',
-          tagline: 'Lowest operating cost',
+          tagline: 'Reduced operating cost at scale',
           upfront: '$300k per MW',
           installation: 'Built into the turnkey deployment',
           power: '6MW ready — up to 100MW constructable',
@@ -321,7 +325,7 @@ export const en = {
       badge: 'Locations',
       heading: 'Where We Operate',
       paragraph:
-        'A hybrid infrastructure model built around the UAE — cost-efficient, high-density capacity for compute-intensive workloads, backed by Tier-III certified partner facilities in Germany and Europe for latency-critical, regulated deployments.',
+        'A hybrid infrastructure model built around the UAE — cost-efficient, high-density capacity for compute-intensive workloads, supported by partner data center facilities in Germany and Europe for latency-critical, regulated deployments.',
       uae: {
         title: 'United Arab Emirates',
         description: 'Purpose-built for compute-intensive workloads like crypto mining, with affordable, stable energy and full lifecycle service.',
@@ -329,14 +333,14 @@ export const en = {
       },
       europe: {
         title: 'Germany & Europe',
-        description: 'Tier-III certified data center partners for highly sensitive, regulated, and latency-critical applications — GDPR-compliant and close to the customer.',
+        description: 'Partner data center facilities for highly sensitive, regulated, and latency-critical applications — GDPR-compliant and close to the customer.',
         tag: '→ Regulated-workload backbone',
       },
       stats: [
         { label: 'Total Capacity', value: '>8 MW' },
         { label: 'Server Slots', value: '2,100+' },
         { label: 'PUE Rating', value: '<1.2' },
-        { label: 'Uptime SLA', value: '99.9%' },
+        { label: 'Monitoring', value: '24/7' },
       ],
       uaeSitesHeading: 'Our UAE Sites',
       uaeSites: [
@@ -355,8 +359,10 @@ export const en = {
       paragraph: "Have questions or want to learn more about our products? We'd love to hear from you.",
       email: 'Email',
       phone: 'Phone',
-      region: 'Region',
-      regionValue: 'Abu Dhabi, United Arab Emirates',
+      region: 'Operating Address',
+      regionValue: 'Qubite International Cloud Services - L.L.C, 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, United Arab Emirates',
+      registeredAddress: 'Registered Address',
+      registeredAddressValue: 'Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, United Arab Emirates',
       talkToHumanWhatsapp: 'Talk to a human on WhatsApp',
       form: {
         name: 'Name *',
@@ -433,7 +439,7 @@ export const en = {
     },
     hostingPlans: {
       title: 'Hosting Plans for This Machine',
-      subtitle: 'Pick a plan to see its cost reflected in the calculator above — based on',
+      subtitle: 'Estimated monthly hosting cost per plan, based on',
       subtitleSuffix: 'continuous draw.',
       recommended: 'Recommended',
       perKwh: '/ kWh',
@@ -466,7 +472,7 @@ export const en = {
     privacyPolicy: {
       title: 'Privacy Policy',
       intro:
-        'Qubite International ("Qubite", "we", "us") supplies ASIC and GPU mining hardware and hosting services from our facilities in the United Arab Emirates. This Privacy Policy explains what information we collect through this website, how we use it, and the choices available to you.',
+        'Qubite International Cloud Services - L.L.C, trading as Qubite International ("Qubite", "we", "us"), supplies ASIC mining hardware and hosting services from our facilities in the United Arab Emirates. This Privacy Policy explains what information we collect through this website, how we use it, and the choices available to you.',
       sections: [
         {
           heading: 'Information We Collect',
@@ -506,18 +512,18 @@ export const en = {
         },
         {
           heading: 'Contact Us',
-          body: 'For any privacy-related questions or requests, contact us at info@qubite-international.com or +971 55 661 5745.',
+          body: 'For any privacy-related questions or requests, contact us at info@qubite-international.com or +971 55 661 5745. Qubite International Cloud Services - L.L.C. Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE. Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE.',
         },
       ],
     },
     terms: {
       title: 'Terms & Conditions',
       intro:
-        'By accessing or using this website or purchasing products or services from Qubite International ("Qubite", "we", "us"), you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our site or services.',
+        'By accessing or using this website or purchasing products or services from Qubite International Cloud Services - L.L.C, trading as Qubite International ("Qubite", "we", "us"), you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our site or services.',
       sections: [
         {
           heading: 'Who We Are',
-          body: 'Qubite International is a supplier of ASIC and GPU mining hardware and a provider of hosting and installation services, operating from the United Arab Emirates.',
+          body: 'Qubite International is a supplier of ASIC mining hardware and a provider of hosting and installation services, operating from the United Arab Emirates.',
         },
         {
           heading: 'Products & Services',
@@ -541,7 +547,7 @@ export const en = {
         },
         {
           heading: 'Warranty',
-          body: "Hardware is covered by the applicable manufacturer warranty, where available. Qubite will assist in coordinating warranty claims but does not independently extend or guarantee warranty coverage beyond the manufacturer's terms unless expressly agreed in writing.",
+          body: 'Hardware sold by Qubite is covered by a 12-month warranty from the date of delivery, covering manufacturing defects under normal operating conditions. The warranty does not cover damage from misuse, unauthorized modification, or conditions outside the manufacturer\'s specifications. To make a claim, contact us using the details below; Qubite will coordinate repair or replacement directly or with the manufacturer as applicable.',
         },
         {
           heading: 'Limitation of Liability',
@@ -557,7 +563,7 @@ export const en = {
         },
         {
           heading: 'Contact Us',
-          body: 'Questions about these Terms can be directed to info@qubite-international.com or +971 55 661 5745.',
+          body: 'Questions about these Terms can be directed to info@qubite-international.com or +971 55 661 5745. Qubite International Cloud Services - L.L.C. Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE. Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE.',
         },
       ],
     },

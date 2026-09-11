@@ -45,15 +45,6 @@ function WalletIcon({ className = 'size-4' }: { className?: string }) {
   )
 }
 
-function BrainIcon({ className = 'size-3.5' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
-      <circle cx="8" cy="8" r="5.5" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M8 3v10M4 6h8M4 10h8" stroke="currentColor" strokeWidth="1" opacity="0.7" />
-    </svg>
-  )
-}
-
 function PickaxeIcon({ className = 'size-3.5' }: { className?: string }) {
   return (
     <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
@@ -103,7 +94,6 @@ const featureStyles = [
 ]
 
 const verticalStyles = [
-  { icon: BrainIcon, tone: 'text-[#e8a765] border-[#e8a765]/30' },
   { icon: PickaxeIcon, tone: 'text-[#2dd4bf] border-[#2dd4bf]/30' },
   { icon: CloudIcon, tone: 'text-[#60a5fa] border-[#60a5fa]/30' },
 ]
@@ -160,8 +150,8 @@ export function WhyChooseUs() {
             style={{ boxShadow: '0 0 46px rgba(0,229,255,0.18)' }}
           >
             <img
-              src="/facilities/site-1.png"
-              alt="Qubite GPU compute rack"
+              src="/facilities/facility-1.png"
+              alt="Qubite ASIC mining rack"
               className="aspect-[3/4] w-full object-cover [object-position:15%_center]"
             />
             <div
@@ -198,7 +188,7 @@ export function WhyChooseUs() {
           </div>
 
           <Reveal delay={420}>
-            <div className="grid grid-cols-1 gap-4 pt-1 sm:grid-cols-3 sm:gap-[clamp(8px,0.88vw,12px)] sm:pt-0">
+            <div className="grid grid-cols-1 gap-4 pt-1 sm:grid-cols-2 sm:gap-[clamp(8px,0.88vw,12px)] sm:pt-0">
               {verticals.map((vertical, i) => {
                 const style = verticalStyles[i]
                 const Icon = style.icon

@@ -39,14 +39,14 @@ export const baseProducts: Product[] = [
     slug: 'microbt-whatsminer-m66s-plus-318th',
     title: 'MicroBT WhatsMiner M66S+ (318TH)',
     tag: 'AIR',
-    price: 'Dh 3,000',
+    price: '$817',
     priceUsd: 817,
     status: 'In Stock',
-    hashrate: '140 TH/s',
-    hashrateValue: 140,
-    power: '3,010 W',
-    powerValue: 3010,
-    efficiency: '21.5 J/TH',
+    hashrate: '318 TH/s',
+    hashrateValue: 318,
+    power: '5,883 W',
+    powerValue: 5883,
+    efficiency: '18.5 J/TH',
     dailyProfit: '+$3.92',
     dailyProfitUsd: 3.92,
     payback: '954d',
@@ -59,7 +59,7 @@ export const baseProducts: Product[] = [
       { name: 'Bitcoin Cash', ticker: 'BCH' },
     ],
     description:
-      'The MicroBT WhatsMiner M66S+ (318TH) is a high-performance ASIC miner designed for the SHA-256 algorithm. It delivers a hashrate of 140 TH/s with a power consumption of 3,010 W, offering an efficiency of 21.5 J/TH.',
+      'The MicroBT WhatsMiner M66S+ (318TH) is a high-performance ASIC miner designed for the SHA-256 algorithm. It delivers a hashrate of 318 TH/s with a power consumption of 5,883 W, offering an efficiency of 18.5 J/TH.',
     specs: {
       manufacturer: 'MicroBT',
       model: 'MicroBT WhatsMiner M66S+ (318TH)',
@@ -78,11 +78,11 @@ export const baseProducts: Product[] = [
     price: '$6,800',
     priceUsd: 6800,
     status: 'No Stock',
-    hashrate: '210 TH/s',
-    hashrateValue: 210,
-    power: '4,032 W',
-    powerValue: 4032,
-    efficiency: '19.2 J/TH',
+    hashrate: '270 TH/s',
+    hashrateValue: 270,
+    power: '3,645 W',
+    powerValue: 3645,
+    efficiency: '13.5 J/TH',
     dailyProfit: '+$8.10',
     dailyProfitUsd: 8.1,
     payback: '839d',
@@ -96,7 +96,7 @@ export const baseProducts: Product[] = [
       { name: 'Bitcoin SV', ticker: 'BSV' },
     ],
     description:
-      'The Bitmain Antminer S21 XP (270TH) is a high-performance ASIC miner designed for the SHA-256 algorithm. It delivers a hashrate of 210 TH/s with a power consumption of 4,032 W, offering an efficiency of 19.2 J/TH.',
+      'The Bitmain Antminer S21 XP (270TH) is a high-performance ASIC miner designed for the SHA-256 algorithm. It delivers a hashrate of 270 TH/s with a power consumption of 3,645 W, offering an efficiency of 13.5 J/TH.',
     specs: {
       manufacturer: 'Bitmain',
       model: 'Bitmain Antminer S21 XP (270TH)',
@@ -115,11 +115,11 @@ export const baseProducts: Product[] = [
     price: '$8,900',
     priceUsd: 8900,
     status: 'In Stock',
-    hashrate: '320 TH/s',
-    hashrateValue: 320,
-    power: '5,280 W',
-    powerValue: 5280,
-    efficiency: '16.5 J/TH',
+    hashrate: '234 TH/s',
+    hashrateValue: 234,
+    power: '3,510 W',
+    powerValue: 3510,
+    efficiency: '15.0 J/TH',
     dailyProfit: '+$11.20',
     dailyProfitUsd: 11.2,
     payback: '795d',
@@ -133,7 +133,7 @@ export const baseProducts: Product[] = [
       { name: 'Bitcoin SV', ticker: 'BSV' },
     ],
     description:
-      'The Bitmain Antminer S21 Pro+ (234TH) is a high-performance ASIC miner designed for the SHA-256 algorithm. It delivers a hashrate of 320 TH/s with a power consumption of 5,280 W, offering an efficiency of 16.5 J/TH.',
+      'The Bitmain Antminer S21 Pro+ (234TH) is a high-performance ASIC miner designed for the SHA-256 algorithm. It delivers a hashrate of 234 TH/s with a power consumption of 3,510 W, offering an efficiency of 15.0 J/TH.',
     specs: {
       manufacturer: 'Bitmain',
       model: 'Bitmain Antminer S21 Pro+ (234TH)',
@@ -147,7 +147,7 @@ export const baseProducts: Product[] = [
   },
 ]
 
-export const products: Product[] = [...baseProducts, ...baseProducts, ...baseProducts]
+export const products: Product[] = baseProducts
 
 export function getProductBySlug(slug: string): Product | undefined {
   return baseProducts.find((product) => product.slug === slug)

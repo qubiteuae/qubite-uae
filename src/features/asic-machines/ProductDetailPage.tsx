@@ -112,7 +112,7 @@ export function ProductDetailPage() {
 
           <Reveal delay={80} className="flex flex-col gap-5">
             <Badge tone="bronze">
-              {t('productDetail.hostingStartsFrom')} {hostingTiers[0].rate}
+              {t('productDetail.hostingStartsFrom')} {(hostingTiers[0].rate * 100).toFixed(1)}
               {t('productDetail.perKwh')}
             </Badge>
             <h1 className="text-[28px] leading-tight font-black text-white sm:text-[36px]">{product.title}</h1>
@@ -210,7 +210,7 @@ export function ProductDetailPage() {
                       <p className="text-xs text-text-dim">{tier.tagline}</p>
                     </div>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-2xl font-black text-[#e8a765]">{tier.rate}¢</span>
+                      <span className="text-2xl font-black text-[#e8a765]">{(tier.rate * 100).toFixed(1)}¢</span>
                       <span className="text-xs text-text-faint">{t('productDetail.hostingPlans.perKwh')}</span>
                     </div>
                     <div className="flex flex-col gap-0.5 border-t border-white/8 pt-3">

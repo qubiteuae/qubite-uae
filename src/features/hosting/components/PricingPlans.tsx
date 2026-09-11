@@ -14,7 +14,7 @@ interface Plan {
   recommended?: boolean
 }
 
-const planRates = ['4.0¢', '0.065¢', '0.075¢', '0.08¢']
+const planRates = ['4.0¢', '6.5¢', '7.5¢', '8.0¢']
 const planRecommended = [false, false, true, false]
 
 export function PricingPlans() {

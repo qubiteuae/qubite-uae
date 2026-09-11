@@ -375,6 +375,7 @@ export function AsicComparison() {
                 </tbody>
               </table>
             </div>
+            <p className="mt-3 text-[11px] text-text-faint">{t('home.asicComparison.disclaimer')}</p>
           </div>
         </Reveal>
       </Container>
