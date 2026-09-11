@@ -469,6 +469,7 @@ export const en = {
       noiseLevel: 'Noise Level',
       fans: 'Fan(s)',
       interface: 'Interface',
+      inputVoltage: 'Input Voltage',
       temperature: 'Temperature',
       humidity: 'Humidity',
       psuIncluded: 'PSU Included',

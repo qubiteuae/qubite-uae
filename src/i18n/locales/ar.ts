@@ -470,6 +470,7 @@ export const ar: TranslationSchema = {
       noiseLevel: 'مستوى الضوضاء',
       fans: 'المراوح',
       interface: 'الواجهة',
+      inputVoltage: 'الجهد الكهربائي',
       temperature: 'درجة الحرارة',
       humidity: 'الرطوبة',
       psuIncluded: 'وحدة تزويد الطاقة مشمولة',

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import { Badge } from '@/components/Badge'
@@ -7,6 +7,25 @@ import { Reveal } from '@/components/Reveal'
 import { getProductBySlug } from '@/features/asic-machines/products'
 import { WHATSAPP_LINK } from '@/lib/links'
 import { EfficiencyIcon, HashrateIcon, PowerIcon, WhatsAppIcon } from './components/icons'
+
+// Sets the tab title / meta description to the product's SEO copy while this
+// page is mounted, restoring the site defaults on unmount.
+function useProductSeo(seoTitle: string | undefined, metaDescription: string | undefined) {
+  useEffect(() => {
+    if (!seoTitle && !metaDescription) return
+    const previousTitle = document.title
+    const metaEl = document.querySelector('meta[name="description"]')
+    const previousDescription = metaEl?.getAttribute('content') ?? null
+
+    if (seoTitle) document.title = seoTitle
+    if (metaDescription && metaEl) metaEl.setAttribute('content', metaDescription)
+
+    return () => {
+      document.title = previousTitle
+      if (previousDescription !== null && metaEl) metaEl.setAttribute('content', previousDescription)
+    }
+  }, [seoTitle, metaDescription])
+}
 
 function HeadsetIcon({ className = 'size-4' }: { className?: string }) {
   return (
@@ -39,6 +58,7 @@ export function ProductDetailPage() {
   const { t } = useTranslation()
   const { slug } = useParams<{ slug: string }>()
   const product = slug ? getProductBySlug(slug) : undefined
+  useProductSeo(product?.seoTitle, product?.metaDescription)
 
   // Reuses the same 3 tiers (skipping Turnkey Site) from the hosting plans
   // translations so tier names/taglines stay in sync with the /hosting page.
@@ -282,6 +302,7 @@ export function ProductDetailPage() {
                   [t('productDetail.specs.noiseLevel'), product.specs.noiseLevel],
                   [t('productDetail.specs.fans'), product.specs.fans],
                   [t('productDetail.specs.interface'), product.specs.interface],
+                  [t('productDetail.specs.inputVoltage'), product.specs.inputVoltage],
                   [t('productDetail.specs.temperature'), product.specs.temperature],
                   [t('productDetail.specs.humidity'), product.specs.humidity],
                   [
