@@ -20,11 +20,48 @@ function HeadsetIcon({ className = 'size-3.5' }: { className?: string }) {
   )
 }
 
-function CoinIcon({ className = 'size-3.5' }: { className?: string }) {
+function HexIcon({ className = 'size-4' }: { className?: string }) {
   return (
     <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
-      <path d="M8 1.5 14.5 5.5V10.5L8 14.5L1.5 10.5V5.5L8 1.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
-      <path d="M8 5V11M6.3 6.3H9C9.55 6.3 10 6.75 10 7.3C10 7.85 9.55 8.3 9 8.3H6.3M6.3 8.3H9.2C9.75 8.3 10.2 8.75 10.2 9.3C10.2 9.85 9.75 10.3 9.2 10.3H6.3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M8 1.5 14 5v6l-6 3.5L2 11V5l6-3.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
+      <path d="M5.5 6h5M5.5 8h5M5.5 10h3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function StatusDot({ className = '' }: { className?: string }) {
+  return <span className={`inline-block size-1.5 rounded-full bg-accent-green ${className}`} aria-hidden="true" />
+}
+
+function PowerIcon({ className = 'size-4' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
+      <path d="M8 2v5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <path d="M4.5 4.2a5 5 0 1 0 7 0" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function ThermometerIcon({ className = 'size-4' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
+      <path
+        d="M9.5 9.1V3.5a1.5 1.5 0 0 0-3 0v5.6a2.5 2.5 0 1 0 3 0Z"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function NetworkIcon({ className = 'size-4' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
+      <circle cx="8" cy="3" r="1.6" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="3.5" cy="12" r="1.6" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="12.5" cy="12" r="1.6" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M8 4.6V8M8 8 4.2 10.7M8 8l3.8 2.7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   )
 }
@@ -90,64 +127,73 @@ export function Hero() {
             <img
               src="/bitcoin-coin.png"
               alt=""
-              className="absolute bottom-0 left-[238px] z-0 h-[168px] w-[177px] object-contain brightness-75"
+              className="absolute bottom-8 left-[300px] z-0 h-[180px] w-[190px] object-contain brightness-75"
               aria-hidden="true"
             />
             {/* front coin */}
             <img
               src="/bitcoin-coin.png"
               alt=""
-              className="absolute bottom-4 left-[268px] z-[1] h-[174px] w-[183px] object-contain"
+              className="absolute bottom-12 left-[330px] z-[1] h-[190px] w-[200px] object-contain"
               style={{ filter: 'drop-shadow(0 0 40px rgba(217,154,43,0.45))' }}
               aria-hidden="true"
             />
 
-            <div className="animate-float-tilt-back absolute top-0 right-8 z-10 flex w-[360px] flex-col gap-4 rounded-2xl border border-border bg-surface-glass p-5 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.6)] backdrop-blur-[15px] transition-shadow duration-300 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.25)]">
+            <div className="animate-float-tilt-back absolute top-10 right-4 z-10 flex w-[360px] flex-col gap-4 rounded-2xl border border-border bg-surface-glass p-6 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.6)] backdrop-blur-[15px] transition-shadow duration-300 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.25)]">
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-2 text-sm font-semibold text-text-dim">
-                  <CoinIcon className="size-4 text-accent-bronze-tint" />
-                  {t('home.hero.investmentCard.yourInvestment')}
+                <span className="flex items-center gap-2 text-base font-semibold text-white">
+                  <HexIcon className="size-5 text-accent-bronze-tint" />
+                  {t('home.hero.hostingCard.title')}
                 </span>
-                <span className="rounded-full bg-accent-green/10 px-2 py-1 text-xs font-semibold text-accent-green">
-                  {t('home.hero.investmentCard.activePool')}
+                <span className="flex items-center gap-1.5 rounded-full bg-accent-green/10 px-2.5 py-1.5 text-sm font-semibold text-accent-green">
+                  <StatusDot />
+                  {t('home.hero.hostingCard.status')}
                 </span>
               </div>
-              <span className="text-40 font-extrabold text-white">$25,000</span>
+              <span className="text-sm text-text-subtle">{t('home.hero.hostingCard.subtitle')}</span>
 
               <div className="flex items-center gap-3">
-                <span className="text-[11px] text-text-subtle">60</span>
-                <div className="relative h-[2px] flex-1 rounded-full bg-white/15">
-                  <div className="absolute inset-y-0 left-0 w-[68%] rounded-full bg-gradient-to-r from-accent-bronze-tint to-accent-copper" />
-                  <div className="absolute top-1/2 left-[68%] size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-accent-bronze-tint bg-white" />
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <span className="text-[11px] text-text-subtle">30</span>
-                <svg viewBox="0 0 240 40" className="h-8 flex-1" preserveAspectRatio="none" aria-hidden="true">
+                <svg viewBox="0 0 240 40" className="h-10 flex-1" preserveAspectRatio="none" aria-hidden="true">
                   <path
-                    d="M0 28 Q30 10 55 22 T110 18 T170 30 T240 8"
+                    d="M0 28 Q30 10 55 22 T110 18 T170 30 T230 10"
                     fill="none"
                     stroke="var(--color-accent-green)"
                     strokeWidth="2"
                     strokeLinecap="round"
                   />
+                  <circle cx="230" cy="10" r="4" fill="var(--color-accent-green)" />
                 </svg>
               </div>
             </div>
 
-            <div className="animate-float-tilt-front absolute bottom-0 left-0 z-10 flex w-[320px] flex-col gap-3 rounded-2xl border border-border bg-surface-glass p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] backdrop-blur-[15px] transition-shadow duration-300 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.25)]">
+            <div className="animate-float-tilt-front absolute bottom-6 left-0 z-10 flex w-[380px] flex-col gap-4 rounded-2xl border border-border bg-surface-glass p-6 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] backdrop-blur-[15px] transition-shadow duration-300 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.25)]">
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-2 text-sm font-semibold text-text-dim">
-                  <CoinIcon className="size-4 text-accent-bronze-tint" />
-                  {t('home.hero.profitabilityCard.profitability')}
+                <span className="flex items-center gap-2 text-base font-semibold text-white">
+                  <HexIcon className="size-5 text-accent-bronze-tint" />
+                  {t('home.hero.monitoringCard.title')}
                 </span>
-                <span className="rounded-full bg-accent-green/10 px-2 py-1 text-xs font-semibold text-accent-green">
-                  +26%
+                <span className="flex items-center gap-1.5 rounded-full bg-accent-green/10 px-2.5 py-1.5 text-sm font-semibold text-accent-green">
+                  <StatusDot />
+                  {t('home.hero.monitoringCard.status')}
                 </span>
               </div>
-              <span className="text-40 font-extrabold text-white">$728.56</span>
-              <span className="text-xs text-text-subtle">{t('home.hero.profitabilityCard.since')}</span>
+              <span className="text-sm text-text-subtle">{t('home.hero.monitoringCard.subtitle')}</span>
+
+              <div className="mt-1 grid grid-cols-3 gap-2 border-t border-white/10 pt-4">
+                {[
+                  { Icon: PowerIcon, label: t('home.hero.monitoringCard.power') },
+                  { Icon: ThermometerIcon, label: t('home.hero.monitoringCard.temperature') },
+                  { Icon: NetworkIcon, label: t('home.hero.monitoringCard.network') },
+                ].map(({ Icon, label }) => (
+                  <div key={label} className="flex flex-col items-center gap-2">
+                    <span className="relative flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-text-dim">
+                      <Icon className="size-5" />
+                      <StatusDot className="absolute -top-0.5 -right-0.5 border border-black" />
+                    </span>
+                    <span className="text-xs text-text-subtle">{label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

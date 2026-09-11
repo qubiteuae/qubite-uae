@@ -32,7 +32,7 @@ export const en = {
       terms: 'Terms',
       community: 'Community',
     },
-    copyright: '© 2026 Qubite Technologies Inc. All rights reserved. Crypto mining hardware hosting is subject to local energy regulations.',
+    copyright: '© 2026 Qubite International. All rights reserved. Crypto mining hardware hosting is subject to local energy regulations.',
   },
   common: {
     talkToHuman: 'Talk to human',
@@ -45,19 +45,24 @@ export const en = {
       heading1: 'Powering the',
       heading2: 'Future of Mining',
       paragraph:
-        'Qubite supplies tax-advantaged mining and GPU servers, installs them in low-cost-power facilities, and operates them around the clock, so you earn predictable income without lifting a finger.',
+        'Qubite supplies ASIC mining and GPU servers, installs them in our UAE hosting facilities, and operates them around the clock. Mining performance and operating costs vary based on network conditions, electricity consumption, machine efficiency and uptime.',
       discoverMachines: 'Discover Machines',
       talkToHuman: 'Talk to human',
       scroll: 'Scroll',
       meetExperts: 'Meet with 10+ infrastructure experts',
       miningExperts: 'Mining experts',
-      investmentCard: {
-        yourInvestment: 'Your investment',
-        activePool: 'Active Pool',
+      hostingCard: {
+        title: 'ASIC Hosting',
+        subtitle: 'UAE Infrastructure',
+        status: 'Active',
       },
-      profitabilityCard: {
-        profitability: 'Profitability',
-        since: 'Since 3 months',
+      monitoringCard: {
+        title: 'Live Monitoring',
+        subtitle: '24/7 Operations',
+        status: 'Online',
+        power: 'Power',
+        temperature: 'Temperature',
+        network: 'Network',
       },
     },
     asicComparison: {
@@ -79,10 +84,8 @@ export const en = {
         top: 'Top',
         algorithm: 'Algorithm',
         bestPrice: 'Best Price',
-        profit: 'Profit',
       },
       noResults: 'No miners match your search.',
-      perDay: '/day',
     },
     miningProcess: {
       badge: 'Fastest Deployment in the Market',
@@ -102,10 +105,10 @@ export const en = {
       heading1: 'The infrastructure partner for',
       heading2: 'modern computing power',
       paragraph:
-        'Qubite enables companies, investors and operators reliable access to high-performance compute infrastructure — predictable, legally secure and scalable.',
+        'Qubite enables companies, investors and operators reliable access to high-performance compute infrastructure — legally secure and scalable.',
       features: [
-        { title: 'Predictable Costs', description: 'Fixed hosting and energy rates with no hidden fees. Know exactly what you pay, every month.' },
-        { title: 'Profitable investment', description: 'Bulk purchasing power means industry-low hardware and energy costs — maximizing your mining ROI.' },
+        { title: 'Fixed Hosting Rates', description: 'Fixed hosting and energy rates with no hidden fees. Know exactly what you pay, every month.' },
+        { title: 'Cost-Efficient Hardware', description: 'Bulk purchasing power means industry-low hardware and energy costs, passed directly to you.' },
         { title: 'Specialist-Led Operations', description: 'Our certified blockchain engineers keep every miner running at peak performance, 24/7.' },
         { title: 'Direct Payouts', description: 'Crypto goes straight to your wallet — zero commissions, zero middlemen. Every coin is yours.' },
       ],
@@ -139,9 +142,9 @@ export const en = {
         },
         {
           title: 'Hardware Relocation Flexibility',
-          description: 'If conditions change, we relocate your machines to another site. No downtime, no capital loss.',
+          description: 'If conditions change, we relocate your machines to another site with minimal disruption to operations.',
           transRoute: 'TRANS-ROUTE',
-          ready: '99.8% READY',
+          ready: 'ROUTE READY',
         },
         {
           title: 'Diversified Energy Sources',
@@ -392,8 +395,6 @@ export const en = {
       hashrate: 'Hashrate',
       efficiency: 'Efficiency',
       power: 'Power',
-      estDailyProfit: 'Est. Daily Profit',
-      payback: 'Payback',
       whatsapp: 'WhatsApp',
       viewDetails: 'View Details',
       noResultsTitle: 'No products match your filters',
@@ -430,11 +431,6 @@ export const en = {
       netMonthlyProfit: 'Net Monthly Profit',
       disclaimer: '*Revenue estimates are illustrative, assuming constant network difficulty and 100% uptime.',
     },
-    forecast: {
-      title: '5-Year Cumulative Revenue Forecast',
-      subtitle: 'Based on the BTC price set above.',
-      year: 'Year',
-    },
     hostingPlans: {
       title: 'Hosting Plans for This Machine',
       subtitle: 'Pick a plan to see its cost reflected in the calculator above — based on',
@@ -463,6 +459,108 @@ export const en = {
     label: 'Language',
     en: 'English',
     ar: 'Arabic',
+  },
+  legal: {
+    backHome: 'Back to Home',
+    lastUpdated: 'Last updated: September 2026',
+    privacyPolicy: {
+      title: 'Privacy Policy',
+      intro:
+        'Qubite International ("Qubite", "we", "us") supplies ASIC and GPU mining hardware and hosting services from our facilities in the United Arab Emirates. This Privacy Policy explains what information we collect through this website, how we use it, and the choices available to you.',
+      sections: [
+        {
+          heading: 'Information We Collect',
+          body: 'We collect information you provide directly, such as your name, email address, phone number, and message content when you submit our contact form or reach out via WhatsApp or email. We also automatically collect technical information about your visit — including IP address, browser type, device type, pages viewed, and referring URLs — through Google Tag Manager and related analytics and advertising tools.',
+        },
+        {
+          heading: 'Cookies & Advertising Technologies',
+          body: "We use Google Tag Manager, Google Analytics, and Google Ads (including conversion tracking and remarketing cookies) to understand how visitors use our site and to measure the performance of our advertising campaigns. These tools may set cookies or similar identifiers on your device. You can control or disable cookies through your browser settings, and you can manage Google's use of advertising cookies at adssettings.google.com.",
+        },
+        {
+          heading: 'How We Use Your Information',
+          body: 'We use the information we collect to respond to inquiries, process equipment and hosting orders, provide customer support, operate and improve our website, and measure and improve our advertising. We do not sell your personal information to third parties.',
+        },
+        {
+          heading: 'Sharing of Information',
+          body: 'We share information only with service providers who help us operate our business — such as Google (analytics/advertising), hosting and infrastructure providers, and logistics partners for equipment delivery — and only to the extent necessary for them to perform their services. We may also disclose information where required by law.',
+        },
+        {
+          heading: 'Data Retention',
+          body: 'We retain personal information for as long as necessary to fulfil the purposes described in this policy, including to comply with legal, accounting, or reporting obligations.',
+        },
+        {
+          heading: 'Your Rights',
+          body: 'Depending on your location, you may have the right to request access to, correction of, or deletion of your personal information. To exercise these rights, contact us using the details below.',
+        },
+        {
+          heading: 'Security',
+          body: 'We take reasonable technical and organizational measures to protect the information we hold, but no method of transmission or storage is completely secure.',
+        },
+        {
+          heading: "Children's Privacy",
+          body: 'Our services are intended for businesses and individuals over the age of 18. We do not knowingly collect personal information from children.',
+        },
+        {
+          heading: 'Changes to This Policy',
+          body: 'We may update this Privacy Policy from time to time. Changes take effect when posted on this page, with the "Last updated" date revised accordingly.',
+        },
+        {
+          heading: 'Contact Us',
+          body: 'For any privacy-related questions or requests, contact us at info@qubite-international.com or +971 55 661 5745.',
+        },
+      ],
+    },
+    terms: {
+      title: 'Terms & Conditions',
+      intro:
+        'By accessing or using this website or purchasing products or services from Qubite International ("Qubite", "we", "us"), you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our site or services.',
+      sections: [
+        {
+          heading: 'Who We Are',
+          body: 'Qubite International is a supplier of ASIC and GPU mining hardware and a provider of hosting and installation services, operating from the United Arab Emirates.',
+        },
+        {
+          heading: 'Products & Services',
+          body: 'We sell mining hardware and offer hosting, installation, and related support services. Product specifications, pricing, and availability are displayed on our website and are subject to change without notice. Orders are confirmed directly with our team via WhatsApp, email, or our contact form.',
+        },
+        {
+          heading: 'Pricing & Payment',
+          body: 'All prices are shown in the currency indicated on the site and exclude applicable taxes, duties, or shipping fees unless stated otherwise. Payment terms are confirmed at the time of order.',
+        },
+        {
+          heading: 'Mining Performance & Hosting Disclaimer',
+          body: 'Cryptocurrency mining revenue is not guaranteed. Any figures, examples, or calculators shown on this site are illustrative only and depend on variable factors including network difficulty, cryptocurrency price, electricity costs, machine efficiency, and uptime. Qubite does not guarantee any level of profit, return on investment, payback period, or hosting uptime. Past or projected performance is not a reliable indicator of future results.',
+        },
+        {
+          heading: 'Hosting Services',
+          body: 'Hosting rates and estimated monthly costs are provided in good faith based on the information available at the time. Scheduled maintenance, network issues, or force majeure events may affect uptime. Hosting is provided on a best-effort basis and is not guaranteed to be uninterrupted.',
+        },
+        {
+          heading: 'Shipping & Delivery',
+          body: 'Delivery timeframes communicated by our team are estimates only. Qubite is not liable for delays caused by carriers, customs, or circumstances beyond our reasonable control.',
+        },
+        {
+          heading: 'Warranty',
+          body: "Hardware is covered by the applicable manufacturer warranty, where available. Qubite will assist in coordinating warranty claims but does not independently extend or guarantee warranty coverage beyond the manufacturer's terms unless expressly agreed in writing.",
+        },
+        {
+          heading: 'Limitation of Liability',
+          body: 'To the maximum extent permitted by law, Qubite shall not be liable for any indirect, incidental, or consequential damages, including loss of profits or mining revenue, arising from the use of our products, services, or website.',
+        },
+        {
+          heading: 'Governing Law',
+          body: 'These Terms are governed by the laws of the United Arab Emirates. Any disputes shall be subject to the exclusive jurisdiction of the courts of the United Arab Emirates.',
+        },
+        {
+          heading: 'Changes to These Terms',
+          body: 'We may revise these Terms from time to time. Continued use of our site or services after changes are posted constitutes acceptance of the revised Terms.',
+        },
+        {
+          heading: 'Contact Us',
+          body: 'Questions about these Terms can be directed to info@qubite-international.com or +971 55 661 5745.',
+        },
+      ],
+    },
   },
 } as const
 

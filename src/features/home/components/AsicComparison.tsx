@@ -114,7 +114,6 @@ interface Miner {
   price: number
   priceDisplay: string
   priceWasDisplay: string
-  profit: number
 }
 
 const brandBadge: Record<string, { letter: string; color: string }> = {
@@ -152,11 +151,10 @@ const miners: Miner[] = catalogProducts.map((product, i) => {
     price: product.priceUsd,
     priceDisplay: product.price,
     priceWasDisplay: `${prefix}${wasAmount.toLocaleString()}`,
-    profit: product.dailyProfitUsd,
   }
 })
 
-type SortKey = 'model' | 'releaseSort' | 'hashrateSort' | 'powerSort' | 'price' | 'profit'
+type SortKey = 'model' | 'releaseSort' | 'hashrateSort' | 'powerSort' | 'price'
 
 export function AsicComparison() {
   const { t } = useTranslation()
@@ -173,7 +171,6 @@ export function AsicComparison() {
     { key: null, label: t('home.asicComparison.columns.top') },
     { key: null, label: t('home.asicComparison.columns.algorithm') },
     { key: 'price', label: t('home.asicComparison.columns.bestPrice') },
-    { key: 'profit', label: t('home.asicComparison.columns.profit') },
   ]
 
   const filterPills = [
@@ -366,17 +363,11 @@ export function AsicComparison() {
                           <span className="font-bold tabular-nums text-[#f5a623]">{miner.priceDisplay}</span>
                         </div>
                       </td>
-                      <td className="px-2 py-3 whitespace-nowrap">
-                        <span className="rounded-full bg-accent-green/10 px-2.5 py-1 text-xs font-bold tabular-nums text-accent-green">
-                          ${miner.profit.toFixed(2)}
-                          {t('home.asicComparison.perDay')}
-                        </span>
-                      </td>
                     </tr>
                   ))}
                   {rows.length === 0 ? (
                     <tr>
-                      <td colSpan={9} className="px-2 py-8 text-center text-sm text-text-faint">
+                      <td colSpan={8} className="px-2 py-8 text-center text-sm text-text-faint">
                         {t('home.asicComparison.noResults')}
                       </td>
                     </tr>

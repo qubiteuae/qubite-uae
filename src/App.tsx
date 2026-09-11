@@ -5,6 +5,8 @@ import { AsicMachinesPage } from '@/features/asic-machines/AsicMachinesPage'
 import { ProductDetailPage } from '@/features/asic-machines/ProductDetailPage'
 import { HomePage } from '@/features/home/HomePage'
 import { HostingPage } from '@/features/hosting/HostingPage'
+import { PrivacyPolicyPage } from '@/features/legal/PrivacyPolicyPage'
+import { TermsPage } from '@/features/legal/TermsPage'
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/asic-machines/:slug" element={<ProductDetailPage />} />
           <Route path="/hosting" element={<HostingPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

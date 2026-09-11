@@ -154,23 +154,6 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
           </div>
         </div>
 
-        {/* profit bar */}
-        <div
-          className="mt-3.5 flex items-center justify-between rounded-[14px] border border-[rgba(34,197,94,0.25)] px-4 py-3"
-          style={{
-            background: 'linear-gradient(135deg, rgba(34,197,94,0.10), rgba(21,128,61,0.15))',
-          }}
-        >
-          <div className="flex flex-col gap-1">
-            <span className="text-[10px] tracking-[0.04em] text-[#6b7280] uppercase">{t('asicMachines.products.estDailyProfit')}</span>
-            <span className="text-[15px] font-bold tabular-nums text-[#4ade80]">{product.dailyProfit}</span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-[10px] tracking-[0.04em] text-[#6b7280] uppercase">{t('asicMachines.products.payback')}</span>
-            <span className="text-[15px] font-bold tabular-nums text-[#6ee7a0]">{product.payback}</span>
-          </div>
-        </div>
-
         {/* buttons */}
         <div className="mt-3.5 flex items-center gap-2.5">
           <a

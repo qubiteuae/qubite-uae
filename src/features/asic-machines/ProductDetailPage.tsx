@@ -1,11 +1,10 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { getProductBySlug } from '@/features/asic-machines/products'
-import { BASE_BTC_PRICE, calcBtcMinedPerMonth, calcMonthlyHostingCost } from '@/features/asic-machines/revenueMath'
 import { WHATSAPP_LINK } from '@/lib/links'
 import { EfficiencyIcon, HashrateIcon, PowerIcon, WhatsAppIcon } from './components/icons'
 
@@ -31,14 +30,9 @@ function ChevronRightIcon({ className = 'size-3' }: { className?: string }) {
   )
 }
 
-const MIN_BTC_PRICE = 20_000
-const MAX_BTC_PRICE = 300_000
-const btcPricePresets = [80_000, 100_000, 150_000, 200_000]
-
 const hostingTierRates = [0.065, 0.075, 0.08]
 const hostingTierRecommended = [false, true, false]
 
-const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 const currencyPrecise = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
 
 export function ProductDetailPage() {
@@ -54,35 +48,9 @@ export function ProductDetailPage() {
     .slice(1)
     .map((plan, i) => ({ ...plan, rate: hostingTierRates[i], recommended: hostingTierRecommended[i] }))
 
-  const [btcPrice, setBtcPrice] = useState(BASE_BTC_PRICE)
   const [hostingRateIndex, setHostingRateIndex] = useState(
     hostingTiers.findIndex((tier) => tier.recommended) === -1 ? 0 : hostingTiers.findIndex((tier) => tier.recommended),
   )
-
-  const revenue = useMemo(() => {
-    if (!product) return null
-
-    const btcMinedPerMonth = calcBtcMinedPerMonth(product, hostingTiers)
-    const monthly = btcMinedPerMonth * btcPrice
-    const monthlyHostingCost = calcMonthlyHostingCost(product, hostingTiers[hostingRateIndex].rate)
-    return {
-      btcMinedPerMonth,
-      monthly,
-      annual: monthly * 12,
-      monthlyHostingCost,
-      netMonthly: monthly - monthlyHostingCost,
-    }
-  }, [product, btcPrice, hostingRateIndex, hostingTiers])
-
-  const forecast = useMemo(() => {
-    if (!revenue) return []
-    const annual = revenue.annual
-    let cumulative = 0
-    return Array.from({ length: 5 }, (_, i) => {
-      cumulative += annual
-      return { year: i + 1, annual, cumulative }
-    })
-  }, [revenue])
 
   if (!product) {
     return (
@@ -102,7 +70,6 @@ export function ProductDetailPage() {
   }
 
   const inStock = product.status === 'In Stock'
-  const maxCumulative = forecast[forecast.length - 1]?.cumulative ?? 1
 
   return (
     <div className="bg-bg pt-24">
@@ -202,116 +169,6 @@ export function ProductDetailPage() {
               </a>
             </div>
             <p className="text-xs text-text-faint">{t('productDetail.avgWaitTime')}</p>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* revenue calculator */}
-      <section className="py-12">
-        <Container>
-          <Reveal>
-            <div className="rounded-3xl border border-white/8 bg-white/3 p-6 sm:p-8">
-              <h2 className="text-xl font-bold text-white">{t('productDetail.revenueCalculator.title')}</h2>
-              <p className="mt-1 text-sm text-text-subtle">
-                {t('productDetail.revenueCalculator.btcMinedPerMonth')}{' '}
-                <span className="font-semibold text-white">{revenue ? revenue.btcMinedPerMonth.toFixed(5) : '0'} BTC</span>
-                {' · '}
-                {t('header.nav.hosting')}:{' '}
-                <span className="font-semibold text-white">{hostingTiers[hostingRateIndex].rate}¢/kWh</span>
-              </p>
-
-              <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-white/8 bg-black/20 p-5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('productDetail.revenueCalculator.btcPrice')}</span>
-                  <div className="flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-3 py-1.5">
-                    <span className="text-sm text-text-faint">$</span>
-                    <input
-                      type="number"
-                      min={MIN_BTC_PRICE}
-                      max={MAX_BTC_PRICE}
-                      step={1000}
-                      value={btcPrice}
-                      onChange={(e) => {
-                        const value = Number(e.target.value)
-                        if (!Number.isNaN(value)) setBtcPrice(Math.min(MAX_BTC_PRICE, Math.max(MIN_BTC_PRICE, value)))
-                      }}
-                      className="w-24 bg-transparent text-right text-sm font-bold tabular-nums text-white focus:outline-none"
-                    />
-                  </div>
-                </div>
-                <input
-                  type="range"
-                  min={MIN_BTC_PRICE}
-                  max={MAX_BTC_PRICE}
-                  step={1000}
-                  value={btcPrice}
-                  onChange={(e) => setBtcPrice(Number(e.target.value))}
-                  className="w-full accent-[#e8a765]"
-                />
-                <div className="flex flex-wrap gap-2">
-                  {btcPricePresets.map((preset) => (
-                    <button
-                      key={preset}
-                      type="button"
-                      onClick={() => setBtcPrice(preset)}
-                      className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
-                        btcPrice === preset
-                          ? 'border-[rgba(232,167,101,0.5)] bg-[rgba(232,167,101,0.12)] text-[#e8a765]'
-                          : 'border-white/10 text-text-dim hover:border-white/25 hover:text-white'
-                      }`}
-                    >
-                      ${(preset / 1000).toFixed(0)}k
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                <div className="flex flex-col gap-1 rounded-2xl border border-white/8 bg-black/20 p-5">
-                  <span className="text-[11px] font-bold tracking-wide text-text-faint uppercase">{t('productDetail.revenueCalculator.monthlyRevenue')}</span>
-                  <span className="text-2xl font-black text-[#4ade80]">{revenue ? currency.format(revenue.monthly) : '$0'}</span>
-                </div>
-                <div className="flex flex-col gap-1 rounded-2xl border border-white/8 bg-black/20 p-5">
-                  <span className="text-[11px] font-bold tracking-wide text-text-faint uppercase">{t('productDetail.revenueCalculator.estHostingCost')}</span>
-                  <span className="text-2xl font-black text-[#f87171]">
-                    {revenue ? `-${currency.format(revenue.monthlyHostingCost)}` : '$0'}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1 rounded-2xl border border-[rgba(232,167,101,0.5)] bg-[rgba(232,167,101,0.08)] p-5">
-                  <span className="text-[11px] font-bold tracking-wide text-text-faint uppercase">{t('productDetail.revenueCalculator.netMonthlyProfit')}</span>
-                  <span className="text-2xl font-black text-[#e8a765]">
-                    {revenue ? currency.format(revenue.netMonthly) : '$0'}
-                  </span>
-                </div>
-              </div>
-              <p className="mt-4 text-[11px] text-text-faint">{t('productDetail.revenueCalculator.disclaimer')}</p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={80} className="mt-6">
-            <div className="rounded-3xl border border-white/8 bg-white/3 p-6 sm:p-8">
-              <h2 className="text-xl font-bold text-white">{t('productDetail.forecast.title')}</h2>
-              <p className="mt-1 text-sm text-text-subtle">{t('productDetail.forecast.subtitle')}</p>
-
-              <div className="mt-6 flex flex-col gap-3">
-                {forecast.map((row) => (
-                  <div key={row.year} className="flex items-center gap-4">
-                    <span className="w-14 shrink-0 text-xs font-semibold text-text-dim">
-                      {t('productDetail.forecast.year')} {row.year}
-                    </span>
-                    <div className="relative h-7 flex-1 overflow-hidden rounded-full bg-black/30">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-accent-bronze-tint to-accent-copper transition-all duration-500"
-                        style={{ width: `${(row.cumulative / maxCumulative) * 100}%` }}
-                      />
-                    </div>
-                    <span className="w-28 shrink-0 text-right text-xs font-bold tabular-nums text-white">
-                      {currency.format(row.cumulative)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </Reveal>
         </Container>
       </section>
