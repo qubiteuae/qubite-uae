@@ -131,9 +131,10 @@ function splitPrice(display: string): { prefix: string; amount: number } {
   return { prefix, amount }
 }
 
-// Repeats the 3 real products to fill out the table for demo purposes —
-// swap back to `baseProducts` once the catalog has more real listings.
-const miners: Miner[] = catalogProducts.map((product, i) => {
+// This is a small homepage highlight table, not the full catalogue — it
+// intentionally shows only the original curated lineup rather than every
+// product added to the /asic-machines catalogue.
+const miners: Miner[] = catalogProducts.slice(0, 3).map((product, i) => {
   const { prefix, amount } = splitPrice(product.price)
   const wasAmount = Math.round((amount * 1.15) / 10) * 10
   return {
@@ -143,12 +144,12 @@ const miners: Miner[] = catalogProducts.map((product, i) => {
     release: product.specs.release,
     releaseSort: product.specs.release === 'Latest Batch' ? Date.now() : new Date(product.specs.release).getTime(),
     hashrate: product.hashrate,
-    hashrateSort: product.hashrateValue,
+    hashrateSort: product.hashrateValue ?? 0,
     power: product.power,
     powerSort: product.powerValue,
     top: brandBadge[product.brand] ?? { letter: product.brand[0], color: '#a855f7' },
     algorithm: product.algorithm,
-    price: product.priceUsd,
+    price: product.priceUsd ?? 0,
     priceDisplay: product.price,
     priceWasDisplay: `${prefix}${wasAmount.toLocaleString()}`,
   }

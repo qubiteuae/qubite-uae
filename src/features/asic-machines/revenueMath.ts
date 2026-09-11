@@ -19,7 +19,7 @@ export function calcBtcMinedPerMonth(product: Product, hostingTiers: HostingTier
   const baselineIndex = hostingTiers.findIndex((tier) => tier.recommended)
   const baselineRate = hostingTiers[baselineIndex === -1 ? 0 : baselineIndex].rate
   const baselineHostingCost = (product.powerValue * 24 * 30 * baselineRate) / 1000
-  const baselineNetMonthly = product.dailyProfitUsd * 30
+  const baselineNetMonthly = (product.dailyProfitUsd ?? 0) * 30
   const baselineGrossMonthly = baselineNetMonthly + baselineHostingCost
   return baselineGrossMonthly / BASE_BTC_PRICE
 }

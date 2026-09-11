@@ -14,12 +14,28 @@ import {
   WhatsAppIcon,
 } from './icons'
 
-type SortOption = 'None' | 'Price: Low to High' | 'Price: High to Low' | 'Hashrate'
+type SortOption =
+  | 'None'
+  | 'Price: Low to High'
+  | 'Price: High to Low'
+  | 'Hashrate: High to Low'
+  | 'Power: Low to High'
+  | 'Efficiency: Best First'
 
 function parseLeadingNumber(value: string): number {
   const match = value.replace(/,/g, '').match(/[\d.]+/)
   return match ? parseFloat(match[0]) : 0
 }
+
+// Joules per single hash/sol — the only way to compare "efficiency" across
+// products whose native units (J/TH, J/MH, J/M, J/KSol) aren't otherwise
+// comparable. Lower is more efficient.
+function efficiencyPerHz(product: Product): number {
+  if (!product.hashrateHz) return Infinity
+  return product.powerValue / product.hashrateHz
+}
+
+const uniqueSorted = <T,>(values: T[]): T[] => Array.from(new Set(values)).sort()
 
 const cardFont = { fontFamily: 'Inter, system-ui, sans-serif' }
 
@@ -79,16 +95,18 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
             Lumina
           </span>
 
-          {/* stock badge */}
-          <span
-            className={`absolute top-3 right-3 z-10 rounded-full border px-3 py-1 text-[10px] font-bold tracking-[0.05em] uppercase ${
-              inStock
-                ? 'border-[rgba(74,222,128,0.3)] bg-[rgba(34,197,94,0.12)] text-[#4ade80]'
-                : 'border-[rgba(248,113,113,0.3)] bg-[rgba(239,68,68,0.12)] text-[#f87171]'
-            }`}
-          >
-            {inStock ? t('asicMachines.products.inStock') : t('asicMachines.products.noStock')}
-          </span>
+          {/* stock badge — omitted when stock status isn't known */}
+          {product.status ? (
+            <span
+              className={`absolute top-3 right-3 z-10 rounded-full border px-3 py-1 text-[10px] font-bold tracking-[0.05em] uppercase ${
+                inStock
+                  ? 'border-[rgba(74,222,128,0.3)] bg-[rgba(34,197,94,0.12)] text-[#4ade80]'
+                  : 'border-[rgba(248,113,113,0.3)] bg-[rgba(239,68,68,0.12)] text-[#f87171]'
+              }`}
+            >
+              {inStock ? t('asicMachines.products.inStock') : t('asicMachines.products.noStock')}
+            </span>
+          ) : null}
 
           {/* glowing diamond platform */}
           <div
@@ -123,7 +141,15 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
           <span className="rounded-full bg-[rgba(165,180,252,0.15)] px-3 py-1 text-[10px] font-bold tracking-[0.04em] text-[#a5b4fc] uppercase">
             {product.tag}
           </span>
-          <span className="text-[20px] font-bold tabular-nums text-[#f5a623]">{product.price}</span>
+          <span
+            className={
+              product.priceUsd === null
+                ? 'text-[13px] font-bold text-[#f5a623]'
+                : 'text-[20px] font-bold tabular-nums text-[#f5a623]'
+            }
+          >
+            {product.price}
+          </span>
         </div>
 
         {/* divider */}
@@ -182,14 +208,25 @@ export function ProductsSection() {
   const { t } = useTranslation()
   const [category, setCategory] = useState<Category | 'All'>('All')
   const [brand, setBrand] = useState<Brand | 'All'>('All')
+  const [coin, setCoin] = useState<string>('All')
+  const [algorithm, setAlgorithm] = useState<string>('All')
   const [sort, setSort] = useState<SortOption>('None')
   const [query, setQuery] = useState('')
+
+  const brandOptions = useMemo(() => uniqueSorted(products.map((p) => p.brand)), [])
+  const coinOptions = useMemo(
+    () => uniqueSorted(products.flatMap((p) => p.mineableCoins.map((c) => c.ticker))),
+    [],
+  )
+  const algorithmOptions = useMemo(() => uniqueSorted(products.map((p) => p.algorithm)), [])
 
   const filteredProducts = useMemo(() => {
     const q = query.trim().toLowerCase()
     const result = products.filter((product) => {
       if (category !== 'All' && product.category !== category) return false
       if (brand !== 'All' && product.brand !== brand) return false
+      if (coin !== 'All' && !product.mineableCoins.some((c) => c.ticker === coin)) return false
+      if (algorithm !== 'All' && product.algorithm !== algorithm) return false
       if (q && !product.title.toLowerCase().includes(q) && !product.brand.toLowerCase().includes(q)) {
         return false
       }
@@ -200,12 +237,16 @@ export function ProductsSection() {
       result.sort((a, b) => parseLeadingNumber(a.price) - parseLeadingNumber(b.price))
     } else if (sort === 'Price: High to Low') {
       result.sort((a, b) => parseLeadingNumber(b.price) - parseLeadingNumber(a.price))
-    } else if (sort === 'Hashrate') {
-      result.sort((a, b) => parseLeadingNumber(b.hashrate) - parseLeadingNumber(a.hashrate))
+    } else if (sort === 'Hashrate: High to Low') {
+      result.sort((a, b) => (b.hashrateHz ?? 0) - (a.hashrateHz ?? 0))
+    } else if (sort === 'Power: Low to High') {
+      result.sort((a, b) => a.powerValue - b.powerValue)
+    } else if (sort === 'Efficiency: Best First') {
+      result.sort((a, b) => efficiencyPerHz(a) - efficiencyPerHz(b))
     }
 
     return result
-  }, [category, brand, sort, query])
+  }, [category, brand, coin, algorithm, sort, query])
 
   return (
     <section className="relative overflow-hidden bg-bg">
@@ -255,8 +296,49 @@ export function ProductsSection() {
                     className="w-full min-w-44 cursor-pointer appearance-none rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] py-2.5 pr-9 pl-4 text-sm text-white focus:border-accent-cyan/40 focus:outline-none"
                   >
                     <option value="All">{t('asicMachines.products.allBrands')}</option>
-                    <option value="MicroBT">MicroBT</option>
-                    <option value="Bitmain">Bitmain</option>
+                    {brandOptions.map((b) => (
+                      <option key={b} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDownIcon className="pointer-events-none absolute top-1/2 right-4 size-2.5 -translate-y-1/2 text-text-subtle" />
+                </div>
+              </label>
+
+              <label className="flex flex-col gap-1.5">
+                <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('asicMachines.products.coin')}</span>
+                <div className="relative">
+                  <select
+                    value={coin}
+                    onChange={(e) => setCoin(e.target.value)}
+                    className="w-full min-w-32 cursor-pointer appearance-none rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] py-2.5 pr-9 pl-4 text-sm text-white focus:border-accent-cyan/40 focus:outline-none"
+                  >
+                    <option value="All">{t('asicMachines.products.allCoins')}</option>
+                    {coinOptions.map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDownIcon className="pointer-events-none absolute top-1/2 right-4 size-2.5 -translate-y-1/2 text-text-subtle" />
+                </div>
+              </label>
+
+              <label className="flex flex-col gap-1.5">
+                <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('asicMachines.products.algorithm')}</span>
+                <div className="relative">
+                  <select
+                    value={algorithm}
+                    onChange={(e) => setAlgorithm(e.target.value)}
+                    className="w-full min-w-36 cursor-pointer appearance-none rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] py-2.5 pr-9 pl-4 text-sm text-white focus:border-accent-cyan/40 focus:outline-none"
+                  >
+                    <option value="All">{t('asicMachines.products.allAlgorithms')}</option>
+                    {algorithmOptions.map((a) => (
+                      <option key={a} value={a}>
+                        {a}
+                      </option>
+                    ))}
                   </select>
                   <ChevronDownIcon className="pointer-events-none absolute top-1/2 right-4 size-2.5 -translate-y-1/2 text-text-subtle" />
                 </div>
@@ -273,7 +355,9 @@ export function ProductsSection() {
                     <option value="None">{t('asicMachines.products.sortOptions.none')}</option>
                     <option value="Price: Low to High">{t('asicMachines.products.sortOptions.priceLow')}</option>
                     <option value="Price: High to Low">{t('asicMachines.products.sortOptions.priceHigh')}</option>
-                    <option value="Hashrate">{t('asicMachines.products.sortOptions.hashrate')}</option>
+                    <option value="Hashrate: High to Low">{t('asicMachines.products.sortOptions.hashrate')}</option>
+                    <option value="Power: Low to High">{t('asicMachines.products.sortOptions.power')}</option>
+                    <option value="Efficiency: Best First">{t('asicMachines.products.sortOptions.efficiency')}</option>
                   </select>
                   <ChevronDownIcon className="pointer-events-none absolute top-1/2 right-4 size-2.5 -translate-y-1/2 text-text-subtle" />
                 </div>

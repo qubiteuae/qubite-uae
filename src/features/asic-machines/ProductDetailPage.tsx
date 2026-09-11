@@ -118,16 +118,26 @@ export function ProductDetailPage() {
             <h1 className="text-[28px] leading-tight font-black text-white sm:text-[36px]">{product.title}</h1>
 
             <div className="flex flex-wrap items-center gap-4">
-              <span className="text-[34px] font-black tabular-nums text-[#e8a765]">{product.price}</span>
               <span
-                className={`rounded-full border px-3 py-1 text-[11px] font-bold tracking-wide uppercase ${
-                  inStock
-                    ? 'border-[rgba(74,222,128,0.3)] bg-[rgba(34,197,94,0.12)] text-[#4ade80]'
-                    : 'border-[rgba(248,113,113,0.3)] bg-[rgba(239,68,68,0.12)] text-[#f87171]'
-                }`}
+                className={
+                  product.priceUsd === null
+                    ? 'text-lg font-bold text-[#e8a765]'
+                    : 'text-[34px] font-black tabular-nums text-[#e8a765]'
+                }
               >
-                {inStock ? t('asicMachines.products.inStock') : t('asicMachines.products.noStock')}
+                {product.price}
               </span>
+              {product.status ? (
+                <span
+                  className={`rounded-full border px-3 py-1 text-[11px] font-bold tracking-wide uppercase ${
+                    inStock
+                      ? 'border-[rgba(74,222,128,0.3)] bg-[rgba(34,197,94,0.12)] text-[#4ade80]'
+                      : 'border-[rgba(248,113,113,0.3)] bg-[rgba(239,68,68,0.12)] text-[#f87171]'
+                  }`}
+                >
+                  {inStock ? t('asicMachines.products.inStock') : t('asicMachines.products.noStock')}
+                </span>
+              ) : null}
             </div>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-dim">
@@ -267,12 +277,24 @@ export function ProductDetailPage() {
                   [t('productDetail.specs.model'), product.specs.model],
                   [t('productDetail.specs.algorithm'), product.algorithm],
                   [t('productDetail.specs.release'), product.specs.release],
+                  [t('productDetail.specs.dimensions'), product.dimensionsMm ? `${product.dimensionsMm} mm` : null],
+                  [t('productDetail.specs.weight'), product.weightKg ? `${product.weightKg} kg` : null],
                   [t('productDetail.specs.noiseLevel'), product.specs.noiseLevel],
                   [t('productDetail.specs.fans'), product.specs.fans],
                   [t('productDetail.specs.interface'), product.specs.interface],
                   [t('productDetail.specs.temperature'), product.specs.temperature],
                   [t('productDetail.specs.humidity'), product.specs.humidity],
-                ].map(([label, value], i) => (
+                  [
+                    t('productDetail.specs.psuIncluded'),
+                    product.psuIncluded === null || product.psuIncluded === undefined
+                      ? null
+                      : product.psuIncluded
+                        ? t('productDetail.specs.yes')
+                        : t('productDetail.specs.no'),
+                  ],
+                ]
+                  .filter((row): row is [string, string] => row[1] !== null)
+                  .map(([label, value], i) => (
                   <div
                     key={label}
                     className={`flex items-center justify-between px-4 py-3 text-sm ${i % 2 === 0 ? 'bg-white/3' : 'bg-transparent'}`}
