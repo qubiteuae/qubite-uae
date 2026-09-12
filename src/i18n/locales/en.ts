@@ -411,13 +411,6 @@ export const en = {
       noResultsTitle: 'No products match your filters',
       noResultsSubtitle: 'Try a different category, brand, or search term.',
     },
-    calculator: {
-      badge: 'Revenue Calculator',
-      heading: 'Estimate Your Mining Profit',
-      subtitle: 'Pick a machine below and see what it could earn you, hosted with Qubite.',
-      selectMachine: 'Select a Machine',
-      hosting: 'Hosting',
-    },
   },
   productDetail: {
     notFoundTitle: 'Product not found',
@@ -433,15 +426,6 @@ export const en = {
     buyNow: 'Buy Now',
     talkToAHuman: 'Talk to a human',
     avgWaitTime: 'avg. wait time 3 minutes',
-    revenueCalculator: {
-      title: 'Revenue Calculator',
-      btcMinedPerMonth: 'BTC mined per month:',
-      btcPrice: 'BTC Price',
-      monthlyRevenue: 'Monthly Revenue',
-      estHostingCost: 'Est. Hosting Cost',
-      netMonthlyProfit: 'Net Monthly Profit',
-      disclaimer: '*Revenue estimates are illustrative, assuming constant network difficulty and 100% uptime.',
-    },
     hostingPlans: {
       title: 'Hosting Plans for This Machine',
       subtitle: 'Estimated monthly hosting cost per plan, based on',

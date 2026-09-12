@@ -412,13 +412,6 @@ export const ar: TranslationSchema = {
       noResultsTitle: 'لا توجد منتجات تطابق عوامل التصفية',
       noResultsSubtitle: 'جرّب فئة أو علامة تجارية أو كلمة بحث مختلفة.',
     },
-    calculator: {
-      badge: 'حاسبة الأرباح',
-      heading: 'احسب أرباح التعدين المتوقعة',
-      subtitle: 'اختر جهازًا أدناه لترى العائد المتوقع عند استضافته مع Qubite.',
-      selectMachine: 'اختر جهازًا',
-      hosting: 'الاستضافة',
-    },
   },
   productDetail: {
     notFoundTitle: 'المنتج غير موجود',
@@ -434,15 +427,6 @@ export const ar: TranslationSchema = {
     buyNow: 'اشترِ الآن',
     talkToAHuman: 'تحدث مع ممثل',
     avgWaitTime: 'متوسط وقت الانتظار 3 دقائق',
-    revenueCalculator: {
-      title: 'حاسبة الأرباح',
-      btcMinedPerMonth: 'العملات المُعدَّنة شهريًا:',
-      btcPrice: 'سعر البيتكوين',
-      monthlyRevenue: 'الإيراد الشهري',
-      estHostingCost: 'تكلفة الاستضافة المقدرة',
-      netMonthlyProfit: 'صافي الربح الشهري',
-      disclaimer: '*تقديرات الأرباح توضيحية، بافتراض ثبات صعوبة الشبكة ووقت تشغيل بنسبة 100%.',
-    },
     hostingPlans: {
       title: 'خطط الاستضافة لهذا الجهاز',
       subtitle: 'التكلفة الشهرية المقدرة لكل خطة، استنادًا إلى',
