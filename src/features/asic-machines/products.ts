@@ -182,8 +182,7 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View AE1 Lite (270M) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'MODEL CORRECTION REQUIRED — BLOCKED. ASIC Miner Value and IceRiver currently list AE1 Lite at 300 MH/s / 500 W. Replace this row with the 300 MH/s SKU unless a legacy 270 MH/s supplier datasheet is available.',
-    needsReview: true,
+      'MODEL CORRECTION REQUIRED — published anyway per request. ASIC Miner Value and IceRiver currently list AE1 Lite at 300 MH/s / 500 W. Replace this row with the 300 MH/s SKU unless a legacy 270 MH/s supplier datasheet is available.',
   },
   {
     slug: 'antminer-al1-16-6t',
@@ -268,8 +267,7 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View Antminer E9 (2400M) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'POWER CORRECTION REQUIRED — BLOCKED. The standard E9 2400 MH/s listing is commonly specified at 1920 W, while the uploaded sheet states 2013 W. Confirm the exact label/firmware mode before publishing.',
-    needsReview: true,
+      'POWER CORRECTION REQUIRED — published anyway per request. The standard E9 2400 MH/s listing is commonly specified at 1920 W, while the uploaded sheet states 2013 W. Confirm the exact label/firmware mode.',
   },
   {
     slug: 'antminer-e9-pro-3680m',
@@ -1218,8 +1216,7 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View Antminer S21 PRO (245Th) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'BATCH DATASHEET REQUIRED — BLOCKED. This 245 TH/s row cannot reuse the official 234 TH/s S21 Pro dimensions/power claim without the exact 245 TH/s batch datasheet.',
-    needsReview: true,
+      'BATCH DATASHEET REQUIRED — published anyway per request. This 245 TH/s row reuses the official 234 TH/s S21 Pro dimensions/power claim without the exact 245 TH/s batch datasheet confirmed.',
   },
   {
     slug: 'antminer-s21-xp-270t',
@@ -1921,8 +1918,7 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View Whatsminer M60 specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'HASHRATE VARIANT REQUIRED — BLOCKED. M60 is a product family with multiple hashrate bins. Add the exact TH/s model from the machine label or supplier invoice before publishing.',
-    needsReview: true,
+      'HASHRATE VARIANT REQUIRED — published anyway per request, hashrate left unset rather than guessed. M60 is a product family with multiple hashrate bins; add the exact TH/s model from the machine label or supplier invoice when known.',
   },
   {
     slug: 'pinecone-matches-inibox-850m',

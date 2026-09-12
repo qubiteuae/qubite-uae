@@ -150,9 +150,9 @@ export function WhyChooseUs() {
             style={{ boxShadow: '0 0 46px rgba(0,229,255,0.18)' }}
           >
             <img
-              src="/facilities/facility-1.png"
+              src="/facilities/facility-hallway.webp"
               alt="Qubite ASIC mining rack"
-              className="aspect-[3/4] w-full object-cover [object-position:15%_center]"
+              className="aspect-[3/4] w-full object-cover object-center"
             />
             <div
               className="pointer-events-none absolute inset-x-0 bottom-0 h-24"

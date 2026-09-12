@@ -72,10 +72,6 @@ export const en = {
       paragraph:
         'Enterprise-grade mining hardware. German-engineered, UAE-deployed. Highly optimized for thermal stability and peak performance.',
       talkToHuman: 'Talk to human',
-      filterPills: { category: 'Category', cooling: 'Cooling', manufacturer: 'Manufacturer', algorithm: 'Algorithm' },
-      searchPlaceholder: 'Search model, brand, algorithm...',
-      advancedFilters: 'Advanced filters',
-      reset: 'Reset',
       columns: {
         fav: 'Fav',
         model: 'Model',
@@ -86,7 +82,6 @@ export const en = {
         algorithm: 'Algorithm',
         bestPrice: 'Best Price',
       },
-      noResults: 'No miners match your search.',
       disclaimer:
         'Prices, specifications and availability are subject to confirmation before purchase. Hosting, installation, delivery, customs and VAT are included only where expressly stated in the quotation or agreement.',
     },
