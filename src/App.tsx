@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { LanguageRoute } from '@/components/LanguageRoute'
 import { RootLayout } from '@/components/RootLayout'
 import { AboutPage } from '@/features/about/AboutPage'
 import { AsicMachinesPage } from '@/features/asic-machines/AsicMachinesPage'
@@ -13,13 +14,24 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<RootLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/asic-machines" element={<AsicMachinesPage />} />
-          <Route path="/asic-machines/:slug" element={<ProductDetailPage />} />
-          <Route path="/hosting" element={<HostingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
+          <Route element={<LanguageRoute lang="en" />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/asic-machines" element={<AsicMachinesPage />} />
+            <Route path="/asic-machines/:slug" element={<ProductDetailPage />} />
+            <Route path="/hosting" element={<HostingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+          </Route>
+          <Route path="/ar" element={<LanguageRoute lang="ar" />}>
+            <Route index element={<HomePage />} />
+            <Route path="asic-machines" element={<AsicMachinesPage />} />
+            <Route path="asic-machines/:slug" element={<ProductDetailPage />} />
+            <Route path="hosting" element={<HostingPage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="terms" element={<TermsPage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

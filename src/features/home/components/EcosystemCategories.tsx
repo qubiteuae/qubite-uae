@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 
 const categoryMeta = [
   { image: '/figma/cards/hardware-marketplace.png', href: '/asic-machines' },
@@ -21,6 +22,7 @@ function ArrowUpRightIcon({ className = 'size-4' }: { className?: string }) {
 
 export function EcosystemCategories() {
   const { t } = useTranslation()
+  const toLang = useLocalizedPath()
   const categories = (
     t('home.ecosystemCategories.categories', { returnObjects: true }) as { title: string; description: string }[]
   ).map((category, i) => ({ ...category, ...categoryMeta[i] }))
@@ -66,7 +68,7 @@ export function EcosystemCategories() {
             return (
               <Reveal key={category.title} delay={i * 90} className="h-full">
                 {category.href ? (
-                  <Link to={category.href} className={cardClassName}>
+                  <Link to={toLang(category.href)} className={cardClassName}>
                     {cardContent}
                   </Link>
                 ) : (

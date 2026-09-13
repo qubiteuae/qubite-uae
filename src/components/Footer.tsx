@@ -1,6 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Container } from '@/components/Container'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { resetConsentChoice } from '@/lib/consent'
+import { INSTAGRAM_LINK, LINKEDIN_LINK, TELEGRAM_LINK } from '@/lib/links'
 
 function FooterLink({ label, href, internal }: { label: string; href: string; internal?: boolean }) {
   const className =
@@ -25,21 +28,22 @@ function FooterLink({ label, href, internal }: { label: string; href: string; in
 
 export function Footer() {
   const { t } = useTranslation()
+  const toLang = useLocalizedPath()
 
   const productLinks = [
-    { label: t('footer.links.discoverMachines'), href: '/asic-machines', internal: true },
-    { label: t('footer.links.hosting'), href: '/hosting', internal: true },
+    { label: t('footer.links.discoverMachines'), href: toLang('/asic-machines'), internal: true },
+    { label: t('footer.links.hosting'), href: toLang('/hosting'), internal: true },
   ]
 
   const companyLinks = [
-    { label: t('footer.links.about'), href: '/about', internal: true },
-    { label: t('footer.links.locations'), href: '/about#locations', internal: true },
-    { label: t('footer.links.contact'), href: '/about#contact', internal: true },
+    { label: t('footer.links.about'), href: toLang('/about'), internal: true },
+    { label: t('footer.links.locations'), href: `${toLang('/about')}#locations`, internal: true },
+    { label: t('footer.links.contact'), href: `${toLang('/about')}#contact`, internal: true },
     // { label: t('footer.links.careers'), href: '/careers' },
     // { label: t('footer.links.returnPolicy'), href: '/return-policy' },
     // { label: t('footer.links.imprint'), href: '/imprint' },
-    { label: t('footer.links.privacyPolicy'), href: '/privacy-policy' },
-    { label: t('footer.links.terms'), href: '/terms' },
+    { label: t('footer.links.privacyPolicy'), href: toLang('/privacy-policy'), internal: true },
+    { label: t('footer.links.terms'), href: toLang('/terms'), internal: true },
   ]
 
   return (
@@ -53,10 +57,14 @@ export function Footer() {
           />
           <p className="max-w-120 text-base leading-relaxed text-text-slate">{t('footer.tagline')}</p>
           <div className="flex items-center gap-2">
-            {['IN', 'IG'].map((label) => (
+            {[
+              { label: 'IN', href: LINKEDIN_LINK },
+              { label: 'IG', href: INSTAGRAM_LINK },
+              { label: 'TG', href: TELEGRAM_LINK },
+            ].map(({ label, href }) => (
               <a
                 key={label}
-                href={label === 'IN' ? 'https://linkedin.com' : 'https://instagram.com'}
+                href={href}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
@@ -86,6 +94,14 @@ export function Footer() {
               {companyLinks.map((link) => (
                 <FooterLink key={link.label} {...link} />
               ))}
+              <button
+                type="button"
+                onClick={resetConsentChoice}
+                className="group relative w-fit text-sm font-medium text-text-slate transition-colors hover:text-white"
+              >
+                {t('footer.links.manageCookies')}
+                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+              </button>
             </nav>
           </div>
         </div>

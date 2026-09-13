@@ -3,10 +3,13 @@ import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 const CONTACT_EMAIL = 'info@qubite-international.com'
 const CONTACT_PHONE = '+971 55 661 5745'
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 function MailIcon({ className = 'size-5' }: { className?: string }) {
   return (
@@ -44,9 +47,25 @@ function PinIcon({ className = 'size-5' }: { className?: string }) {
   )
 }
 
+function pushContactFormSubmitEvent(language: string) {
+  const win = window as unknown as { dataLayer?: unknown[] }
+  win.dataLayer = win.dataLayer ?? []
+  win.dataLayer.push({
+    event: 'contact_form_submit',
+    form_name: 'contact',
+    page_url: window.location.href,
+    language,
+  })
+}
+
 export function ContactSection() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const toLang = useLocalizedPath()
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [honeypot, setHoneypot] = useState('')
+  const [consent, setConsent] = useState(false)
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const contactInfo = [
     { icon: MailIcon, label: t('about.contact.email'), value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
@@ -55,10 +74,34 @@ export function ContactSection() {
     { icon: PinIcon, label: t('about.contact.registeredAddress'), value: t('about.contact.registeredAddressValue') },
   ]
 
-  const handleSubmit = (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    const body = `${form.message}\n\n— ${form.name} (${form.email})`
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`
+    if (!consent || status === 'sending') return
+
+    setStatus('sending')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, honeypot, language: i18n.language, pageUrl: window.location.href }),
+      })
+      const data = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null
+
+      if (response.ok && data?.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', subject: '', message: '' })
+        setConsent(false)
+        pushContactFormSubmitEvent(i18n.language)
+      } else {
+        setStatus('error')
+        setErrorMessage(data?.error || t('about.contact.form.errorGeneric'))
+      }
+    } catch {
+      setStatus('error')
+      setErrorMessage(t('about.contact.form.errorGeneric'))
+    }
   }
 
   return (
@@ -109,60 +152,101 @@ export function ContactSection() {
           </Reveal>
 
           <Reveal delay={260}>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-2xl border border-white/8 bg-white/3 p-6">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-[rgba(74,222,128,0.3)] bg-[rgba(34,197,94,0.08)] p-8 text-center">
+                <span className="text-base font-bold text-white">{t('about.contact.form.successTitle')}</span>
+                <p className="text-sm text-text-dim">{t('about.contact.form.successBody')}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-2xl border border-white/8 bg-white/3 p-6">
+                {/* Honeypot: visually hidden (not display:none) so basic bots that skip hidden fields still find and fill it. */}
+                <label className="sr-only" aria-hidden="true">
+                  Website
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </label>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <label className="flex flex-col gap-1.5">
+                    <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.name')}</span>
+                    <input
+                      required
+                      type="text"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      placeholder={t('about.contact.form.namePlaceholder')}
+                      className="rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] px-4 py-2.5 text-sm text-white placeholder:text-text-faint focus:border-accent-cyan/40 focus:outline-none"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-1.5">
+                    <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.email')}</span>
+                    <input
+                      required
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      placeholder={t('about.contact.form.emailPlaceholder')}
+                      className="rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] px-4 py-2.5 text-sm text-white placeholder:text-text-faint focus:border-accent-cyan/40 focus:outline-none"
+                    />
+                  </label>
+                </div>
                 <label className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.name')}</span>
+                  <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.subject')}</span>
                   <input
                     required
                     type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder={t('about.contact.form.namePlaceholder')}
+                    value={form.subject}
+                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                    placeholder={t('about.contact.form.subjectPlaceholder')}
                     className="rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] px-4 py-2.5 text-sm text-white placeholder:text-text-faint focus:border-accent-cyan/40 focus:outline-none"
                   />
                 </label>
                 <label className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.email')}</span>
-                  <input
+                  <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.message')}</span>
+                  <textarea
                     required
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder={t('about.contact.form.emailPlaceholder')}
-                    className="rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] px-4 py-2.5 text-sm text-white placeholder:text-text-faint focus:border-accent-cyan/40 focus:outline-none"
+                    rows={5}
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    placeholder={t('about.contact.form.messagePlaceholder')}
+                    className="resize-none rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[#17130f] px-4 py-3 text-sm text-white placeholder:text-text-faint focus:border-accent-cyan/40 focus:outline-none"
                   />
                 </label>
-              </div>
-              <label className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.subject')}</span>
-                <input
-                  required
-                  type="text"
-                  value={form.subject}
-                  onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                  placeholder={t('about.contact.form.subjectPlaceholder')}
-                  className="rounded-full border border-[rgba(255,255,255,0.1)] bg-[#17130f] px-4 py-2.5 text-sm text-white placeholder:text-text-faint focus:border-accent-cyan/40 focus:outline-none"
-                />
-              </label>
-              <label className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-bold tracking-wide text-text-faint uppercase">{t('about.contact.form.message')}</span>
-                <textarea
-                  required
-                  rows={5}
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder={t('about.contact.form.messagePlaceholder')}
-                  className="resize-none rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[#17130f] px-4 py-3 text-sm text-white placeholder:text-text-faint focus:border-accent-cyan/40 focus:outline-none"
-                />
-              </label>
-              <button
-                type="submit"
-                className="mt-1 inline-flex items-center justify-center rounded-full bg-accent-bronze px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:brightness-110 active:scale-95"
-              >
-                {t('about.contact.form.send')}
-              </button>
-            </form>
+
+                <label className="flex items-start gap-2.5 text-xs text-text-dim">
+                  <input
+                    required
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="mt-0.5 size-3.5 shrink-0 accent-accent-bronze"
+                  />
+                  <span>
+                    {t('about.contact.form.consent')}{' '}
+                    <a href={toLang('/privacy-policy')} className="font-semibold text-white underline underline-offset-2">
+                      {t('about.contact.form.consentLinkLabel')}
+                    </a>
+                    .
+                  </span>
+                </label>
+
+                {status === 'error' ? <p className="text-xs font-medium text-[#f87171]">{errorMessage}</p> : null}
+
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="mt-1 inline-flex items-center justify-center rounded-full bg-accent-bronze px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:brightness-110 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {status === 'sending' ? t('about.contact.form.sending') : t('about.contact.form.send')}
+                </button>
+              </form>
+            )}
           </Reveal>
         </div>
       </Container>

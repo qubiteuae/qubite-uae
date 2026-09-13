@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { products as catalogProducts } from '@/features/asic-machines/products'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 function TickMark() {
@@ -104,6 +105,7 @@ type SortKey = 'model' | 'releaseSort' | 'hashrateSort' | 'powerSort' | 'price'
 export function AsicComparison() {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const toLang = useLocalizedPath()
 
   // Order matches the visual column order in the table exactly; `key` is
   // omitted for the two non-sortable columns (Top, Algorithm).
@@ -219,7 +221,7 @@ export function AsicComparison() {
                   {rows.map((miner) => (
                     <tr
                       key={miner.id}
-                      onClick={() => navigate(`/asic-machines/${miner.slug}`)}
+                      onClick={() => navigate(toLang(`/asic-machines/${miner.slug}`))}
                       className="cursor-pointer border-b border-white/4 text-sm transition-colors hover:bg-white/3"
                     >
                       <td className="px-2 py-3">

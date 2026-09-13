@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Container } from '@/components/Container'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 const avatars = ['/figma/hero/avatar-1.png', '/figma/hero/avatar-2.png', '/figma/hero/avatar-3.png']
@@ -68,6 +69,7 @@ function NetworkIcon({ className = 'size-4' }: { className?: string }) {
 
 export function Hero() {
   const { t } = useTranslation()
+  const toLang = useLocalizedPath()
   const sectionRef = useRef<HTMLElement>(null)
 
   const scrollToNext = () => {
@@ -101,7 +103,7 @@ export function Hero() {
             </p>
             <div className="animate-fade-in-up flex flex-wrap items-center gap-3.5 pt-2" style={{ animationDelay: '240ms' }}>
               <Link
-                to="/asic-machines"
+                to={toLang('/asic-machines')}
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-white/30 hover:bg-black/60 active:scale-95"
               >
                 <img src="/figma/hero/shopping-cart.svg" alt="" className="size-[14px]" />

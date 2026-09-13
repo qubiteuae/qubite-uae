@@ -5,8 +5,15 @@ import { en } from './locales/en'
 
 export const RTL_LANGUAGES = new Set(['ar'])
 
-const storedLanguage = localStorage.getItem('qubite-language')
-const initialLanguage = storedLanguage === 'ar' ? 'ar' : 'en'
+// The URL is authoritative for language (see LanguageRoute / App.tsx): every
+// route exists in both an unprefixed English form and an /ar-prefixed Arabic
+// form. Deciding the initial language from the URL — rather than only from
+// localStorage — matters because i18next initializes before React Router
+// resolves the route; without this, a first-time visitor landing on any
+// /ar/... URL (e.g. from an Arabic Google Ads click) would render one frame
+// of English before LanguageRoute's effect corrects it.
+const { pathname } = window.location
+const initialLanguage = pathname === '/ar' || pathname.startsWith('/ar/') ? 'ar' : 'en'
 
 i18next.use(initReactI18next).init({
   resources: {

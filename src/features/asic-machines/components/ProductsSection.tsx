@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { type Brand, type Category, type Product, products } from '@/features/asic-machines/products'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { WHATSAPP_LINK } from '@/lib/links'
 import {
   ChevronDownIcon,
@@ -60,6 +61,7 @@ function ProductMedia({ media }: { media: Product['media'] }) {
 
 function ProductCard({ product, delay }: { product: Product; delay: number }) {
   const { t } = useTranslation()
+  const toLang = useLocalizedPath()
   const inStock = product.status === 'In Stock'
 
   return (
@@ -73,7 +75,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
       >
         {/* image area */}
         <Link
-          to={`/asic-machines/${product.slug}`}
+          to={toLang(`/asic-machines/${product.slug}`)}
           className="relative h-[220px] overflow-hidden rounded-2xl"
           style={{
             background: 'radial-gradient(ellipse at center, #0d2b2e 0%, #0a1512 60%, #0a0a0a 100%)',
@@ -130,7 +132,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
         </Link>
 
         {/* title */}
-        <Link to={`/asic-machines/${product.slug}`}>
+        <Link to={toLang(`/asic-machines/${product.slug}`)}>
           <h3 className="mt-3.5 line-clamp-2 min-h-[44px] text-[17px] leading-[1.3] font-semibold text-white transition-colors hover:text-accent-bronze-tint">
             {product.title}
           </h3>
@@ -193,7 +195,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
             {t('asicMachines.products.whatsapp')}
           </a>
           <Link
-            to={`/asic-machines/${product.slug}`}
+            to={toLang(`/asic-machines/${product.slug}`)}
             className="flex-1 rounded-full border border-white/15 py-3 text-center text-[13px] font-bold tracking-[0.03em] text-white uppercase transition-all duration-200 hover:border-white/40 hover:bg-white/5 active:scale-95"
           >
             {t('asicMachines.products.viewDetails')}

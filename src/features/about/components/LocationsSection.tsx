@@ -69,6 +69,7 @@ export function LocationsSection() {
             </Reveal>
           ))}
         </div>
+        <p className="max-w-[560px] text-[11px] text-text-faint">{t('about.locations.statsDisclaimer')}</p>
 
         <Reveal delay={420} className="mt-10 w-full">
           <h3 className="text-lg font-bold text-white">{t('about.locations.uaeSitesHeading')}</h3>

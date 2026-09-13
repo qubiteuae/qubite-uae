@@ -30,6 +30,7 @@ export const en = {
       imprint: 'Imprint',
       privacyPolicy: 'Privacy Policy',
       terms: 'Terms',
+      manageCookies: 'Manage Cookies',
     },
     registeredAddress:
       'Qubite International Cloud Services - L.L.C — Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE · Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE',
@@ -40,6 +41,49 @@ export const en = {
     talkToAHuman: 'Talk to a human',
     whatsapp: 'WhatsApp',
     emailUs: 'Email us',
+  },
+  consent: {
+    title: 'Cookie preferences',
+    body:
+      'We use cookies for essential site functionality and, with your consent, for analytics and advertising. Read our',
+    privacyPolicy: 'Privacy Policy',
+    reject: 'Reject',
+    accept: 'Accept All',
+  },
+  seo: {
+    home: {
+      title: 'ASIC Miners and Mining Hosting UAE | Qubite International',
+      description:
+        'Compare ASIC mining machines and professional hosting options in the UAE. Review specifications, pricing and deployment requirements with Qubite International.',
+    },
+    machines: {
+      title: 'ASIC Miners in UAE | Compare Models | Qubite',
+      description:
+        'Compare verified ASIC miner specifications, electrical requirements and current availability. Request UAE pricing and optional hosting from Qubite.',
+    },
+    hosting: {
+      title: 'ASIC Miner Hosting UAE | Rates and Requirements | Qubite',
+      description:
+        'Compare ASIC hosting rates, installation charges, machine compatibility and deployment requirements. Final capacity and terms are confirmed in writing.',
+    },
+    about: {
+      title: 'About Qubite International | UAE Mining Infrastructure',
+      description:
+        'Learn about Qubite International Cloud Services L.L.C, our UAE operations, team, locations, contact details and infrastructure services.',
+    },
+    privacyPolicy: {
+      title: 'Privacy Policy | Qubite International',
+      description: 'Read how Qubite International collects, uses, stores and shares website and customer information.',
+    },
+    terms: {
+      title: 'Terms and Conditions | Qubite International',
+      description:
+        'Review the terms for ASIC hardware sales, hosting, pricing, payment, delivery, warranty and service limitations.',
+    },
+    productNotFound: {
+      title: 'Product Not Found | Qubite International',
+      description: 'This machine is not in our current catalog. Browse our current ASIC miner lineup instead.',
+    },
   },
   home: {
     hero: {
@@ -70,7 +114,7 @@ export const en = {
       badge: 'Our Products',
       heading: 'Compare Our ASIC Miners',
       paragraph:
-        'Enterprise-grade mining hardware. German-engineered, UAE-deployed. Highly optimized for thermal stability and peak performance.',
+        'Enterprise-grade mining hardware. Manufacturer-built ASIC hardware supplied with UAE deployment and hosting support. Highly optimized for thermal stability and peak performance.',
       talkToHuman: 'Talk to human',
       columns: {
         fav: 'Fav',
@@ -121,7 +165,7 @@ export const en = {
       heading: 'The Complete Mining Infrastructure',
       paragraph: 'Access hardware, cloud power, clean energy, and cutting-edge software under a unified, high-performance ecosystem.',
       categories: [
-        { title: 'Hardware Marketplace', description: 'Browse and purchase mining hardware from verified vendors' },
+        { title: 'Hardware Marketplace', description: 'Browse and purchase mining hardware from established manufacturers and approved suppliers' },
         { title: 'Energy Solutions', description: 'Turnkey power, land, and grid access for large-scale mining' },
         { title: 'Technology', description: 'Cutting-edge infrastructure and optimization tools' },
         { title: 'Academy', description: 'Learn mining fundamentals and advanced strategies' },
@@ -160,7 +204,7 @@ export const en = {
       paragraph:
         'Hosting infrastructure is available through selected facilities in the UAE, Germany and Switzerland, subject to capacity and service availability. Continuous infrastructure monitoring and technical support — actual uptime depends on site, network, maintenance and energy conditions.',
       allLocations: 'All Locations',
-      operational: 'Operational',
+      operational: 'Available',
       locations: [
         { title: 'UAE', place: 'Dubai' },
         { title: 'Germany', place: 'Europe' },
@@ -183,9 +227,9 @@ export const en = {
       badge: 'Hosting',
       heading1: 'Transparent Pricing',
       heading2: '& Low Rates',
-      paragraphPrefix: 'Hosting plans starting from',
-      paragraphMid: 'to',
-      paragraphSuffix: 'per kWh. Premium rack space, power, and cooling with every cost disclosed before you sign.',
+      paragraphPrefix: 'Hosting plans from',
+      paragraphSuffix:
+        'per kWh, subject to plan, scale, location, equipment and contract terms. Premium rack space, power, and cooling with every cost disclosed before you sign.',
       comparePlans: 'Compare Plans',
       talkToHuman: 'Talk to a human',
       valueProps: [
@@ -211,7 +255,7 @@ export const en = {
           tagline: 'Reduced operating cost at scale',
           upfront: '$300k per MW',
           installation: 'Built into the turnkey deployment',
-          power: '6MW ready — up to 100MW constructable',
+          power: '6MW ready — up to 100MW constructable, subject to capacity',
           machines: 'Air, Hydro, Immersion',
         },
         {
@@ -219,7 +263,7 @@ export const en = {
           tagline: 'Lower rate, higher installation fee',
           upfront: '2 months rent deposit',
           installation: '$600 one-time installation fee',
-          power: '8MW available',
+          power: '8MW available, subject to capacity',
           machines: 'Hydro',
         },
         {
@@ -227,7 +271,7 @@ export const en = {
           tagline: 'Balanced entry plan',
           upfront: '2 months rent deposit',
           installation: '$300 one-time installation fee',
-          power: '5MW available',
+          power: '5MW available, subject to capacity',
           machines: 'Air, Hydro',
         },
         {
@@ -235,7 +279,7 @@ export const en = {
           tagline: 'No installation fee',
           upfront: '2 months rent deposit',
           installation: '$0 one-time installation fee',
-          power: '3MW available',
+          power: '3MW available, subject to capacity',
           machines: 'Air, Hydro',
         },
       ],
@@ -275,13 +319,13 @@ export const en = {
         {
           question: 'How long does deployment take once hardware arrives?',
           answer:
-            "Most machines are unboxed, racked, and hashing within 24 hours of arrival, pending the power and rack reservation confirmed during onboarding. You'll get a notification the moment your fleet comes online.",
+            "Deployment timing is confirmed after equipment inspection, rack allocation and power availability. You'll get a notification the moment your fleet comes online.",
         },
       ],
     },
     cta: {
       heading: 'Ready to price your hosting slots?',
-      paragraph: 'Tell us your machine count and target power, and our team will confirm rate and availability within one business day.',
+      paragraph: 'Tell us your machine count and target power, and our team will review and respond as soon as possible.',
       talkToHuman: 'Talk to a human',
       comparePlansAgain: 'Compare plans again',
     },
@@ -327,7 +371,7 @@ export const en = {
       },
       europe: {
         title: 'Germany & Europe',
-        description: 'Partner data center facilities for highly sensitive, regulated, and latency-critical applications — GDPR-compliant and close to the customer.',
+        description: 'Partner data center facilities for highly sensitive, regulated, and latency-critical applications — designed to meet regulated data-handling requirements and close to the customer.',
         tag: '→ Regulated-workload backbone',
       },
       stats: [
@@ -336,6 +380,7 @@ export const en = {
         { label: 'PUE Rating', value: '<1.2' },
         { label: 'Monitoring', value: '24/7' },
       ],
+      statsDisclaimer: "Partner-facility figures, provided by Qubite's European infrastructure partner and subject to change.",
       uaeSitesHeading: 'Our UAE Sites',
       uaeSites: [
         { name: 'Nahil' },
@@ -367,7 +412,13 @@ export const en = {
         subjectPlaceholder: "What's this about?",
         message: 'Message *',
         messagePlaceholder: 'Your message to us...',
+        consent: 'I agree that Qubite may contact me about this inquiry and process my information as described in the',
+        consentLinkLabel: 'Privacy Policy',
         send: 'Send Message',
+        sending: 'Sending…',
+        successTitle: 'Message sent',
+        successBody: "Thanks — we've received your message and will get back to you shortly.",
+        errorGeneric: 'Something went wrong sending your message. Please try again, or reach us on WhatsApp.',
       },
     },
   },
@@ -377,7 +428,7 @@ export const en = {
       heading1: 'Engineered Infrastructure.',
       heading2: 'Built to Perform.',
       paragraph:
-        "Browse qubite's full range of high-performance servers and mining hardware in-house engineered, fully hosted, and ready to deploy. Hosting, power, and maintenance included on every machine.",
+        "Browse qubite's full range of high-performance servers and mining hardware, ready to deploy. Optional hosting, installation and support are quoted separately unless expressly included in your written quotation.",
     },
     products: {
       heading: 'All Products',
@@ -423,9 +474,8 @@ export const en = {
     hashrate: 'Hashrate',
     power: 'Power',
     efficiency: 'Efficiency',
-    buyNow: 'Buy Now',
+    requestPrice: 'Request Current Price',
     talkToAHuman: 'Talk to a human',
-    avgWaitTime: 'avg. wait time 3 minutes',
     hostingPlans: {
       title: 'Hosting Plans for This Machine',
       subtitle: 'Estimated monthly hosting cost per plan, based on',
@@ -542,7 +592,7 @@ export const en = {
         },
         {
           heading: 'Warranty',
-          body: 'Hardware sold by Qubite is covered by a 12-month warranty from the date of delivery, covering manufacturing defects under normal operating conditions. The warranty does not cover damage from misuse, unauthorized modification, or conditions outside the manufacturer\'s specifications. To make a claim, contact us using the details below; Qubite will coordinate repair or replacement directly or with the manufacturer as applicable.',
+          body: 'Hardware sold by Qubite is typically covered by a warranty of up to 12 months from the date of delivery, covering manufacturing defects under normal operating conditions. The exact duration, provider, and any exclusions depend on the specific SKU and manufacturer, and will be stated in your written quotation. The warranty does not cover damage from misuse, unauthorized modification, or conditions outside the manufacturer\'s specifications. To make a claim, contact us using the details below; Qubite will coordinate repair or replacement directly or with the manufacturer as applicable.',
         },
         {
           heading: 'Limitation of Liability',

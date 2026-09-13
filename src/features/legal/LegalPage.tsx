@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Container } from '@/components/Container'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 
 interface LegalSection {
   heading: string
@@ -9,12 +10,13 @@ interface LegalSection {
 
 export function LegalPage({ contentKey }: { contentKey: 'privacyPolicy' | 'terms' }) {
   const { t } = useTranslation()
+  const toLang = useLocalizedPath()
   const sections = t(`legal.${contentKey}.sections`, { returnObjects: true }) as LegalSection[]
 
   return (
     <div className="bg-bg pt-24 pb-24">
       <Container className="max-w-[760px]">
-        <Link to="/" className="text-xs font-semibold text-accent-bronze-tint transition-colors hover:text-white">
+        <Link to={toLang('/')} className="text-xs font-semibold text-accent-bronze-tint transition-colors hover:text-white">
           &larr; {t('legal.backHome')}
         </Link>
 

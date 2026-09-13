@@ -1,31 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { getProductBySlug } from '@/features/asic-machines/products'
-import { WHATSAPP_LINK } from '@/lib/links'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { SITE_URL, usePageSeo } from '@/hooks/usePageSeo'
+import { localizePath } from '@/lib/i18nPaths'
 import { EfficiencyIcon, HashrateIcon, PowerIcon, WhatsAppIcon } from './components/icons'
-
-// Sets the tab title / meta description to the product's SEO copy while this
-// page is mounted, restoring the site defaults on unmount.
-function useProductSeo(seoTitle: string | undefined, metaDescription: string | undefined) {
-  useEffect(() => {
-    if (!seoTitle && !metaDescription) return
-    const previousTitle = document.title
-    const metaEl = document.querySelector('meta[name="description"]')
-    const previousDescription = metaEl?.getAttribute('content') ?? null
-
-    if (seoTitle) document.title = seoTitle
-    if (metaDescription && metaEl) metaEl.setAttribute('content', metaDescription)
-
-    return () => {
-      document.title = previousTitle
-      if (previousDescription !== null && metaEl) metaEl.setAttribute('content', previousDescription)
-    }
-  }, [seoTitle, metaDescription])
-}
 
 function HeadsetIcon({ className = 'size-4' }: { className?: string }) {
   return (
@@ -55,10 +38,57 @@ const hostingTierRecommended = [false, true, false]
 const currencyPrecise = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
 
 export function ProductDetailPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const toLang = useLocalizedPath()
   const { slug } = useParams<{ slug: string }>()
   const product = slug ? getProductBySlug(slug) : undefined
-  useProductSeo(product?.seoTitle, product?.metaDescription)
+  const productPath = `/asic-machines/${slug ?? ''}`
+  const actualProductUrl = `${SITE_URL}${localizePath(productPath, i18n.language)}`
+  usePageSeo(
+    product
+      ? {
+          title: product.seoTitle ?? `${product.title} | Qubite International`,
+          description: product.metaDescription ?? product.description,
+          path: productPath,
+          image: product.media.type === 'image' ? product.media.src : undefined,
+          jsonLd: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Product',
+              name: product.title,
+              brand: { '@type': 'Brand', name: product.brand },
+              description: product.metaDescription ?? product.description,
+              ...(product.media.type === 'image' ? { image: `${SITE_URL}${product.media.src}` } : {}),
+              url: actualProductUrl,
+              ...(product.priceUsd
+                ? {
+                    offers: {
+                      '@type': 'Offer',
+                      priceCurrency: 'USD',
+                      price: product.priceUsd,
+                      availability: 'https://schema.org/InStock',
+                    },
+                  }
+                : {}),
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}${toLang('/')}` },
+                { '@type': 'ListItem', position: 2, name: 'Machines', item: `${SITE_URL}${toLang('/asic-machines')}` },
+                { '@type': 'ListItem', position: 3, name: product.title, item: actualProductUrl },
+              ],
+            },
+          ],
+        }
+      : {
+          title: t('seo.productNotFound.title'),
+          description: t('seo.productNotFound.description'),
+          path: productPath,
+          noindex: true,
+        },
+  )
 
   // Reuses the same 3 tiers (skipping Turnkey Site) from the hosting plans
   // translations so tier names/taglines stay in sync with the /hosting page.
@@ -79,7 +109,7 @@ export function ProductDetailPage() {
           <h1 className="text-2xl font-bold text-white">{t('productDetail.notFoundTitle')}</h1>
           <p className="text-sm text-text-subtle">{t('productDetail.notFoundBody')}</p>
           <Link
-            to="/asic-machines"
+            to={toLang('/asic-machines')}
             className="mt-2 inline-flex items-center gap-2 rounded-full bg-accent-bronze px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:brightness-110"
           >
             {t('productDetail.backToMachines')}
@@ -90,16 +120,21 @@ export function ProductDetailPage() {
   }
 
   const inStock = product.status === 'In Stock'
+  const productWhatsAppLink =
+    'https://wa.me/971556615745?text=' +
+    encodeURIComponent(
+      `Hello Qubite, I'm interested in the ${product.title} (${product.hashrate}). Could you share current pricing and hosting options? ${actualProductUrl}`,
+    )
 
   return (
     <div className="bg-bg pt-24">
       <Container className="pt-8">
         <nav className="flex items-center gap-2 text-xs text-text-faint">
-          <Link to="/" className="transition-colors hover:text-white">
+          <Link to={toLang('/')} className="transition-colors hover:text-white">
             {t('productDetail.breadcrumbHome')}
           </Link>
           <ChevronRightIcon className="size-2.5" />
-          <Link to="/asic-machines" className="transition-colors hover:text-white">
+          <Link to={toLang('/asic-machines')} className="transition-colors hover:text-white">
             {t('productDetail.breadcrumbMachines')}
           </Link>
           <ChevronRightIcon className="size-2.5" />
@@ -179,17 +214,17 @@ export function ProductDetailPage() {
 
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <a
-                href={WHATSAPP_LINK}
+                href={productWhatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-b from-[#22c55e] to-[#16a34a] px-6 py-3 text-sm font-bold text-white uppercase transition-all duration-200 hover:brightness-110 active:scale-95"
                 style={{ boxShadow: '0 4px 14px rgba(34,197,94,0.3)' }}
               >
                 <WhatsAppIcon className="size-4" />
-                {t('productDetail.buyNow')}
+                {t('productDetail.requestPrice')}
               </a>
               <a
-                href={WHATSAPP_LINK}
+                href={productWhatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-white/40 hover:bg-white/5 active:scale-95"
@@ -198,7 +233,6 @@ export function ProductDetailPage() {
                 {t('productDetail.talkToAHuman')}
               </a>
             </div>
-            <p className="text-xs text-text-faint">{t('productDetail.avgWaitTime')}</p>
           </Reveal>
         </Container>
       </section>
@@ -257,7 +291,7 @@ export function ProductDetailPage() {
           </div>
           <Reveal delay={240}>
             <Link
-              to="/hosting"
+              to={toLang('/hosting')}
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-bronze-tint transition-colors hover:text-white"
             >
               {t('productDetail.hostingPlans.viewAllPlans')}

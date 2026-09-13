@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Container } from '@/components/Container'
-import { WHATSAPP_LINK } from '@/lib/links'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { localizePath, stripLangPrefix } from '@/lib/i18nPaths'
+import { TELEGRAM_LINK, WHATSAPP_LINK } from '@/lib/links'
 
 const languages = [
   { code: 'en', label: 'EN', fullLabel: 'English' },
@@ -55,6 +57,8 @@ function ChevronDownIcon({ className = 'size-2.5' }: { className?: string }) {
 
 function LanguageSwitcher() {
   const { i18n } = useTranslation()
+  const location = useLocation()
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
   const current = languages.find((l) => l.code === i18n.language) ?? languages[0]
@@ -66,6 +70,15 @@ function LanguageSwitcher() {
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  // Navigating to the /ar-prefixed (or unprefixed) equivalent of the current
+  // path — rather than only calling i18n.changeLanguage — keeps the URL and
+  // displayed language in sync, which is what makes /ar/... a real,
+  // guaranteed-Arabic landing page instead of a client-side-only toggle.
+  function switchTo(lang: string) {
+    navigate(localizePath(stripLangPrefix(location.pathname), lang) + location.search)
+    setOpen(false)
+  }
 
   return (
     <div ref={wrapRef} className="relative hidden sm:block">
@@ -93,10 +106,7 @@ function LanguageSwitcher() {
             type="button"
             role="option"
             aria-selected={lang.code === i18n.language}
-            onClick={() => {
-              void i18n.changeLanguage(lang.code)
-              setOpen(false)
-            }}
+            onClick={() => switchTo(lang.code)}
             className={`flex w-full items-center justify-between px-4 py-2.5 text-left text-sm transition-colors ${
               lang.code === i18n.language ? 'bg-white/8 text-white' : 'text-text-dim hover:bg-white/5 hover:text-white'
             }`}
@@ -114,6 +124,8 @@ function LanguageSwitcher() {
 // inline segmented toggle instead of the popover used on desktop.
 function LanguageToggle() {
   const { i18n } = useTranslation()
+  const location = useLocation()
+  const navigate = useNavigate()
 
   return (
     <div className="flex items-center gap-2 text-[13px]">
@@ -123,7 +135,7 @@ function LanguageToggle() {
           <button
             key={lang.code}
             type="button"
-            onClick={() => void i18n.changeLanguage(lang.code)}
+            onClick={() => navigate(localizePath(stripLangPrefix(location.pathname), lang.code) + location.search)}
             className={`px-3 py-1.5 font-semibold transition-colors ${
               lang.code === i18n.language ? 'bg-white text-black' : 'text-white hover:bg-white/10'
             }`}
@@ -138,17 +150,18 @@ function LanguageToggle() {
 
 export function Header() {
   const { t } = useTranslation()
+  const toLang = useLocalizedPath()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const navLinks = [
-    { label: t('header.nav.discoverMachines'), href: '/asic-machines', internal: true },
-    { label: t('header.nav.hosting'), href: '/hosting', internal: true },
-    { label: t('header.nav.aboutUs'), href: '/about', internal: true },
+    { label: t('header.nav.discoverMachines'), href: toLang('/asic-machines'), internal: true },
+    { label: t('header.nav.hosting'), href: toLang('/hosting'), internal: true },
+    { label: t('header.nav.aboutUs'), href: toLang('/about'), internal: true },
   ]
 
   const contactLinks = [
     { label: t('header.contact.whatsapp'), href: WHATSAPP_LINK, icon: WhatsAppIcon },
-    { label: t('header.contact.telegram'), href: '#', icon: TelegramIcon },
+    { label: t('header.contact.telegram'), href: TELEGRAM_LINK, icon: TelegramIcon },
     { label: t('header.contact.talkToHuman'), href: WHATSAPP_LINK, icon: HeadsetIcon },
   ]
 
@@ -156,7 +169,7 @@ export function Header() {
     <header className="absolute inset-x-0 top-0 z-20 bg-transparent">
       <Container className="flex h-18 items-center justify-between md:h-21">
         <Link
-          to="/"
+          to={toLang('/')}
           onClick={() => setMenuOpen(false)}
           className="flex items-center transition-transform duration-200 hover:scale-105"
         >

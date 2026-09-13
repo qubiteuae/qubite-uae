@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { ConsentBanner } from '@/components/ConsentBanner'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
@@ -21,6 +22,7 @@ export function RootLayout() {
         <Outlet />
       </main>
       <Footer />
+      <ConsentBanner />
     </div>
   )
 }

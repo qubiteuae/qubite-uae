@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Reveal } from '@/components/Reveal'
+import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 function HeadsetIcon() {
@@ -27,6 +28,7 @@ function ArrowIcon() {
 
 export function CtaBanner() {
   const { t } = useTranslation()
+  const toLang = useLocalizedPath()
 
   return (
     <section className="deployment-cta-section">
@@ -47,7 +49,7 @@ export function CtaBanner() {
               <HeadsetIcon />
               {t('home.ctaBanner.talkToHuman')}
             </a>
-            <Link to="/asic-machines" className="deployment-cta-button deployment-cta-products">
+            <Link to={toLang('/asic-machines')} className="deployment-cta-button deployment-cta-products">
               <ArrowIcon />
               {t('home.ctaBanner.exploreProducts')}
             </Link>
