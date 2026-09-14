@@ -638,59 +638,75 @@ export const en = {
     terms: {
       title: 'Terms & Conditions',
       intro:
-        'By accessing or using this website or purchasing products or services from Qubite International Cloud Services – L.L.C – S.P.C, trading as Qubite International ("Qubite", "we", "us"), you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our site or services.',
+        'These Terms and Conditions govern your use of this website and, where incorporated into or referred to in an order, quotation or other agreement with us, the products and services supplied by Qubite International Cloud Services – L.L.C – S.P.C trading as Qubite International ("Qubite", "we", "us" or "our").\n\nYour use of this website is subject to the provisions of these Terms that apply to website use. When you purchase products or services from us, the applicable terms will also include any quotation, order confirmation, hosting agreement or other written agreement entered into with you.\n\nNothing in these Terms limits or excludes any rights or remedies that cannot lawfully be limited or excluded under applicable law.',
       sections: [
         {
           heading: 'Who We Are',
-          body: 'Qubite International is a supplier of ASIC mining hardware and a provider of hosting and installation services, operating from the United Arab Emirates.',
+          body: 'Qubite is a supplier of ASIC mining hardware and a provider of hosting and installation services, operating from the United Arab Emirates.',
         },
         {
           heading: 'Products & Services',
-          body: 'We sell mining hardware and offer hosting, installation, and related support services. Product specifications, pricing, and availability are displayed on our website and are subject to change without notice. Orders are confirmed directly with our team via WhatsApp, email, or our contact form.',
+          body: 'We sell ASIC mining hardware and provide hosting, installation and related support services.\n\nProduct descriptions, specifications, pricing and availability displayed on our website are provided for general information and may be updated from time to time.\n\nOrders and service arrangements are confirmed directly with our team through email, WhatsApp, our website or another agreed communication channel.\n\nSubmission of an inquiry or order request does not by itself constitute acceptance by Qubite. An order or service arrangement becomes binding when confirmed by us in writing, including by electronic communication, unless the applicable quotation, order confirmation or agreement states otherwise.',
+        },
+        {
+          heading: 'Specific Agreements',
+          body: 'Products and services may also be subject to a quotation, order confirmation, hosting agreement or other written agreement between you and Qubite.\n\nIf there is any conflict between these Terms and a specific written agreement relating to a particular product or service, the specific written agreement will prevail.',
         },
         {
           heading: 'Pricing & Payment',
-          body: 'All prices are shown in the currency indicated on the site and exclude applicable taxes, duties, or shipping fees unless stated otherwise. Payment terms are confirmed at the time of order.',
+          body: 'Prices are shown in the currency indicated. Any applicable taxes, duties, shipping charges or other fees will be stated or communicated as required by applicable law and the relevant quotation, order confirmation or agreement.\n\nFinal pricing, payment terms and any applicable additional charges will be confirmed in the relevant quotation, order confirmation or agreement.\n\nYou are responsible for providing accurate billing and payment information and for making payments when due.',
         },
         {
-          heading: 'Mining Performance & Hosting Disclaimer',
-          body: 'Cryptocurrency mining revenue is not guaranteed. Any figures, examples, or calculators shown on this site are illustrative only and depend on variable factors including network difficulty, cryptocurrency price, electricity costs, machine efficiency, and uptime. Qubite does not guarantee any level of profit, return on investment, payback period, or hosting uptime. Past or projected performance is not a reliable indicator of future results.',
+          heading: 'Mining Performance & Disclaimer',
+          body: 'Cryptocurrency mining revenue is not guaranteed.\n\nAny revenue figures, calculations, estimates, examples or projections displayed on our website or otherwise provided by us are illustrative only. Actual mining performance may vary significantly and depends on factors outside our control, including network difficulty, cryptocurrency prices, electricity costs, hardware efficiency, pool performance, network conditions and uptime.\n\nQubite does not guarantee any level of mining revenue, profitability, return on investment or payback period.\n\nPast performance and projected performance are not reliable indicators of future results.\n\nNothing on our website or in our communications constitutes investment, financial, legal or tax advice.',
         },
         {
           heading: 'Hosting Services',
-          body: 'Hosting rates and estimated monthly costs are provided in good faith based on the information available at the time. Scheduled maintenance, network issues, or force majeure events may affect uptime. Hosting is provided on a best-effort basis and is not guaranteed to be uninterrupted.',
+          body: 'Hosting fees and any estimated charges are based on the commercial terms and information available at the time of quotation.\n\nHosting services may be affected by scheduled or emergency maintenance, internet or network interruptions, electricity supply, hardware failures, third party services, regulatory requirements, force majeure events or other circumstances outside our reasonable control.\n\nUnless otherwise stated in a specific written agreement, hosting is provided on a best effort basis and continuous or uninterrupted operation is not guaranteed.\n\nWhere a separate hosting agreement, service level agreement or quotation applies, its specific terms will govern the relevant hosting services.',
         },
         {
           heading: 'Shipping & Delivery',
-          body: 'Delivery timeframes communicated by our team are estimates only. Qubite is not liable for delays caused by carriers, customs, or circumstances beyond our reasonable control.',
+          body: 'Any delivery date or timeframe communicated by us is an estimate unless expressly agreed otherwise in writing.\n\nWe are not responsible for delays caused by carriers, customs authorities, import procedures or circumstances outside our reasonable control.\n\nAny applicable shipping charges, customs duties, taxes or import costs will be handled as stated in the relevant quotation or order confirmation.',
         },
         {
           heading: 'Returns & Cancellations',
-          body: 'To cancel an order or request a return, contact us in writing before the hardware is dispatched or installed. Eligibility, any applicable restocking, cancellation or logistics fees, and the refund process are confirmed by our team on a case-by-case basis and stated in writing before any amount is charged or refunded. Hardware that has been installed, hosted, or shows signs of use is assessed individually and may not be eligible for return.',
+          body: 'To cancel an order or request a return, please contact us in writing.\n\nEligibility for cancellation, return or refund and any applicable cancellation, restocking, shipping or logistics charges will depend on the circumstances of the order, the relevant quotation or agreement and applicable law.\n\nHardware that has been installed, hosted or used may be subject to additional return restrictions to the extent permitted by applicable law.\n\nNothing in these Terms limits any mandatory cancellation, return, replacement, refund or other rights available to you under applicable law.',
         },
         {
           heading: 'Hosting Termination',
-          body: 'Either party may end a hosting arrangement in accordance with the notice period and terms set out in the signed hosting agreement or quotation for that slot. On termination, we will confirm in writing the process and timeline for de-racking, returning, or relocating your hardware, and any outstanding charges up to the termination date.',
+          body: 'Either party may terminate a hosting arrangement in accordance with the notice requirements and other termination provisions set out in the applicable hosting agreement, quotation or other written agreement.\n\nFollowing termination, we will confirm the applicable arrangements for removal, return or relocation of the hardware and any outstanding amounts payable up to or arising from termination.',
         },
         {
           heading: 'Warranty',
-          body: 'Hardware sold by Qubite is typically covered by a warranty of up to 12 months from the date of delivery, covering manufacturing defects under normal operating conditions. The exact duration, provider, and any exclusions depend on the specific SKU and manufacturer, and will be stated in your written quotation. The warranty does not cover damage from misuse, unauthorized modification, or conditions outside the manufacturer\'s specifications. To make a claim, contact us using the details below; Qubite will coordinate repair or replacement directly or with the manufacturer as applicable.',
+          body: "Hardware sold by Qubite may be covered by a manufacturer or commercial warranty. The applicable warranty period, warranty provider and any specific exclusions will be stated in the relevant quotation, order confirmation or product documentation.\n\nUnless otherwise stated in writing, warranties generally apply to manufacturing defects arising under normal operating conditions and do not cover damage caused by misuse, unauthorized modification, improper installation, accident or operation outside the manufacturer's specifications.\n\nTo make a warranty claim, please contact us. Depending on the applicable warranty, Qubite may coordinate repair or replacement directly or with the manufacturer or other warranty provider.\n\nAny manufacturer or commercial warranty is in addition to and does not limit any mandatory rights available under applicable law.",
         },
         {
           heading: 'Limitation of Liability',
-          body: 'To the maximum extent permitted by law, Qubite shall not be liable for any indirect, incidental, or consequential damages, including loss of profits or mining revenue, arising from the use of our products, services, or website.',
+          body: 'To the maximum extent permitted by applicable law, Qubite shall not be liable for indirect, incidental, special or consequential losses arising from the use of our website, products or services, including loss of profits, loss of mining revenue or loss resulting from changes in cryptocurrency prices or mining conditions.\n\nNothing in these Terms excludes or limits liability to the extent that it cannot lawfully be excluded or limited.\n\nAny additional limitations or allocations of liability contained in a specific written agreement will apply to the products or services covered by that agreement.',
         },
         {
-          heading: 'Governing Law',
-          body: 'These Terms are governed by the laws of the United Arab Emirates. Any disputes shall be subject to the exclusive jurisdiction of the courts of the United Arab Emirates.',
+          heading: 'Third Party Services',
+          body: 'Our products and services may depend on or interact with third party services, networks, mining pools, manufacturers, carriers or other providers.\n\nTo the maximum extent permitted by applicable law, Qubite is not responsible for the availability, performance, acts or omissions of third parties, except where responsibility cannot lawfully be excluded or where otherwise expressly agreed in writing.',
+        },
+        {
+          heading: 'Website Content',
+          body: 'The content of our website is provided for general information about Qubite and our products and services.\n\nWe take reasonable steps to keep website information accurate and current but do not guarantee that all content is complete, accurate or available at all times.\n\nProduct availability, specifications and pricing are subject to confirmation before an order becomes binding.',
+        },
+        {
+          heading: 'Intellectual Property',
+          body: 'Unless otherwise stated, the content of this website, including text, graphics, logos, images and other materials, is owned by or licensed to Qubite and is protected by applicable intellectual property laws.\n\nYou may use the website for your own lawful purposes but may not reproduce, distribute, modify or commercially exploit its content without our prior written consent except where permitted by law.',
+        },
+        {
+          heading: 'Governing Law & Jurisdiction',
+          body: 'These Terms are governed by the laws of the United Arab Emirates as applicable in the Emirate of Abu Dhabi.\n\nSubject to any mandatory rights available under applicable law and unless otherwise agreed in writing, the courts of Abu Dhabi shall have exclusive jurisdiction over any dispute arising out of or in connection with these Terms.',
         },
         {
           heading: 'Changes to These Terms',
-          body: 'We may revise these Terms from time to time. Continued use of our site or services after changes are posted constitutes acceptance of the revised Terms.',
+          body: 'We may update these Terms from time to time to reflect changes in our products, services, business practices or legal obligations.\n\nUpdated Terms will apply from the date they are published on our website.\n\nChanges to these Terms will not alter the terms of an existing order or agreement unless agreed between the parties or required by applicable law.',
         },
         {
           heading: 'Contact Us',
-          body: 'Questions about these Terms can be directed to info@qubite-international.com or +971 55 661 5745. Qubite International Cloud Services – L.L.C – S.P.C. Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE. Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE.',
+          body: 'If you have a question about these Terms, please contact:\n\nQubite International Cloud Services – L.L.C – S.P.C\n• Email: info@qubite-international.com\n• Telephone: +971 55 661 5745\n• Registered address: Building 118, Hessa Bint Mohammed Street, Al Safrah Industrial Area, Al Ain City Municipality, Abu Dhabi, United Arab Emirates',
         },
       ],
     },
