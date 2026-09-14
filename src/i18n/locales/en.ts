@@ -33,8 +33,8 @@ export const en = {
       manageCookies: 'Manage Cookies',
     },
     registeredAddress:
-      'Qubite International Cloud Services - L.L.C — Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE · Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE',
-    copyright: '© 2026 Qubite International Cloud Services - L.L.C. All rights reserved. Crypto mining hardware hosting is subject to local energy regulations.',
+      'Qubite International Cloud Services – L.L.C – S.P.C — Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE · Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE',
+    copyright: '© 2026 Qubite International Cloud Services – L.L.C – S.P.C. All rights reserved. Crypto mining hardware hosting is subject to local energy regulations.',
   },
   common: {
     talkToHuman: 'Talk to human',
@@ -47,7 +47,13 @@ export const en = {
     body:
       'We use cookies for essential site functionality and, with your consent, for analytics and advertising. Read our',
     privacyPolicy: 'Privacy Policy',
-    reject: 'Reject',
+    essentialTitle: 'Essential',
+    essentialDescription: 'Required for the site to function and cannot be turned off.',
+    alwaysActive: 'Always active',
+    voluntaryTitle: 'Voluntary (Analytics & Advertising)',
+    voluntaryDescription: 'Used only with your consent, to measure site usage and ad performance.',
+    reject: 'Reject All',
+    savePreferences: 'Save Preferences',
     accept: 'Accept All',
   },
   seo: {
@@ -69,7 +75,7 @@ export const en = {
     about: {
       title: 'About Qubite International | UAE Mining Infrastructure',
       description:
-        'Learn about Qubite International Cloud Services L.L.C, our UAE operations, team, locations, contact details and infrastructure services.',
+        'Learn about Qubite International Cloud Services – L.L.C – S.P.C, our UAE operations, team, locations, contact details and infrastructure services.',
     },
     privacyPolicy: {
       title: 'Privacy Policy | Qubite International',
@@ -399,7 +405,7 @@ export const en = {
       email: 'Email',
       phone: 'Phone',
       region: 'Operating Address',
-      regionValue: 'Qubite International Cloud Services - L.L.C, 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, United Arab Emirates',
+      regionValue: 'Qubite International Cloud Services – L.L.C – S.P.C, 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, United Arab Emirates',
       registeredAddress: 'Registered Address',
       registeredAddressValue: 'Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, United Arab Emirates',
       talkToHumanWhatsapp: 'Talk to a human on WhatsApp',
@@ -519,54 +525,120 @@ export const en = {
     privacyPolicy: {
       title: 'Privacy Policy',
       intro:
-        'Qubite International Cloud Services - L.L.C, trading as Qubite International ("Qubite", "we", "us"), supplies ASIC mining hardware and hosting services from our facilities in the United Arab Emirates. This Privacy Policy explains what information we collect through this website, how we use it, and the choices available to you.',
+        'Qubite International Cloud Services – L.L.C – S.P.C trading as Qubite International ("Qubite", "we", "us" or "our") respects your privacy and is committed to protecting personal information in accordance with applicable data protection laws.\n\nThis Privacy Policy explains how we collect, use, disclose, retain and protect personal information when you visit our website, communicate with us or use or inquire about our ASIC mining hardware and hosting services.',
       sections: [
         {
-          heading: 'Information We Collect',
-          body: 'We collect information you provide directly, such as your name, email address, phone number, and message content when you submit our contact form or reach out via WhatsApp or email. We also automatically collect technical information about your visit — including IP address, browser type, device type, pages viewed, and referring URLs — through Google Tag Manager and related analytics and advertising tools.',
+          heading: 'Who We Are',
+          body: 'Qubite International Cloud Services – L.L.C – S.P.C is the controller of personal information processed for the purposes described in this Privacy Policy, unless we tell you otherwise in a specific context.',
         },
         {
-          heading: 'Cookies & Advertising Technologies',
-          body: "We use Google Tag Manager, Google Analytics, and Google Ads (including conversion tracking and remarketing cookies) to understand how visitors use our site and to measure the performance of our advertising campaigns. These tools may set cookies or similar identifiers on your device. You can control or disable cookies through your browser settings, and you can manage Google's use of advertising cookies at adssettings.google.com.",
+          heading: 'Scope of This Privacy Policy',
+          body: 'This Privacy Policy applies to personal information we process when you visit or interact with our website, contact us by email, telephone, WhatsApp or another communication channel, request information or a quotation, purchase equipment, use or inquire about our hosting services or otherwise deal with us in a business context.',
         },
         {
-          heading: 'How We Use Your Information',
-          body: 'We use the information we collect to respond to inquiries, process equipment and hosting orders, provide customer support, operate and improve our website, and measure and improve our advertising. We do not sell your personal information to third parties.',
+          heading: 'Personal Information We Collect',
+          body: 'The personal information we collect depends on how you interact with us and may include:\n\n• Identity and contact information, such as your name, company name, job title, email address, telephone number, postal address and communication preferences.\n• Inquiry and communication information, such as messages, correspondence and other information you provide when contacting us.\n• Commercial and transaction information, such as quotations, orders, contracts, billing information, delivery information, payment status and customer support records.\n• Compliance and verification information, where reasonably required for identity verification, fraud prevention, sanctions screening, legal claims or compliance with applicable law.\n• Technical and usage information, such as your IP address, browser type, device type, operating system, referring website, pages viewed, website interactions, approximate location derived from technical information and date and time of access.\n• Cookie and advertising information, such as online identifiers, cookie identifiers, consent choices, campaign information and interactions with our website or advertising.\n• Business contact information, which may be obtained from the organization you represent, a referral source, a service provider or a publicly available business source where relevant to our relationship with you.\n\nWe do not seek to collect sensitive personal information through our website unless it is necessary for a specific purpose and permitted by applicable law.',
         },
         {
-          heading: 'Sharing of Information',
-          body: 'We share information only with service providers who help us operate our business — such as Google (analytics/advertising), hosting and infrastructure providers, and logistics partners for equipment delivery — and only to the extent necessary for them to perform their services. We may also disclose information where required by law.',
+          heading: 'How We Collect Personal Information',
+          body: 'We may collect personal information:\n\n• directly from you when you complete a form, contact us, request a quotation, place an order, enter into a contract or communicate with us\n• automatically when you use our website through cookies, pixels, tags and similar technologies, subject to your consent where required\n• from the organization you represent, our customers, suppliers, logistics partners, professional advisers or other persons involved in a transaction or business relationship\n• from public sources such as company websites, professional directories, public registers and other lawfully accessible sources\n\nWhere personal information is obtained from another source and applicable law requires us to provide you with information about that processing, we will do so within the period required by law.\n\nWhere we ask you to provide personal information, we will indicate where it is required by law or necessary to enter into or perform a contract with you. If you do not provide information that is required, we may be unable to respond to your request, enter into or perform a contract with you or provide the relevant products or services.',
+        },
+        {
+          heading: 'How We Use Personal Information and Our Legal Bases',
+          body: 'We use personal information only where we have a lawful reason to do so.\n\nWhere applicable data protection law requires us to identify a legal basis for processing, the table below explains why we use personal information and the legal basis we rely on. Where more than one legal basis is listed, the basis that applies will depend on the circumstances.',
+          table: {
+            columns: ['Why we use your personal information', 'Personal information we may use', 'Legal basis, where applicable'],
+            rows: [
+              [
+                'To respond to inquiries and communicate with you',
+                'Identity, contact, inquiry and communication information',
+                'Our legitimate interests in responding to business inquiries and managing communications. Where you are considering purchasing our services, taking steps at your request before entering into a contract.',
+              ],
+              [
+                'To provide equipment, hosting services and customer support',
+                'Identity, contact, commercial, transaction and communication information',
+                'Performance of a contract or taking steps at your request before entering into a contract. Where you act on behalf of a business customer, our legitimate interests in providing and managing our services.',
+              ],
+              [
+                'To manage billing, payments, accounting and business administration',
+                'Identity, contact, commercial and transaction information',
+                'Performance of a contract where you are the customer. Compliance with legal and accounting obligations where applicable. Our legitimate interests in administering and operating our business.',
+              ],
+              [
+                'To meet compliance requirements, prevent fraud, protect our systems and manage legal claims',
+                'Identity, contact, transaction, technical and verification information',
+                'Compliance with legal obligations where applicable. Our legitimate interests in preventing fraud, protecting our business and systems and establishing, exercising or defending legal claims.',
+              ],
+              [
+                'To operate, secure and improve our website',
+                'Technical, usage and limited cookie information',
+                'Our legitimate interests in operating, securing and improving our website. Consent where required for nonessential cookies or similar technologies.',
+              ],
+              [
+                'To conduct analytics, measure advertising and use conversion or remarketing tools',
+                'Technical, usage, cookie and advertising information',
+                'Consent where required by applicable data protection or electronic communications law.',
+              ],
+              [
+                'To carry out business development and send marketing communications',
+                'Identity, contact, business relationship and communication preference information',
+                'Consent where required by applicable marketing or electronic communications law. Otherwise, our legitimate interests in promoting our services and maintaining business relationships where permitted by law.',
+              ],
+            ],
+          },
+          bodyAfter:
+            'Where we rely on our legitimate interests, we consider whether the processing is necessary and proportionate and whether your rights and interests override our interests.\n\nWhere we rely on your consent, you may withdraw your consent at any time. Withdrawing consent does not affect the lawfulness of processing carried out before your consent was withdrawn.',
+        },
+        {
+          heading: 'Cookies, Analytics and Advertising Technologies',
+          body: 'Our website uses cookies and similar technologies. Some technologies are strictly necessary for the website to function. Other technologies are used only with consent where consent is required by applicable law.\n\nWe use Google Tag Manager to manage website tags and may use Google Analytics and Google Ads, including conversion measurement and remarketing functions. These services may process online identifiers, device information, website activity and advertising interaction information.\n\nWhere consent is required, analytics, advertising and remarketing technologies will not be activated until you have made an affirmative choice through our cookie banner. You may accept or reject nonessential cookies. You may also change or withdraw your choice at any time through the Cookie Settings control available on our website. Withdrawing consent does not affect processing that was lawful before withdrawal.\n\nGoogle and other technology providers may process information in countries outside the United Arab Emirates or the European Economic Area. International transfers are addressed in Section 10 below.\n\nYour browser may also allow you to block or delete cookies. Browser settings are separate from the consent choices provided through our website and may affect website functionality.',
+        },
+        {
+          heading: 'When We Share Personal Information',
+          body: 'We do not sell personal information.\n\nWe may share personal information where reasonably necessary for the purposes described in this Privacy Policy, including with:\n\n• our affiliated companies, where necessary to provide our services, administer our business or support our customers\n• website hosting, cloud, information technology, analytics, advertising and communications providers\n• payment, accounting and business administration providers\n• logistics, freight, customs and delivery partners where necessary to deliver equipment\n• professional advisers, auditors, insurers and consultants\n• banks, payment service providers and other transaction counterparties where relevant\n• competent authorities, courts, regulators or law enforcement bodies where disclosure is required or permitted by law\n• a purchaser, investor or successor in connection with a proposed or completed merger, acquisition, financing, restructuring or sale of all or part of our business\n\nWhere service providers process personal information on our behalf, they are required to process it only for authorized purposes and to apply appropriate confidentiality and security measures.\n\nSome recipients may process personal information as independent controllers and are responsible for their own processing activities.',
         },
         {
           heading: 'Data Retention',
-          body: 'We retain personal information for as long as necessary to fulfil the purposes described in this policy, including to comply with legal, accounting, or reporting obligations.',
-        },
-        {
-          heading: 'Your Rights',
-          body: 'Depending on your location, you may have the right to request access to, correction of, or deletion of your personal information. To exercise these rights, contact us using the details below.',
+          body: 'We retain personal information only for as long as reasonably necessary for the purpose for which it was collected and for any additional period required to comply with legal, tax, accounting, regulatory, record keeping or reporting obligations, resolve disputes, enforce agreements and establish or defend legal claims.\n\nWhen determining the appropriate retention period we consider the amount, nature and sensitivity of the information, the purposes for which it is processed, the risk of harm from unauthorized use or disclosure, whether the purpose can be achieved by other means and applicable legal requirements. When personal information is no longer required, we delete, anonymize or securely isolate it in accordance with our retention practices.',
         },
         {
           heading: 'Security',
-          body: 'We take reasonable technical and organizational measures to protect the information we hold, but no method of transmission or storage is completely secure.',
+          body: 'We maintain reasonable technical and organizational measures designed to protect personal information against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or access. These measures are reviewed having regard to the nature of the information, the risks presented by the processing and available technology.\n\nNo method of transmission over the Internet or method of electronic storage is completely secure. You should therefore use appropriate care when sending personal information electronically.',
         },
         {
-          heading: "Children's Privacy",
-          body: 'Our services are intended for businesses and individuals over the age of 18. We do not knowingly collect personal information from children.',
+          heading: 'International Transfers',
+          body: "Qubite is established in the United Arab Emirates. Personal information may be processed in the United Arab Emirates and may also be processed by our affiliated companies or service providers in other countries, including within the European Economic Area.\n\nWhere applicable law restricts the transfer of personal information to another country, we use an appropriate lawful transfer mechanism or safeguard.\n\nFor transfers of personal information from the European Economic Area to countries outside the European Economic Area, this may include an adequacy decision, the European Commission's Standard Contractual Clauses or another transfer mechanism permitted by applicable law.\n\nWhere the UAE Personal Data Protection Law applies, international transfers are made in accordance with the requirements of that law.\n\nYou may contact us using the details in the Contact Us section below if you would like further information about the safeguards used for a particular transfer.",
         },
         {
-          heading: 'Changes to This Policy',
-          body: 'We may update this Privacy Policy from time to time. Changes take effect when posted on this page, with the "Last updated" date revised accordingly.',
+          heading: 'Your Privacy Rights',
+          body: 'Depending on the law applicable to our processing of your personal information, you may have some or all of the following rights:\n\n• to obtain information about our processing and access personal information we hold about you\n• to request correction of inaccurate or incomplete personal information\n• to request deletion of personal information in circumstances provided by law\n• to request restriction of processing in circumstances provided by law\n• to object to processing based on legitimate interests and to object at any time to processing for direct marketing\n• to receive certain personal information in a structured, commonly used and machine readable format and to request its transmission to another controller where the right to portability applies\n• to withdraw consent at any time where processing is based on consent\n• to submit a complaint to the competent data protection authority\n\nThese rights are subject to conditions, limitations and exceptions under applicable law. We may need to verify your identity before acting on a request. We will respond within the period required by applicable law.',
+        },
+        {
+          heading: 'Automated Decision Making and Profiling',
+          body: 'We may use advertising tools to create or measure audiences based on website activity where you have consented to the relevant technologies.\n\nWe do not use solely automated decision making that produces legal effects concerning you or similarly significantly affects you in connection with the services covered by this Privacy Policy.',
+        },
+        {
+          heading: 'Children',
+          body: 'Our website and services are intended for business users and adults aged 18 or older.\n\nWe do not knowingly collect personal information from children through the website. If you believe a child has provided personal information to us, please contact us so that we can take appropriate action.',
+        },
+        {
+          heading: 'Third Party Websites and Services',
+          body: 'Our website may contain links to websites or services operated by other organizations. Those organizations are responsible for their own privacy practices.\n\nWe encourage you to review their privacy information before providing personal information to them.',
         },
         {
           heading: 'Contact Us',
-          body: 'For any privacy-related questions or requests, contact us at info@qubite-international.com or +971 55 661 5745. Qubite International Cloud Services - L.L.C. Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE. Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE.',
+          body: 'If you have a question about this Privacy Policy, our use of personal information or a request to exercise a privacy right, please contact:\n\nQubite International Cloud Services – L.L.C – S.P.C\n• Email: info@qubite-international.com\n• Telephone: +971 55 661 5745\n• Registered address: Building 118, Hessa Bint Mohammed Street, Al Safrah Industrial Area, Al Ain City Municipality, Abu Dhabi, United Arab Emirates',
+        },
+        {
+          heading: 'Changes to This Privacy Policy',
+          body: 'We may update this Privacy Policy from time to time to reflect changes in our processing activities, technology, services or legal obligations.\n\nThe current version will be posted on our website and the date at the top of this Privacy Policy will be updated. Where required by law, we will provide additional notice of material changes.',
         },
       ],
     },
     terms: {
       title: 'Terms & Conditions',
       intro:
-        'By accessing or using this website or purchasing products or services from Qubite International Cloud Services - L.L.C, trading as Qubite International ("Qubite", "we", "us"), you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our site or services.',
+        'By accessing or using this website or purchasing products or services from Qubite International Cloud Services – L.L.C – S.P.C, trading as Qubite International ("Qubite", "we", "us"), you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our site or services.',
       sections: [
         {
           heading: 'Who We Are',
@@ -618,7 +690,7 @@ export const en = {
         },
         {
           heading: 'Contact Us',
-          body: 'Questions about these Terms can be directed to info@qubite-international.com or +971 55 661 5745. Qubite International Cloud Services - L.L.C. Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE. Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE.',
+          body: 'Questions about these Terms can be directed to info@qubite-international.com or +971 55 661 5745. Qubite International Cloud Services – L.L.C – S.P.C. Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE. Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE.',
         },
       ],
     },
