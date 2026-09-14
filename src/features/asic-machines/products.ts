@@ -101,90 +101,6 @@ export const baseProducts: Product[] = [
     developerNote: 'Official Goldshell specifications match. VERIFIED.',
   },
   {
-    slug: 'ae-max-360m',
-    title: 'AE Max (360M)',
-    tag: 'GOLDSHELL',
-    price: 'Contact for pricing',
-    priceUsd: null,
-    hashrate: '360 MH/s',
-    hashrateValue: 360,
-    hashrateHz: 360e6,
-    power: '3300 W',
-    powerValue: 3300,
-    efficiency: '9.167 J/MH',
-    dailyProfit: null,
-    dailyProfitUsd: null,
-    payback: null,
-    media: { type: 'image', src: '/images/products/ae-max-360m.webp' },
-    category: 'Air Cooling Miners',
-    cooling: 'air',
-    brand: 'Goldshell',
-    algorithm: 'zkSNARK',
-    mineableCoins: [{ name: 'Aleo', ticker: 'ALEO' }],
-    description:
-      'AE Max (360M) is a zkSNARK ASIC miner rated at 360 MH/s with listed power of 3300 W. Availability, condition, warranty and electrical requirements must be confirmed in the quotation.',
-    specs: {
-      manufacturer: 'Goldshell',
-      model: 'AE Max (360M)',
-      release: 'Not confirmed',
-      noiseLevel: 'Not confirmed',
-      fans: 'Not confirmed',
-      interface: 'Ethernet',
-      inputVoltage: 'Not confirmed',
-      temperature: 'Not confirmed',
-      humidity: 'Not confirmed',
-    },
-    sourceUrl: 'https://www.asicminervalue.com/',
-    seoTitle: 'AE Max (360M) ASIC Miner | Qubite International',
-    metaDescription:
-      'View AE Max (360M) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
-    developerNote:
-      'SECONDARY-SOURCE MATCH via ASIC Miner Value. Profit, revenue, ROI and live marketplace price intentionally excluded.',
-  },
-  {
-    slug: 'ae1-lite-270m',
-    title: 'AE1 Lite (270M)',
-    tag: 'ICERIVER',
-    price: 'Contact for pricing',
-    priceUsd: null,
-    hashrate: '270 MH/s',
-    hashrateValue: 270,
-    hashrateHz: 270e6,
-    power: '500 W',
-    powerValue: 500,
-    efficiency: '1.852 J/MH',
-    dailyProfit: null,
-    dailyProfitUsd: null,
-    payback: null,
-    media: { type: 'image', src: '/images/products/ae1-lite-270m.webp' },
-    category: 'Air Cooling Miners',
-    cooling: 'air',
-    brand: 'IceRiver',
-    algorithm: 'zkSNARK',
-    mineableCoins: [{ name: 'Aleo', ticker: 'ALEO' }],
-    description:
-      'AE1 Lite (270M) is a zkSNARK ASIC miner rated at 270 MH/s with listed power of 500 W. Availability, condition, warranty and electrical requirements must be confirmed in the quotation.',
-    specs: {
-      manufacturer: 'IceRiver',
-      model: 'AE1 Lite (270M)',
-      release: 'Not confirmed',
-      noiseLevel: 'Not confirmed',
-      fans: 'Not confirmed',
-      interface: 'Ethernet',
-      inputVoltage: '100–240 V AC',
-      temperature: '0 to 40 °C',
-      humidity: 'Not confirmed',
-    },
-    dimensionsMm: '205 x 110 x 202',
-    weightKg: 4.02,
-    sourceUrl: 'https://www.asicminervalue.com/',
-    seoTitle: 'AE1 Lite (270M) ASIC Miner | Qubite International',
-    metaDescription:
-      'View AE1 Lite (270M) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
-    developerNote:
-      'MODEL CORRECTION REQUIRED — published anyway per request. ASIC Miner Value and IceRiver currently list AE1 Lite at 300 MH/s / 500 W. Replace this row with the 300 MH/s SKU unless a legacy 270 MH/s supplier datasheet is available.',
-  },
-  {
     slug: 'antminer-al1-16-6t',
     title: 'Antminer AL1 16.6T',
     tag: 'BITMAIN',
@@ -1137,8 +1053,8 @@ export const baseProducts: Product[] = [
     slug: 'antminer-s21-pro-234t',
     title: 'Antminer S21 Pro (234T)',
     tag: 'BITMAIN',
-    price: 'Contact for pricing',
-    priceUsd: null,
+    price: '$1,685',
+    priceUsd: 1685,
     hashrate: '234 TH/s',
     hashrateValue: 234,
     hashrateHz: 234e12,
@@ -1173,7 +1089,8 @@ export const baseProducts: Product[] = [
     seoTitle: 'Antminer S21 Pro (234T) ASIC Miner | Qubite International',
     metaDescription:
       'View Antminer S21 Pro (234T) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
-    developerNote: 'Official Bitmain specifications match. VERIFIED.',
+    developerNote:
+      'Official Bitmain specifications match. VERIFIED. Price from BitMars Group INC price list (2026-09-10), EXW Shenzhen/HK — matched by exact hashrate + efficiency to their "S21 Pro+" 234T row ($1,685). Wholesale cost, no freight/customs/margin added.',
   },
   {
     slug: 'antminer-s21-pro-245th',
@@ -1222,8 +1139,8 @@ export const baseProducts: Product[] = [
     slug: 'antminer-s21-xp-270t',
     title: 'Antminer S21 XP (270T)',
     tag: 'BITMAIN',
-    price: 'Contact for pricing',
-    priceUsd: null,
+    price: '$3,078',
+    priceUsd: 3078,
     hashrate: '270 TH/s',
     hashrateValue: 270,
     hashrateHz: 270e12,
@@ -1258,7 +1175,8 @@ export const baseProducts: Product[] = [
     seoTitle: 'Antminer S21 XP (270T) ASIC Miner | Qubite International',
     metaDescription:
       'View Antminer S21 XP (270T) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
-    developerNote: 'Official Bitmain specifications match. VERIFIED.',
+    developerNote:
+      'Official Bitmain specifications match. VERIFIED. Price from BitMars Group INC price list (2026-09-10), EXW Shenzhen/HK — matched by exact hashrate + efficiency to their "S21 XP" 270T row ($3,078). Wholesale cost, no freight/customs/margin added.',
   },
   {
     slug: 'antminer-s21-xp-hydro-473t',
@@ -1305,8 +1223,8 @@ export const baseProducts: Product[] = [
     slug: 'antminer-s21-216t',
     title: 'Antminer S21+ (216T)',
     tag: 'BITMAIN',
-    price: 'Contact for pricing',
-    priceUsd: null,
+    price: '$1,318',
+    priceUsd: 1318,
     hashrate: '216 TH/s',
     hashrateValue: 216,
     hashrateHz: 216e12,
@@ -1340,7 +1258,7 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View Antminer S21+ (216T) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'SECONDARY-SOURCE MATCH via ASIC Miner Value. Profit, revenue, ROI and live marketplace price intentionally excluded.',
+      'SECONDARY-SOURCE MATCH via ASIC Miner Value. Profit, revenue, ROI and live marketplace price intentionally excluded. Price from BitMars Group INC price list (2026-09-10), EXW Shenzhen/HK — matched by exact hashrate + efficiency to their "S21++" 216T row ($1,318). Wholesale cost, no freight/customs/margin added.',
   },
   {
     slug: 'antminer-s21-hyd-338t',
@@ -1387,8 +1305,8 @@ export const baseProducts: Product[] = [
     slug: 'antminer-s21-hydro-358t',
     title: 'Antminer S21+ Hydro (358T)',
     tag: 'BITMAIN',
-    price: 'Contact for pricing',
-    priceUsd: null,
+    price: '$2,255',
+    priceUsd: 2255,
     hashrate: '358 TH/s',
     hashrateValue: 358,
     hashrateHz: 358e12,
@@ -1422,7 +1340,7 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View Antminer S21+ Hydro (358T) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'SECONDARY-SOURCE MATCH via ASIC Miner Value. Profit, revenue, ROI and live marketplace price intentionally excluded.',
+      'SECONDARY-SOURCE MATCH via ASIC Miner Value. Profit, revenue, ROI and live marketplace price intentionally excluded. Price from BitMars Group INC price list (2026-09-10), EXW Shenzhen/HK — matched by exact hashrate + efficiency to their "S21+ Hydro" 358T row ($2,255). Wholesale cost, no freight/customs/margin added.',
   },
   {
     slug: 'antminer-t21-190t',
@@ -1801,8 +1719,8 @@ export const baseProducts: Product[] = [
     slug: 'antminer-s21-235t',
     title: 'Antminer S21+ (235T)',
     tag: 'BITMAIN',
-    price: 'Contact for pricing',
-    priceUsd: null,
+    price: '$1,504',
+    priceUsd: 1504,
     hashrate: '235 TH/s',
     hashrateValue: 235,
     hashrateHz: 235e12,
@@ -1836,7 +1754,7 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View Antminer S21+ (235T) specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'SECONDARY-SOURCE MATCH via ASIC Miner Value. Profit, revenue, ROI and live marketplace price intentionally excluded.',
+      'SECONDARY-SOURCE MATCH via ASIC Miner Value. Profit, revenue, ROI and live marketplace price intentionally excluded. Price from BitMars Group INC price list (2026-09-10), EXW Shenzhen/HK — matched by exact hashrate + efficiency to their "S21++" 235T row ($1,504). Wholesale cost, no freight/customs/margin added.',
   },
   {
     slug: 'iceriver-ae2-720m',
@@ -1918,7 +1836,8 @@ export const baseProducts: Product[] = [
     metaDescription:
       'View Whatsminer M60 specifications, electrical requirements and availability. Request current UAE pricing and hosting options.',
     developerNote:
-      'HASHRATE VARIANT REQUIRED — published anyway per request, hashrate left unset rather than guessed. M60 is a product family with multiple hashrate bins; add the exact TH/s model from the machine label or supplier invoice when known.',
+      'UNPUBLISHED 2026-09: M60 is a product family with multiple hashrate bins (base M60: 172 TH/s @ 3422W, 19.9 J/T; M60S: 186 TH/s @ 3441W, 18.5 J/T — cross-checked via Hashrate Index, ViperaTech, Mining Now). The listed 3440W does not cleanly match either variant, and the title has no S-suffix. Do not guess — confirm the exact TH/s from the physical unit\'s label or supplier invoice, then republish.',
+    needsReview: true,
   },
   {
     slug: 'pinecone-matches-inibox-850m',

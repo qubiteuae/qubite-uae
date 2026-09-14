@@ -5,6 +5,7 @@ import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { products as catalogProducts } from '@/features/asic-machines/products'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 function TickMark() {
@@ -103,7 +104,7 @@ const miners: Miner[] = catalogProducts.map((product, i) => ({
 type SortKey = 'model' | 'releaseSort' | 'hashrateSort' | 'powerSort' | 'price'
 
 export function AsicComparison() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const toLang = useLocalizedPath()
 
@@ -182,6 +183,7 @@ export function AsicComparison() {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('home_asic_comparison', i18n.language)}
             className="mt-3 inline-flex items-center gap-2 rounded-full border border-[rgba(232,167,101,0.4)] bg-[#0c0a08] px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:bg-[#151210] active:scale-95"
             style={{ boxShadow: '0 0 30px rgba(232,167,101,0.25)' }}
           >

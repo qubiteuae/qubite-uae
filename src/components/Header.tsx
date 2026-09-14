@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Container } from '@/components/Container'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { localizePath, stripLangPrefix } from '@/lib/i18nPaths'
 import { TELEGRAM_LINK, WHATSAPP_LINK } from '@/lib/links'
 
@@ -149,7 +150,7 @@ function LanguageToggle() {
 }
 
 export function Header() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const toLang = useLocalizedPath()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -160,9 +161,19 @@ export function Header() {
   ]
 
   const contactLinks = [
-    { label: t('header.contact.whatsapp'), href: WHATSAPP_LINK, icon: WhatsAppIcon },
-    { label: t('header.contact.telegram'), href: TELEGRAM_LINK, icon: TelegramIcon },
-    { label: t('header.contact.talkToHuman'), href: WHATSAPP_LINK, icon: HeadsetIcon },
+    {
+      label: t('header.contact.whatsapp'),
+      href: WHATSAPP_LINK,
+      icon: WhatsAppIcon,
+      onClick: () => trackWhatsAppClick('header_whatsapp', i18n.language),
+    },
+    { label: t('header.contact.telegram'), href: TELEGRAM_LINK, icon: TelegramIcon, onClick: undefined },
+    {
+      label: t('header.contact.talkToHuman'),
+      href: WHATSAPP_LINK,
+      icon: HeadsetIcon,
+      onClick: () => trackWhatsAppClick('header_talk_to_human', i18n.language),
+    },
   ]
 
   return (
@@ -207,6 +218,7 @@ export function Header() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={link.onClick}
                 aria-label={link.label}
                 title={link.label}
                 className="flex size-9 items-center justify-center rounded-full border border-border-strong text-white transition-all duration-200 hover:border-white hover:bg-white/5 active:scale-90"
@@ -278,6 +290,7 @@ export function Header() {
                 <a
                   key={link.label}
                   href={link.href}
+                  onClick={link.onClick}
                   aria-label={link.label}
                   title={link.label}
                   className="flex size-9 items-center justify-center rounded-full border border-border-strong text-white transition-all duration-200 hover:border-white hover:bg-white/5 active:scale-90"

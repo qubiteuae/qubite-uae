@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 interface Plan {
@@ -18,7 +19,7 @@ const planRates = ['4.0¢', '6.5¢', '7.5¢', '8.0¢']
 const planRecommended = [false, false, true, false]
 
 export function PricingPlans() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const plans: Plan[] = (
     t('hosting.pricingPlans.plans', { returnObjects: true }) as Omit<Plan, 'rate' | 'recommended'>[]
   ).map((plan, i) => ({ ...plan, rate: planRates[i], recommended: planRecommended[i] }))
@@ -87,6 +88,7 @@ export function PricingPlans() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick(`hosting_pricing_plan:${plan.name}`, i18n.language)}
                   className={`mt-auto inline-flex items-center justify-center rounded-full py-2.5 text-xs font-bold uppercase tracking-wide transition-all duration-200 active:scale-95 ${
                     plan.recommended
                       ? 'bg-accent-bronze text-white hover:brightness-110'

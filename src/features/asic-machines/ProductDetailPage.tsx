@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import { Badge } from '@/components/Badge'
@@ -7,6 +7,7 @@ import { Reveal } from '@/components/Reveal'
 import { getProductBySlug } from '@/features/asic-machines/products'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { SITE_URL, usePageSeo } from '@/hooks/usePageSeo'
+import { pushDataLayerEvent, trackWhatsAppClick } from '@/lib/analytics'
 import { localizePath } from '@/lib/i18nPaths'
 import { EfficiencyIcon, HashrateIcon, PowerIcon, WhatsAppIcon } from './components/icons'
 
@@ -34,6 +35,10 @@ function ChevronRightIcon({ className = 'size-3' }: { className?: string }) {
 
 const hostingTierRates = [0.065, 0.075, 0.08]
 const hostingTierRecommended = [false, true, false]
+// Mirrors each plan's "Machine Types" eligibility from /hosting (Low Rate
+// Hosted is Hydro-only there) so a product page never advertises a rate the
+// machine wouldn't actually qualify for.
+const hostingTierCooling: ('air' | 'hydro')[][] = [['hydro'], ['air', 'hydro'], ['air', 'hydro']]
 
 const currencyPrecise = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
 
@@ -66,7 +71,13 @@ export function ProductDetailPage() {
                       '@type': 'Offer',
                       priceCurrency: 'USD',
                       price: product.priceUsd,
-                      availability: 'https://schema.org/InStock',
+                      // Only assert availability when a real stock status is on record —
+                      // otherwise the schema would claim InStock with nothing to back it.
+                      ...(product.status === 'In Stock'
+                        ? { availability: 'https://schema.org/InStock' }
+                        : product.status === 'No Stock'
+                          ? { availability: 'https://schema.org/OutOfStock' }
+                          : {}),
                     },
                   }
                 : {}),
@@ -90,13 +101,30 @@ export function ProductDetailPage() {
         },
   )
 
+  useEffect(() => {
+    if (!product) return
+    pushDataLayerEvent('product_view', {
+      product_id: product.slug,
+      manufacturer: product.brand,
+      model: product.title,
+      hashrate: product.hashrate,
+    })
+  }, [product])
+
   // Reuses the same 3 tiers (skipping Turnkey Site) from the hosting plans
-  // translations so tier names/taglines stay in sync with the /hosting page.
+  // translations so tier names/taglines stay in sync with the /hosting page,
+  // then filters to only the plans this machine's cooling type qualifies for.
   const hostingTiers = (
     t('hosting.pricingPlans.plans', { returnObjects: true }) as { name: string; tagline: string }[]
   )
     .slice(1)
-    .map((plan, i) => ({ ...plan, rate: hostingTierRates[i], recommended: hostingTierRecommended[i] }))
+    .map((plan, i) => ({
+      ...plan,
+      rate: hostingTierRates[i],
+      recommended: hostingTierRecommended[i],
+      coolingTypes: hostingTierCooling[i],
+    }))
+    .filter((tier) => !product || tier.coolingTypes.includes(product.cooling))
 
   const [hostingRateIndex, setHostingRateIndex] = useState(
     hostingTiers.findIndex((tier) => tier.recommended) === -1 ? 0 : hostingTiers.findIndex((tier) => tier.recommended),
@@ -217,6 +245,7 @@ export function ProductDetailPage() {
                 href={productWhatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick(`product_detail_request_price:${product.slug}`, i18n.language)}
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-b from-[#22c55e] to-[#16a34a] px-6 py-3 text-sm font-bold text-white uppercase transition-all duration-200 hover:brightness-110 active:scale-95"
                 style={{ boxShadow: '0 4px 14px rgba(34,197,94,0.3)' }}
               >
@@ -227,6 +256,7 @@ export function ProductDetailPage() {
                 href={productWhatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick(`product_detail_talk_to_human:${product.slug}`, i18n.language)}
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-white/40 hover:bg-white/5 active:scale-95"
               >
                 <HeadsetIcon />
@@ -289,6 +319,9 @@ export function ProductDetailPage() {
               )
             })}
           </div>
+          <Reveal delay={220}>
+            <p className="mt-4 text-[11px] text-text-faint">{t('productDetail.hostingPlans.disclaimer')}</p>
+          </Reveal>
           <Reveal delay={240}>
             <Link
               to={toLang('/hosting')}

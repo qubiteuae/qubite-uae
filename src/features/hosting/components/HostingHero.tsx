@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 const GRADIENT = 'linear-gradient(90deg, #e8a765 0%, #b8794a 100%)'
@@ -50,7 +51,7 @@ function HeadsetIcon({ className = 'size-4' }: { className?: string }) {
 const valuePropIcons = [GaugeIcon, ReceiptIcon, ShieldCheckIcon]
 
 export function HostingHero() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const valueProps = t('hosting.hero.valueProps', { returnObjects: true }) as { title: string; description: string }[]
 
   return (
@@ -97,6 +98,7 @@ export function HostingHero() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('hosting_hero', i18n.language)}
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-white/30 hover:bg-black/60 active:scale-95"
             >
               <HeadsetIcon />

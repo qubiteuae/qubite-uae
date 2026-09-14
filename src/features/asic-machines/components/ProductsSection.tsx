@@ -5,6 +5,7 @@ import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { type Brand, type Category, type Product, products } from '@/features/asic-machines/products'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 import {
   ChevronDownIcon,
@@ -60,7 +61,7 @@ function ProductMedia({ media }: { media: Product['media'] }) {
 }
 
 function ProductCard({ product, delay }: { product: Product; delay: number }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const toLang = useLocalizedPath()
   const inStock = product.status === 'In Stock'
 
@@ -188,6 +189,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick(`products_section_card:${product.slug}`, i18n.language)}
             className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-gradient-to-b from-[#22c55e] to-[#16a34a] py-3 text-[13px] font-bold tracking-[0.03em] text-white uppercase transition-all duration-200 hover:brightness-110 active:scale-95"
             style={{ boxShadow: '0 4px 14px rgba(34,197,94,0.3)' }}
           >

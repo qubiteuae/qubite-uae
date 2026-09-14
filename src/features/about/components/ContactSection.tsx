@@ -4,6 +4,7 @@ import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 const CONTACT_EMAIL = 'info@qubite-international.com'
@@ -133,7 +134,14 @@ export function ContactSection() {
                 </div>
               )
               return item.href ? (
-                <a key={item.label} href={item.href} className="transition-opacity duration-200 hover:opacity-80">
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => {
+                    if (item.href.startsWith('tel:')) trackPhoneClick('about_contact_page')
+                  }}
+                  className="transition-opacity duration-200 hover:opacity-80"
+                >
                   {content}
                 </a>
               ) : (
@@ -145,6 +153,7 @@ export function ContactSection() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('about_contact_page', i18n.language)}
               className="mt-2 inline-flex items-center justify-center rounded-full bg-accent-bronze px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:brightness-110 active:scale-95"
             >
               {t('about.contact.talkToHumanWhatsapp')}

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Container } from '@/components/Container'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 const avatars = ['/figma/hero/avatar-1.png', '/figma/hero/avatar-2.png', '/figma/hero/avatar-3.png']
@@ -68,7 +69,7 @@ function NetworkIcon({ className = 'size-4' }: { className?: string }) {
 }
 
 export function Hero() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const toLang = useLocalizedPath()
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -113,6 +114,7 @@ export function Hero() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('home_hero_primary', i18n.language)}
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-white/30 hover:bg-black/60 active:scale-95"
               >
                 <HeadsetIcon className="size-[14px]" />
@@ -214,6 +216,7 @@ export function Hero() {
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppClick('home_hero_meet_experts', i18n.language)}
           className="flex items-center gap-4 text-[13px] text-text-dim transition-colors hover:text-white"
         >
           {t('home.hero.meetExperts')}

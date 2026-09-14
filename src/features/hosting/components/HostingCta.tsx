@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 function HeadsetIcon({ className = 'size-4' }: { className?: string }) {
@@ -18,7 +19,7 @@ function HeadsetIcon({ className = 'size-4' }: { className?: string }) {
 }
 
 export function HostingCta() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   return (
     <section className="bg-black py-24">
@@ -40,6 +41,7 @@ export function HostingCta() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('hosting_cta_banner', i18n.language)}
                 className="inline-flex items-center gap-2 rounded-full bg-accent-bronze px-6 py-3 text-sm font-bold text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.6)] transition-all duration-200 hover:brightness-110 active:scale-95"
               >
                 <HeadsetIcon />

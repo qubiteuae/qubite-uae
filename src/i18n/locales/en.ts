@@ -155,8 +155,8 @@ export const en = {
         { title: 'Direct Payouts', description: "Pool payouts can be directed to the customer's compatible wallet, subject to pool terms and fees." },
       ],
       verticals: [
-        { title: 'Crypto Mining', subtitle: 'Professional mining with solar power' },
-        { title: 'Cloud Computing', subtitle: 'Enterprise hosting worldwide' },
+        { title: 'Crypto Mining', subtitle: 'Professional crypto mining operations' },
+        { title: 'Cloud Computing', subtitle: 'Enterprise-grade hosting infrastructure' },
       ],
       talkToHuman: 'Talk to human',
     },
@@ -190,7 +190,7 @@ export const en = {
         {
           title: 'Diversified Energy Sources',
           description: 'Energy sources and locations are evaluated based on cost, availability and operational requirements.',
-          tags: ['HYDRO', 'GRID', 'SOLAR'],
+          tags: ['HYDRO', 'GRID'],
         },
         {
           title: 'Strategic Jurisdiction Selection',
@@ -292,8 +292,8 @@ export const en = {
         { title: 'Power delivery & metering', description: 'Redundant feeds with per-rack metering so your billing is always accurate.' },
         { title: 'Rack space & racking', description: 'Pre-provisioned, high-density rack space engineered for your machine type.' },
         { title: 'Cooling infrastructure', description: 'Air, hydro, or immersion cooling matched to each plan’s machine types.' },
-        { title: '24/7 monitoring & alerts', description: 'Real-time hashrate and uptime monitoring with instant alerting on any drop.' },
-        { title: 'Physical security', description: 'Access-controlled facilities with continuous surveillance and on-site staff.' },
+        { title: '24/7 monitoring & alerts', description: 'Hashrate and uptime monitoring with automated alerting on any drop.' },
+        { title: 'Physical security', description: 'Access-controlled facilities with surveillance, per each site\'s operational standards.' },
         { title: 'Deployment coordination', description: 'We handle receiving, unboxing, and rack-mounting from the moment your hardware arrives.' },
       ],
     },
@@ -388,7 +388,7 @@ export const en = {
       ],
       lifecycle: {
         title: 'Full lifecycle service',
-        description: 'We manage the complete process end-to-end, bundled into one transparent all-in fee.',
+        description: 'We manage the complete process end-to-end; setup, hosting and any additional charges are itemized in your quotation.',
         steps: ['Consultation', 'Hardware', 'Import', 'Installation', 'Monitoring', 'Support'],
       },
     },
@@ -477,14 +477,16 @@ export const en = {
     requestPrice: 'Request Current Price',
     talkToAHuman: 'Talk to a human',
     hostingPlans: {
-      title: 'Hosting Plans for This Machine',
-      subtitle: 'Estimated monthly hosting cost per plan, based on',
+      title: 'Compatible Hosting Plans',
+      subtitle: 'Estimated monthly electricity cost per eligible plan, based on',
       subtitleSuffix: 'continuous draw.',
       recommended: 'Recommended',
       perKwh: '/ kWh',
-      estMonthlyCost: 'Est. Monthly Cost',
+      estMonthlyCost: 'Est. Monthly Electricity Cost',
       selected: '✓ Selected',
       viewAllPlans: 'View all hosting plans',
+      disclaimer:
+        "Estimated monthly electricity cost only, based on rated power and 720 operating hours. Actual usage and billing may vary. Setup, service charges and taxes, if applicable, are quoted separately. Only plans compatible with this machine's cooling type are shown.",
     },
     description: 'Description',
     technicalSpecifications: 'Technical Specifications',
@@ -589,6 +591,14 @@ export const en = {
         {
           heading: 'Shipping & Delivery',
           body: 'Delivery timeframes communicated by our team are estimates only. Qubite is not liable for delays caused by carriers, customs, or circumstances beyond our reasonable control.',
+        },
+        {
+          heading: 'Returns & Cancellations',
+          body: 'To cancel an order or request a return, contact us in writing before the hardware is dispatched or installed. Eligibility, any applicable restocking, cancellation or logistics fees, and the refund process are confirmed by our team on a case-by-case basis and stated in writing before any amount is charged or refunded. Hardware that has been installed, hosted, or shows signs of use is assessed individually and may not be eligible for return.',
+        },
+        {
+          heading: 'Hosting Termination',
+          body: 'Either party may end a hosting arrangement in accordance with the notice period and terms set out in the signed hosting agreement or quotation for that slot. On termination, we will confirm in writing the process and timeline for de-racking, returning, or relocating your hardware, and any outstanding charges up to the termination date.',
         },
         {
           heading: 'Warranty',

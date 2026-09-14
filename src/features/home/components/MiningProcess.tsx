@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 const GRADIENT = 'linear-gradient(90deg, #e8a765 0%, #b8794a 100%)'
@@ -85,7 +86,7 @@ function PickaxeIcon({ className = 'size-4' }: { className?: string }) {
 const stepIcons = [HardwareIcon, BoltIcon, HostingIcon, RewardsIcon]
 
 export function MiningProcess() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const steps = t('home.miningProcess.steps', { returnObjects: true }) as { num: string; title: string; description: string }[]
 
   return (
@@ -189,6 +190,7 @@ export function MiningProcess() {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('home_mining_process', i18n.language)}
             className="mt-8 inline-flex items-center gap-2 rounded-full border border-[rgba(232,167,101,0.4)] bg-[#0c0a08] px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:bg-[#151210] active:scale-95"
             style={{ boxShadow: '0 0 30px rgba(232,167,101,0.25)' }}
           >

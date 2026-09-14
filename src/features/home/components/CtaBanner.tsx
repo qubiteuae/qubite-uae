@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Reveal } from '@/components/Reveal'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
+import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
 function HeadsetIcon() {
@@ -27,7 +28,7 @@ function ArrowIcon() {
 }
 
 export function CtaBanner() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const toLang = useLocalizedPath()
 
   return (
@@ -44,6 +45,7 @@ export function CtaBanner() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('home_cta_banner', i18n.language)}
               className="deployment-cta-button deployment-cta-human"
             >
               <HeadsetIcon />
