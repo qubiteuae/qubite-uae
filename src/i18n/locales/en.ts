@@ -130,7 +130,7 @@ export const en = {
         power: 'Power',
         top: 'Top',
         algorithm: 'Algorithm',
-        bestPrice: 'Best Price',
+        bestPrice: 'Price',
       },
       disclaimer:
         'Prices, specifications and availability are subject to confirmation before purchase. Hosting, installation, delivery, customs and VAT are included only where expressly stated in the quotation or agreement.',
@@ -172,9 +172,7 @@ export const en = {
       paragraph: 'Access hardware, cloud power, clean energy, and cutting-edge software under a unified, high-performance ecosystem.',
       categories: [
         { title: 'Hardware Marketplace', description: 'Browse and purchase mining hardware from established manufacturers and approved suppliers' },
-        { title: 'Energy Solutions', description: 'Turnkey power, land, and grid access for large-scale mining' },
-        { title: 'Technology', description: 'Cutting-edge infrastructure and optimization tools' },
-        { title: 'Academy', description: 'Learn mining fundamentals and advanced strategies' },
+        { title: 'Energy Solutions', description: 'Turnkey power, rack space, and cooling for large-scale hosted mining' },
       ],
     },
     stabilityGrid: {

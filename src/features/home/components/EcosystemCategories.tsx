@@ -7,9 +7,7 @@ import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 
 const categoryMeta = [
   { image: '/figma/cards/hardware-marketplace.png', href: '/asic-machines' },
-  { image: '/figma/cards/energy-solutions.png' },
-  { image: '/figma/cards/technology.png' },
-  { image: '/figma/cards/academy.png' },
+  { image: '/figma/cards/energy-solutions.png', href: '/hosting' },
 ]
 
 function ArrowUpRightIcon({ className = 'size-4' }: { className?: string }) {
@@ -40,7 +38,7 @@ export function EcosystemCategories() {
           <p className="max-w-[640px] text-base font-bold text-text-subtle">{t('home.ecosystemCategories.paragraph')}</p>
         </Reveal>
 
-        <div className="relative grid w-full max-w-[1320px] grid-cols-1 gap-5 pt-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative grid w-full max-w-[680px] grid-cols-1 gap-5 pt-16 sm:grid-cols-2">
           {categories.map((category, i) => {
             const cardClassName =
               'group flex h-full flex-col overflow-hidden rounded-2xl border border-white/8 bg-[#161616] text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20'
