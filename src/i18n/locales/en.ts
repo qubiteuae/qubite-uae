@@ -366,8 +366,8 @@ export const en = {
         },
         { name: 'Melina Kießlich', role: 'Co-Founder & CEO', bio: "As co-founder and CEO, Melina is responsible for qubite's strategic direction and operational leadership." },
         { name: 'Rolf Maier', role: 'Partner', bio: "An official partner of qubite International since 2026, supporting the company's strategic growth and business development." },
-        { name: 'Diana Hanibauer', role: 'Chief Operating Officer', bio: "As COO, Diana oversees qubite's day-to-day operations and ensures smooth processes across every department." },
-        { name: 'Adina Sevelius', role: 'Senior Legal Advisor', bio: 'Adina advises qubite on all legal matters and ensures compliance with international regulations.' },
+        { name: 'Diana Hanibauer', role: 'Chief Operating Officer', bio: "As COO, Diana oversees qubite's day-to-day operations and works to maintain smooth processes across every department." },
+        { name: 'Adina Sevelius', role: 'Senior Legal Advisor', bio: 'Adina advises qubite on all legal matters and works to maintain compliance with international regulations.' },
         { name: 'Malte Findeisen', role: 'Strategic Partner', bio: 'Malte supports qubite in building international partnerships and leads the B2B business unit.' },
         { name: 'Mischa Guidon', role: 'External Controller', bio: "As external financial strategist, Mischa oversees qubite's financial planning, capital structure, and liquidity, and advises leadership on core financial strategy." },
         { name: 'Christoph Wolf', role: 'Head of KYC/AML & Client Relations — Switzerland', bio: "Christoph leads client relations in Switzerland and oversees qubite International's internal KYC/AML compliance framework." },
@@ -386,28 +386,31 @@ export const en = {
       badge: 'Locations',
       heading: 'Where We Operate',
       paragraph:
-        'A hybrid infrastructure model built around the UAE — cost-efficient, high-density capacity for compute-intensive workloads, supported by partner data center facilities in Germany and Europe for latency-critical, regulated deployments.',
+        'A hybrid infrastructure model built around the UAE — cost-efficient, high-density capacity for compute-intensive workloads, supported by partner data center facilities in Germany and Switzerland for latency-critical, regulated deployments.',
       uae: {
         title: 'United Arab Emirates',
         description: 'Purpose-built for compute-intensive workloads like crypto mining, with affordable, stable energy and full lifecycle service.',
         tag: '→ Primary operating base',
       },
       europe: {
-        title: 'Germany & Europe',
+        title: 'Germany & Switzerland',
         description: 'Partner data center facilities for highly sensitive, regulated, and latency-critical applications — designed to meet regulated data-handling requirements and close to the customer.',
         tag: '→ Regulated-workload backbone',
       },
+      statsLabel: 'European Partner Facility',
       stats: [
-        { label: 'Total Capacity', value: '>8 MW' },
+        { label: 'Facility Capacity', value: '>8 MW' },
         { label: 'Server Slots', value: '2,100+' },
         { label: 'PUE Rating', value: '<1.2' },
         { label: 'Monitoring', value: '24/7' },
       ],
-      statsDisclaimer: "Partner-facility figures, provided by Qubite's European infrastructure partner and subject to change.",
+      statsDisclaimer:
+        "Figures provided by Qubite's European infrastructure partner; subject to change. UAE capacity is quoted separately per hosting plan.",
       uaeSitesHeading: 'Our UAE Sites',
       uaeSites: [
         { name: 'Nahil' },
         { name: 'Mafraq' },
+        { name: 'Ras Al Khaimah' },
       ],
       lifecycle: {
         title: 'Full lifecycle service',

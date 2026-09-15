@@ -3,7 +3,11 @@ import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 
-const uaeSitePhotos = ['/locations/abu-dhabi-building.webp', '/locations/abu-dhabi-hall.webp']
+const uaeSitePhotos = [
+  '/locations/abu-dhabi-building.webp',
+  '/locations/abu-dhabi-hall.webp',
+  '/locations/abu-dhabi-container.webp',
+]
 
 export function LocationsSection() {
   const { t } = useTranslation()
@@ -47,7 +51,7 @@ export function LocationsSection() {
             <div className="relative flex h-full flex-col gap-3 overflow-hidden rounded-2xl border border-white/8 bg-white/3 p-6">
               <img
                 src="/locations/server-racks.webp"
-                alt="Germany and Europe facility"
+                alt="Germany and Switzerland facility"
                 className="h-40 w-full rounded-xl object-cover"
               />
               <h3 className="text-base font-bold text-white">{t('about.locations.europe.title')}</h3>
@@ -59,7 +63,13 @@ export function LocationsSection() {
           </Reveal>
         </div>
 
-        <div className="mt-6 grid w-full max-w-[1000px] grid-cols-2 gap-4 sm:grid-cols-4">
+        <Reveal delay={320} className="mt-6">
+          <span className="text-[11px] font-bold tracking-[0.08em] text-accent-bronze-tint uppercase">
+            {t('about.locations.statsLabel')}
+          </span>
+        </Reveal>
+
+        <div className="mt-2 grid w-full max-w-[1000px] grid-cols-2 gap-4 sm:grid-cols-4">
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={340 + i * 60}>
               <div className="flex flex-col items-center gap-1 rounded-2xl border border-white/8 bg-white/3 py-5">
@@ -75,7 +85,7 @@ export function LocationsSection() {
           <h3 className="text-lg font-bold text-white">{t('about.locations.uaeSitesHeading')}</h3>
         </Reveal>
 
-        <div className="mt-4 grid w-full max-w-[500px] grid-cols-2 gap-4">
+        <div className="mt-4 grid w-full max-w-[720px] grid-cols-2 gap-4 sm:grid-cols-3">
           {uaeSites.map((site, i) => (
             <Reveal key={site.name} delay={460 + i * 80}>
               <div className="group relative aspect-square overflow-hidden rounded-2xl border border-white/8">
