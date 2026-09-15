@@ -32,6 +32,10 @@ const teamMeta: { photo: string; email?: string }[] = [
   { photo: '/team/disa-sevelius.jpg', email: 'disa.sevelius@qubite-international.com' },
   { photo: '/team/hashifali-kojanikkanakath.jpg', email: 'hashif@qubite-international.com' },
   { photo: '/team/mohammed-swalih.jpg', email: 'mohammed.swalih@qubite-international.com' },
+  { photo: '/team/sen-james.jpg', email: 'sen.thomas@qubite-international.com' },
+  { photo: '/team/megha-kumar.jpg', email: 'megha.kumar@qubite-international.com' },
+  { photo: '/team/mohammad-arshad.jpg', email: 'mohammad.arshad@qubite-international.com' },
+  { photo: '/team/abhijith-reghunath.jpg', email: 'abhijith.reghunath@qubite-international.com' },
   { photo: '/team/lutz-stratmann.jpg' },
 ]
 
