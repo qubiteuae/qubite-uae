@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/asic-machines/bitmain-antminer-s21-pro-plus-234th",
-      "destination": "/asic-machines/antminer-s21-pro-234t",
+      "destination": "/asic-machines/antminer-s21-pro-234th",
       "permanent": true
     }
   ],
