@@ -8,6 +8,11 @@ interface TeamMember {
   bio: string
   photo: string
   email?: string
+  expertiseHeading?: string
+  expertise?: string[]
+  visionHeading?: string
+  visionBody?: string
+  visionQuote?: string
 }
 
 // Photos and emails aren't translated, so they stay keyed by index against
@@ -26,7 +31,6 @@ const teamMeta: { photo: string; email?: string }[] = [
   { photo: '/team/thorkil-schmidiger.jpg', email: 'thorkil.schmidiger@qubite-international.com' },
   { photo: '/team/disa-sevelius.jpg', email: 'disa.sevelius@qubite-international.com' },
   { photo: '/team/hashifali-kojanikkanakath.jpg', email: 'hashif@qubite-international.com' },
-  { photo: '/team/peter-kreth.jpg', email: 'peter.kreth@qubite-international.com' },
   { photo: '/team/mohammed-swalih.jpg', email: 'mohammed.swalih@qubite-international.com' },
   { photo: '/team/lutz-stratmann.jpg' },
 ]
@@ -40,11 +44,70 @@ function MailIcon({ className = 'size-4' }: { className?: string }) {
   )
 }
 
+function TeamMemberProfile({ member }: { member: TeamMember }) {
+  return (
+    <Reveal className="w-full">
+      <div className="flex w-full flex-col gap-8 rounded-2xl border border-white/8 bg-white/3 p-6 sm:flex-row sm:p-10">
+        <img
+          src={member.photo}
+          alt={member.name}
+          className="mx-auto h-[260px] w-[260px] shrink-0 rounded-2xl border border-white/10 object-cover sm:mx-0"
+        />
+
+        <div className="flex flex-col gap-5 text-left">
+          <div className="flex flex-col gap-1">
+            <h3 className="text-2xl font-black text-white sm:text-3xl">{member.name}</h3>
+            <p className="text-xs font-bold tracking-wide text-accent-bronze-tint uppercase">{member.role}</p>
+          </div>
+
+          <p className="text-sm leading-relaxed text-text-dim sm:text-base">{member.bio}</p>
+
+          {member.expertise?.length ? (
+            <div className="flex flex-col gap-2">
+              <h4 className="text-sm font-bold text-white">{member.expertiseHeading}</h4>
+              <ul className="flex flex-col gap-1.5">
+                {member.expertise.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-text-dim">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-copper" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {member.visionBody ? (
+            <div className="flex flex-col gap-2 rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+              <h4 className="text-sm font-bold text-white">{member.visionHeading}</h4>
+              <p className="text-sm leading-relaxed text-text-dim">{member.visionBody}</p>
+              {member.visionQuote ? (
+                <p className="text-sm font-semibold text-accent-bronze-tint">{member.visionQuote}</p>
+              ) : null}
+            </div>
+          ) : null}
+
+          {member.email ? (
+            <a
+              href={`mailto:${member.email}`}
+              className="mt-1 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-xs font-bold text-white transition-colors hover:border-white/30"
+            >
+              <MailIcon className="size-3.5" />
+              {member.email}
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </Reveal>
+  )
+}
+
 export function TeamGrid() {
   const { t } = useTranslation()
   const team: TeamMember[] = (
     t('about.team.members', { returnObjects: true }) as Omit<TeamMember, 'photo' | 'email'>[]
   ).map((member, i) => ({ ...member, ...teamMeta[i] }))
+
+  const featured = team.filter((member) => member.expertise?.length || member.visionBody)
 
   return (
     <section className="relative bg-bg py-24">
@@ -83,6 +146,10 @@ export function TeamGrid() {
             </Reveal>
           ))}
         </div>
+
+        {featured.map((member) => (
+          <TeamMemberProfile key={member.name} member={member} />
+        ))}
       </Container>
     </section>
   )

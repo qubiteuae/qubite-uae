@@ -346,8 +346,24 @@ export const en = {
     team: {
       heading: 'Our Team',
       paragraph: 'Experienced operators across hardware, hosting, energy, and compliance',
+      readMore: 'Read more',
       members: [
-        { name: 'Tajo Adler', role: 'Co-Founder & Authorized Representative', bio: 'As an entrepreneur, Tajo combines strategic leadership with sustainable investments in future technologies.' },
+        {
+          name: 'Tajo Adler',
+          role: 'Co-Founder & Authorized Representative',
+          bio: 'As an entrepreneur, Tajo combines strategic leadership with sustainable investments in future technologies.',
+          expertiseHeading: 'His expertise',
+          expertise: [
+            'Sustainable investments focusing on future technologies',
+            'Strategic corporate management for international markets',
+            'Innovative business development in renewable energy and digitalization',
+            'Focus on qubite and reshaping the energy industry and digital infrastructure',
+          ],
+          visionHeading: 'His vision for qubite',
+          visionBody:
+            'By combining affordable solar power with German engineering, Tajo Adler creates sustainable solutions for energy-intensive future technologies such as AI and blockchain. This creates not only economic benefits but also a real contribution to climate protection.',
+          visionQuote: "'qubite builds the bridge between innovation and sustainability.'",
+        },
         { name: 'Melina Kießlich', role: 'Co-Founder & CEO', bio: "As co-founder and CEO, Melina is responsible for qubite's strategic direction and operational leadership." },
         { name: 'Rolf Maier', role: 'Partner', bio: "An official partner of qubite International since 2026, supporting the company's strategic growth and business development." },
         { name: 'Diana Hanibauer', role: 'Chief Operating Officer', bio: "As COO, Diana oversees qubite's day-to-day operations and ensures smooth processes across every department." },
@@ -360,7 +376,6 @@ export const en = {
         { name: 'Thorkil Schmidiger', role: 'Core Developer — Neptune Cash', bio: 'Thorkil is the lead software engineer behind the Neptune blockchain implementation, advancing the protocol alongside Alan.' },
         { name: 'Disa Sevelius', role: 'Head of Sales & Marketing — Middle East', bio: "Disa leads qubite International's sales and marketing across the Middle East, driving regional growth, partnerships, and brand positioning." },
         { name: 'Hashifali Kojanikkanakath', role: 'Account Manager / Sales — Middle East', bio: 'Hashifali brings 6 years of sales experience and manages client support across the Middle East.' },
-        { name: 'Peter Kreth', role: 'Head of Client Relations — Italy', bio: 'Peter leads client relations across Italy and has supported the Neptune ecosystem and its community since the project began.' },
         { name: 'Mohammed Swalih', role: 'Operations Manager', bio: "Mohammed leads mining operations across all of qubite's sites, managing the development, construction, and expansion of new infrastructure." },
         { name: 'Lutz Stratmann', role: 'External Advisor — Data Protection & Compliance', bio: 'Former Minister of Science and Culture, Lutz advises qubite externally on sustainability, data protection, and compliance.' },
       ],
