@@ -86,6 +86,9 @@ export function HostingHero() {
             {t('hosting.hero.paragraphSuffix')}
           </p>
         </Reveal>
+        <Reveal delay={170}>
+          <p className="max-w-[620px] text-sm font-medium text-accent-bronze-tint">{t('hosting.hero.eligibilityNote')}</p>
+        </Reveal>
         <Reveal delay={200}>
           <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
             <a

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import { Badge } from '@/components/Badge'
@@ -40,7 +40,12 @@ const hostingTierRecommended = [false, true, false]
 // machine wouldn't actually qualify for.
 const hostingTierCooling: ('air' | 'hydro')[][] = [['hydro'], ['air', 'hydro'], ['air', 'hydro']]
 
-const currencyPrecise = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
+// TODO: hostingTierRates' Quick Start entry (0.08) is stale vs. the current
+// /hosting Quick Start rate (0.085) — the per-tier monthly cost calculator
+// below is commented out until the rates are reconciled and the 5.5¢
+// Turnkey Site eligibility note is added. See the "hosting plans" section
+// further down.
+// const currencyPrecise = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
 
 export function ProductDetailPage() {
   const { t, i18n } = useTranslation()
@@ -126,9 +131,9 @@ export function ProductDetailPage() {
     }))
     .filter((tier) => !product || tier.coolingTypes.includes(product.cooling))
 
-  const [hostingRateIndex, setHostingRateIndex] = useState(
-    hostingTiers.findIndex((tier) => tier.recommended) === -1 ? 0 : hostingTiers.findIndex((tier) => tier.recommended),
-  )
+  // const [hostingRateIndex, setHostingRateIndex] = useState(
+  //   hostingTiers.findIndex((tier) => tier.recommended) === -1 ? 0 : hostingTiers.findIndex((tier) => tier.recommended),
+  // )
 
   if (!product) {
     return (
@@ -267,7 +272,10 @@ export function ProductDetailPage() {
         </Container>
       </section>
 
-      {/* hosting plans */}
+      {/* hosting plans — commented out until hostingTierRates' stale Quick
+          Start rate (0.08 vs. the current /hosting rate of 0.085) is fixed
+          and the 5.5¢ Turnkey Site eligibility note is added; see the TODO
+          near hostingTierRates above.
       <section className="py-12">
         <Container>
           <Reveal>
@@ -333,6 +341,7 @@ export function ProductDetailPage() {
           </Reveal>
         </Container>
       </section>
+      */}
 
       {/* description + specs */}
       <section className="py-12 pb-24">

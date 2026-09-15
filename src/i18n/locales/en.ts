@@ -234,6 +234,7 @@ export const en = {
       paragraphPrefix: 'Hosting plans from',
       paragraphSuffix:
         'per kWh, subject to plan, scale, location, equipment and contract terms. Premium rack space, power, and cooling with every cost disclosed before you sign.',
+      eligibilityNote: 'The 5.5¢ rate applies to our Turnkey Site plan (from $300k per MW). Most hosting plans start at 6.5¢ — see rates by plan below.',
       comparePlans: 'Compare Plans',
       talkToHuman: 'Talk to a human',
       valueProps: [
