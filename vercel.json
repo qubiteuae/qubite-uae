@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/asic-machines/bitmain-antminer-s21-pro-plus-234th",

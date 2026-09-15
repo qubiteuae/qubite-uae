@@ -27,8 +27,6 @@ const teamMeta: { photo: string; email?: string }[] = [
   { photo: '/team/mischa-guidon.jpg', email: 'mischa.guidon@qubite-international.com' },
   { photo: '/team/christoph-wolf.jpg', email: 'chris.wolf@qubite-international.com' },
   { photo: '/team/mayur-mukherjee.jpg', email: 'mayur.mukherjee@qubite-international.com' },
-  { photo: '/team/alan-szepieniec.jpg', email: 'alan.szepieniec@qubite-international.com' },
-  { photo: '/team/thorkil-schmidiger.jpg', email: 'thorkil.schmidiger@qubite-international.com' },
   { photo: '/team/disa-sevelius.jpg', email: 'disa.sevelius@qubite-international.com' },
   { photo: '/team/hashifali-kojanikkanakath.jpg', email: 'hashif@qubite-international.com' },
   { photo: '/team/mohammed-swalih.jpg', email: 'mohammed.swalih@qubite-international.com' },

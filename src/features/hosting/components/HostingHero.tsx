@@ -82,7 +82,7 @@ export function HostingHero() {
         </Reveal>
         <Reveal delay={140}>
           <p className="max-w-[620px] text-base text-text-dim md:text-lg">
-            {t('hosting.hero.paragraphPrefix')} <span className="font-semibold text-white">4.0¢ to 6.8¢</span>{' '}
+            {t('hosting.hero.paragraphPrefix')} <span className="font-semibold text-white">5.5¢ to 8.5¢</span>{' '}
             {t('hosting.hero.paragraphSuffix')}
           </p>
         </Reveal>
