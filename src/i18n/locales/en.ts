@@ -144,7 +144,7 @@ export const en = {
         { num: '01', title: 'Hardware', description: 'Choose the right ASIC miners optimized for your target efficiency & hashrate goals.' },
         { num: '02', title: 'Deployment', description: 'Turn-key assembly, safe express transit, and full rack-mount setup overseen by our experts.' },
         { num: '03', title: 'Hosting', description: 'Secure hosting with professional installation, cooling and operational support. Deployment timelines depend on site and equipment availability.' },
-        { num: '04', title: 'Rewards', description: "Connect supported mining pools to your compatible wallet. Pool payouts follow the selected pool's terms, schedules and fees." },
+        { num: '04', title: 'Rewards', description: "Connect supported mining pools to your compatible wallet. Pool payouts follow the selected pool's terms, schedules and fees. You own the hardware and choose your own pool and wallet — Qubite never holds, trades or distributes cryptocurrency." },
       ],
       cta: 'Start Mining with Qubite',
     },
@@ -158,7 +158,7 @@ export const en = {
         { title: 'Fixed Hosting Rates', description: 'Hosting and energy rates are stated in the service agreement and depend on location, equipment and contract terms.' },
         { title: 'Cost-Efficient Hardware', description: 'Hardware and hosting options selected according to your requirements and available pricing.' },
         { title: 'Specialist-Led Operations', description: 'Our technical team monitors supported equipment and assists with maintenance and troubleshooting.' },
-        { title: 'Direct Payouts', description: "Pool payouts can be directed to the customer's compatible wallet, subject to pool terms and fees." },
+        { title: 'Direct Payouts', description: "Pool payouts can be directed to the customer's compatible wallet, subject to pool terms and fees. The customer owns the hardware and selects their own pool and wallet — Qubite never holds, trades or distributes cryptocurrency." },
       ],
       verticals: [
         { title: 'Crypto Mining', subtitle: 'Professional crypto mining operations' },
@@ -210,7 +210,7 @@ export const en = {
       allLocations: 'All Locations',
       operational: 'Available',
       locations: [
-        { title: 'UAE', place: 'Dubai' },
+        { title: 'UAE', place: 'Abu Dhabi' },
         { title: 'Germany', place: 'Europe' },
         { title: 'Switzerland', place: 'Zurich' },
       ],
