@@ -23,6 +23,21 @@ import { chromium } from 'playwright'
 import { preview } from 'vite'
 import { allPaths } from './routes.mjs'
 
+// Vercel's build machine is missing several shared libraries
+// (libnss3, libatk, etc.) that Playwright's own downloaded Chromium expects,
+// so that binary downloads fine but exits immediately with code 127 when
+// launched there. @sparticuz/chromium ships a Chromium build compiled
+// specifically for constrained Lambda-like environments like Vercel's build
+// container, so we swap to it there. Locally (Windows/macOS/normal Linux)
+// its binary doesn't run at all, so local dev keeps using Playwright's own
+// managed browser via `npx playwright install chromium`.
+const launchOptions = process.env.VERCEL
+  ? await (async () => {
+      const { default: sparticuzChromium } = await import('@sparticuz/chromium')
+      return { args: sparticuzChromium.args, executablePath: await sparticuzChromium.executablePath() }
+    })()
+  : {}
+
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
 const distDir = path.join(rootDir, 'dist')
 
@@ -41,7 +56,7 @@ async function main() {
   const server = await preview({ root: rootDir, preview: { port: 4173, strictPort: false } })
   const address = server.resolvedUrls.local[0].replace(/\/$/, '')
 
-  const browser = await chromium.launch()
+  const browser = await chromium.launch(launchOptions)
   const page = await browser.newPage()
   await page.route('**/*', (route) => {
     const url = route.request().url()
