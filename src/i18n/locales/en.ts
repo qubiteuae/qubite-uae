@@ -33,7 +33,7 @@ export const en = {
       manageCookies: 'Manage Cookies',
     },
     registeredAddress:
-      'Qubite International Cloud Services – L.L.C – S.P.C — Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE · Registered address: Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE',
+      'Qubite International Cloud Services – L.L.C – S.P.C — Operating address: 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, UAE · Registered address: Al Safrah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, UAE',
     copyright: '© 2026 Qubite International Cloud Services – L.L.C – S.P.C. All rights reserved. Crypto mining hardware hosting is subject to local energy regulations.',
   },
   common: {
@@ -153,7 +153,7 @@ export const en = {
       heading1: 'The infrastructure partner for',
       heading2: 'modern computing power',
       paragraph:
-        'Qubite enables companies, investors and operators reliable access to high-performance compute infrastructure — legally secure and scalable.',
+        'Qubite enables companies, investors and operators consistent access to high-performance compute infrastructure — legally secure and scalable.',
       features: [
         { title: 'Fixed Hosting Rates', description: 'Hosting and energy rates are stated in the service agreement and depend on location, equipment and contract terms.' },
         { title: 'Cost-Efficient Hardware', description: 'Hardware and hosting options selected according to your requirements and available pricing.' },
@@ -426,7 +426,7 @@ export const en = {
       region: 'Operating Address',
       regionValue: 'Qubite International Cloud Services – L.L.C – S.P.C, 20 Al Rasmi St, Jarn Yafour, Mafraq Industrial Area, Abu Dhabi, United Arab Emirates',
       registeredAddress: 'Registered Address',
-      registeredAddressValue: 'Al Sfarah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, United Arab Emirates',
+      registeredAddressValue: 'Al Safrah Industrial Area, Building 118, Hessa Bint Mohammed St, Al Ain City Municipality, Abu Dhabi, United Arab Emirates',
       talkToHumanWhatsapp: 'Talk to a human on WhatsApp',
       form: {
         name: 'Name *',
