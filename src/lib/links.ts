@@ -6,6 +6,10 @@ export const WHATSAPP_LINK =
     "Hello Qubite, I am interested in ASIC mining. I would like information about: [machine purchase / hosting / both]. Please share available models, current prices, electricity rates, setup charges and expected deployment requirements.",
   )
 
-export const TELEGRAM_LINK = 'https://t.me/+971556615745'
+export const TELEGRAM_LINK =
+  'https://t.me/+971556615745?text=' +
+  encodeURIComponent(
+    "Hello Qubite, I am interested in ASIC mining. I would like information about: [machine purchase / hosting / both]. Please share available models, current prices, electricity rates, setup charges and expected deployment requirements.",
+  )
 export const INSTAGRAM_LINK = 'https://www.instagram.com/qubite_international?stkn=eWhlbGZwOWo5aHA='
 export const LINKEDIN_LINK = 'https://de.linkedin.com/company/qubite-international'
