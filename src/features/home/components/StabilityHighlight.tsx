@@ -57,8 +57,9 @@ export function StabilityHighlight() {
         <div className="flex w-full flex-col items-center gap-16 lg:flex-row lg:items-center lg:justify-center">
           <Reveal className="flex shrink-0 justify-center lg:w-122">
             <img
-              src="/figma/resilience/portrait.png"
+              src="/figma/resilience/portrait.webp"
               alt="Qubite mining facility"
+              loading="lazy"
               className="h-[420px] w-auto rotate-[10deg] object-bottom transition-transform duration-500 hover:rotate-[6deg] hover:scale-[1.03]"
             />
           </Reveal>

@@ -3,19 +3,19 @@ import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 
 const photos = [
-  '/facilities/site-1.png',
-  '/facilities/site-2.png',
-  '/facilities/site-3.png',
-  '/facilities/site-5.png',
-  '/facilities/site-6.png',
-  '/facilities/site-7.png',
-  '/facilities/site-8.png',
-  '/facilities/site-9.png',
-  '/facilities/site-10.png',
-  '/facilities/site-11.png',
-  '/facilities/site-12.png',
+  '/facilities/site-1.webp',
+  '/facilities/site-2.webp',
+  '/facilities/site-3.webp',
+  '/facilities/site-5.webp',
+  '/facilities/site-6.webp',
+  '/facilities/site-7.webp',
+  '/facilities/site-8.webp',
+  '/facilities/site-9.webp',
+  '/facilities/site-10.webp',
+  '/facilities/site-11.webp',
+  '/facilities/site-12.webp',
   // repeated to complete the 4x3 grid — swap for a 12th real photo when available
-  '/facilities/site-1.png',
+  '/facilities/site-1.webp',
 ]
 
 export function FacilitiesGallery() {
@@ -57,7 +57,8 @@ export function FacilitiesGallery() {
               >
                 <img
                   src={src}
-                  alt=""
+                  alt={`${t('home.facilitiesGallery.photoAlt')} ${i + 1}`}
+                  loading="lazy"
                   className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { localizePath } from '@/lib/i18nPaths'
 
 const SITE_URL = 'https://www.qubiteinternational.com'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/figma/hero/logo.png`
+const DEFAULT_OG_IMAGE = `${SITE_URL}/figma/hero/logo.webp`
 
 interface PageSeoOptions {
   title: string

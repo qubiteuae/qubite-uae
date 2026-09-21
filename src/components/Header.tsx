@@ -184,7 +184,7 @@ export function Header() {
           onClick={() => setMenuOpen(false)}
           className="flex items-center transition-transform duration-200 hover:scale-105"
         >
-          <img src="/figma/hero/logo.png" alt="Qubite" className="h-9 w-auto object-contain md:h-[42px]" />
+          <img src="/figma/hero/logo.webp" alt="Qubite" className="h-9 w-auto object-contain md:h-[42px]" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

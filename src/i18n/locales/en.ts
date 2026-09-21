@@ -218,6 +218,7 @@ export const en = {
     facilitiesGallery: {
       badge: 'Inside Our Facilities',
       heading: 'Inside Our Hosting Facilities',
+      photoAlt: 'Qubite ASIC hosting facility',
     },
     ctaBanner: {
       heading: 'Ready to deploy?',

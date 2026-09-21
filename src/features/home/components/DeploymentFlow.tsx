@@ -40,7 +40,7 @@ export function DeploymentFlow() {
       <Container className="flex flex-col items-center pb-24 text-center">
         <div className="relative flex w-full flex-col items-center">
           <div className="animate-float relative z-10 size-[130px] shrink-0 rounded-[46px] shadow-[0_0_40px_8px_#7f543d] transition-shadow duration-500 hover:shadow-[0_0_60px_14px_#7f543d] md:size-[209px]">
-            <img src="/figma/deploy/cube.png" alt="" className="size-full rounded-[46px] object-cover" />
+            <img src="/figma/deploy/cube.webp" alt="" loading="lazy" className="size-full rounded-[46px] object-cover" />
           </div>
 
           <div className="relative w-full">
@@ -86,6 +86,7 @@ export function DeploymentFlow() {
                     <img
                       src={step.icon}
                       alt=""
+                      loading="lazy"
                       className="size-4 shrink-0 transition-transform duration-300 group-hover:scale-125"
                     />
                   </div>

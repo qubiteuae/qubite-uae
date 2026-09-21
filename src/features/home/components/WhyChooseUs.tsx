@@ -110,6 +110,7 @@ export function WhyChooseUs() {
         <img
           src="/figma/stats/earth-horizon.svg"
           alt=""
+          aria-hidden="true"
           className="pointer-events-none absolute top-0 left-1/2 h-[600px] w-[1460px] max-w-none -translate-x-1/2 opacity-80 lg:h-[clamp(600px,44vw,850px)] lg:w-[155vw]"
         />
       </div>
@@ -153,6 +154,7 @@ export function WhyChooseUs() {
             <img
               src="/facilities/facility-hallway.webp"
               alt="Qubite ASIC mining rack"
+              loading="lazy"
               className="aspect-[3/4] w-full object-cover object-center"
             />
             <div

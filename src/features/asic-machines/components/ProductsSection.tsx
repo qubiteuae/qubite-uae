@@ -41,11 +41,12 @@ const uniqueSorted = <T,>(values: T[]): T[] => Array.from(new Set(values)).sort(
 
 const cardFont = { fontFamily: 'Inter, system-ui, sans-serif' }
 
-function ProductMedia({ media }: { media: Product['media'] }) {
+function ProductMedia({ media, title }: { media: Product['media']; title: string }) {
   return media.type === 'image' ? (
     <img
       src={media.src}
-      alt=""
+      alt={title}
+      loading="lazy"
       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
     />
   ) : (
@@ -122,7 +123,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
             aria-hidden="true"
           />
 
-          <ProductMedia media={product.media} />
+          <ProductMedia media={product.media} title={product.title} />
 
           {/* bottom vignette */}
           <div

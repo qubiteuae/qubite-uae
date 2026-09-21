@@ -18,23 +18,23 @@ interface TeamMember {
 // Photos and emails aren't translated, so they stay keyed by index against
 // the localized name/role/bio coming from i18n.
 const teamMeta: { photo: string; email?: string }[] = [
-  { photo: '/team/tajo-adler.jpg', email: 'tajo.adler@qubite-international.com' },
-  { photo: '/team/melina-kiesslich.jpg', email: 'melina.kiesslich@qubite-international.com' },
-  { photo: '/team/rolf-maier.jpg', email: 'rolf.maier@qubite-international.com' },
-  { photo: '/team/diana-hanibauer.jpg' },
-  { photo: '/team/adina-sevelius.jpg', email: 'adina.sevelius@qubite-international.com' },
-  { photo: '/team/malte-findeisen.jpg', email: 'malte.findeisen@qubite-international.com' },
-  { photo: '/team/mischa-guidon.jpg', email: 'mischa.guidon@qubite-international.com' },
-  { photo: '/team/christoph-wolf.jpg', email: 'chris.wolf@qubite-international.com' },
-  { photo: '/team/mayur-mukherjee.jpg', email: 'mayur.mukherjee@qubite-international.com' },
-  { photo: '/team/disa-sevelius.jpg', email: 'disa.sevelius@qubite-international.com' },
-  { photo: '/team/hashifali-kojanikkanakath.jpg', email: 'hashif@qubite-international.com' },
-  { photo: '/team/mohammed-swalih.jpg', email: 'mohammed.swalih@qubite-international.com' },
-  { photo: '/team/sen-james.jpg', email: 'sen.thomas@qubite-international.com' },
-  { photo: '/team/megha-kumar.jpg', email: 'megha.kumar@qubite-international.com' },
-  { photo: '/team/mohammad-arshad.jpg', email: 'mohammad.arshad@qubite-international.com' },
-  { photo: '/team/abhijith-reghunath.jpg', email: 'abhijith.reghunath@qubite-international.com' },
-  { photo: '/team/lutz-stratmann.jpg' },
+  { photo: '/team/tajo-adler.webp', email: 'tajo.adler@qubite-international.com' },
+  { photo: '/team/melina-kiesslich.webp', email: 'melina.kiesslich@qubite-international.com' },
+  { photo: '/team/rolf-maier.webp', email: 'rolf.maier@qubite-international.com' },
+  { photo: '/team/diana-hanibauer.webp' },
+  { photo: '/team/adina-sevelius.webp', email: 'adina.sevelius@qubite-international.com' },
+  { photo: '/team/malte-findeisen.webp', email: 'malte.findeisen@qubite-international.com' },
+  { photo: '/team/mischa-guidon.webp', email: 'mischa.guidon@qubite-international.com' },
+  { photo: '/team/christoph-wolf.webp', email: 'chris.wolf@qubite-international.com' },
+  { photo: '/team/mayur-mukherjee.webp', email: 'mayur.mukherjee@qubite-international.com' },
+  { photo: '/team/disa-sevelius.webp', email: 'disa.sevelius@qubite-international.com' },
+  { photo: '/team/hashifali-kojanikkanakath.webp', email: 'hashif@qubite-international.com' },
+  { photo: '/team/mohammed-swalih.webp', email: 'mohammed.swalih@qubite-international.com' },
+  { photo: '/team/sen-james.webp', email: 'sen.thomas@qubite-international.com' },
+  { photo: '/team/megha-kumar.webp', email: 'megha.kumar@qubite-international.com' },
+  { photo: '/team/mohammad-arshad.webp', email: 'mohammad.arshad@qubite-international.com' },
+  { photo: '/team/abhijith-reghunath.webp', email: 'abhijith.reghunath@qubite-international.com' },
+  { photo: '/team/lutz-stratmann.webp' },
 ]
 
 function MailIcon({ className = 'size-4' }: { className?: string }) {
@@ -53,6 +53,7 @@ function TeamMemberProfile({ member }: { member: TeamMember }) {
         <img
           src={member.photo}
           alt={member.name}
+          loading="lazy"
           className="mx-auto h-[260px] w-[260px] shrink-0 rounded-2xl border border-white/10 object-cover sm:mx-0"
         />
 
@@ -126,6 +127,7 @@ export function TeamGrid() {
                 <img
                   src={member.photo}
                   alt={member.name}
+                  loading="lazy"
                   className="size-20 rounded-full border border-white/10 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="flex flex-col gap-1">

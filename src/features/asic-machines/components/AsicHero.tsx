@@ -8,7 +8,7 @@ export function AsicHero() {
 
   return (
     <section className="relative overflow-hidden bg-bg">
-      <img src="/hero-bg.png" alt="" className="absolute inset-0 size-full object-cover" aria-hidden="true" />
+      <img src="/hero-bg.webp" alt="" className="absolute inset-0 size-full object-cover" aria-hidden="true" />
       <div
         className="absolute inset-0"
         style={{

@@ -216,6 +216,7 @@ export const ar: TranslationSchema = {
     facilitiesGallery: {
       badge: 'داخل منشآتنا',
       heading: 'داخل منشآت الاستضافة لدينا',
+      photoAlt: 'منشأة استضافة أجهزة ASIC التابعة لـ Qubite',
     },
     ctaBanner: {
       heading: 'هل أنت جاهز للنشر؟',

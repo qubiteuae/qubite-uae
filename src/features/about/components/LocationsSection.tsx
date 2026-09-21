@@ -37,6 +37,7 @@ export function LocationsSection() {
               <img
                 src="/locations/abu-dhabi-building.webp"
                 alt="United Arab Emirates facility"
+                loading="lazy"
                 className="h-40 w-full rounded-xl object-cover"
               />
               <h3 className="text-base font-bold text-white">{t('about.locations.uae.title')}</h3>
@@ -52,6 +53,7 @@ export function LocationsSection() {
               <img
                 src="/locations/server-racks.webp"
                 alt="Germany and Switzerland facility"
+                loading="lazy"
                 className="h-40 w-full rounded-xl object-cover"
               />
               <h3 className="text-base font-bold text-white">{t('about.locations.europe.title')}</h3>
@@ -92,6 +94,7 @@ export function LocationsSection() {
                 <img
                   src={site.photo}
                   alt={site.name}
+                  loading="lazy"
                   className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div

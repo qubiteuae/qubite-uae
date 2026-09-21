@@ -6,8 +6,8 @@ import { Reveal } from '@/components/Reveal'
 import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 
 const categoryMeta = [
-  { image: '/figma/cards/hardware-marketplace.png', href: '/asic-machines' },
-  { image: '/figma/cards/energy-solutions.png', href: '/hosting' },
+  { image: '/figma/cards/hardware-marketplace.webp', href: '/asic-machines' },
+  { image: '/figma/cards/energy-solutions.webp', href: '/hosting' },
 ]
 
 function ArrowUpRightIcon({ className = 'size-4' }: { className?: string }) {
@@ -47,7 +47,8 @@ export function EcosystemCategories() {
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={category.image}
-                    alt=""
+                    alt={category.title}
+                    loading="lazy"
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>

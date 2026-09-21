@@ -51,8 +51,9 @@ export function Footer() {
       <Container className="flex flex-col gap-12 py-24">
         <div className="flex flex-col items-start gap-6">
           <img
-            src="/figma/footer/logo.png"
+            src="/figma/footer/logo.webp"
             alt="Qubite"
+            loading="lazy"
             className="h-[42px] w-auto object-contain transition-transform duration-200 hover:scale-105"
           />
           <p className="max-w-120 text-base leading-relaxed text-text-slate">{t('footer.tagline')}</p>

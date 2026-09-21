@@ -57,7 +57,7 @@ export function HostingHero() {
   return (
     <section className="relative overflow-hidden bg-black">
       <img
-        src="/facilities/facility-6.png"
+        src="/facilities/facility-6.webp"
         alt=""
         className="absolute inset-0 h-full w-full object-cover opacity-50"
         aria-hidden="true"

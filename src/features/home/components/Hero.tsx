@@ -6,7 +6,7 @@ import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
 
-const avatars = ['/figma/hero/avatar-1.png', '/figma/hero/avatar-2.png', '/figma/hero/avatar-3.png']
+const avatars = ['/figma/hero/avatar-1.webp', '/figma/hero/avatar-2.webp', '/figma/hero/avatar-3.webp']
 
 function HeadsetIcon({ className = 'size-3.5' }: { className?: string }) {
   return (
@@ -81,7 +81,7 @@ export function Hero() {
     <section ref={sectionRef} className="relative overflow-hidden bg-black">
       <div className="absolute inset-0 bg-[#050301]" aria-hidden="true" />
       <img
-        src="/figma/hero/hero-bg.png"
+        src="/figma/hero/hero-bg.webp"
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden="true"
