@@ -22,7 +22,7 @@ export function LocationsSection() {
     <section id="locations" className="relative overflow-hidden bg-black py-24 scroll-mt-20">
       <Container className="relative flex flex-col items-center gap-4 text-center">
         <Reveal>
-          <Badge tone="bronze">{t('about.locations.badge')}</Badge>
+          <Badge>{t('about.locations.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('about.locations.heading')}</h2>

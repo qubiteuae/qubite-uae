@@ -31,7 +31,7 @@ export function StabilityGrid() {
       <Container className="relative flex flex-col items-center gap-16 py-30 text-center">
         <div className="flex flex-col items-center gap-6">
           <Reveal>
-            <Badge tone="blue">{t('home.stabilityGrid.badge')}</Badge>
+            <Badge>{t('home.stabilityGrid.badge')}</Badge>
           </Reveal>
           <Reveal delay={80}>
             <h2 className="max-w-[800px] text-[38px] leading-tight font-extrabold text-text-heading">
@@ -46,9 +46,9 @@ export function StabilityGrid() {
         <div className="flex w-full flex-col gap-4">
           <div className="flex flex-col gap-8 lg:flex-row">
             <Reveal className="flex flex-1" delay={0}>
-              <div className="group flex w-full flex-1 flex-col gap-8 rounded-3xl border-[3px] border-accent-blue bg-black/50 p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_var(--color-accent-blue)]">
+              <div className="group flex w-full flex-1 flex-col gap-8 rounded-3xl border border-accent-bronze-tint/40 bg-black/50 p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_var(--color-accent-bronze-tint)]">
                 <div className="flex flex-col items-start gap-4">
-                  <span className="flex size-12 items-center justify-center rounded-sm border border-accent-blue bg-white/4 transition-transform duration-300 group-hover:scale-110">
+                  <span className="flex size-12 items-center justify-center rounded-sm border border-accent-bronze-tint bg-white/4 transition-transform duration-300 group-hover:scale-110">
                     <img src="/figma/bento/globe.svg" alt="" className="size-6" />
                   </span>
                   <h3 className="text-xl font-bold text-text-heading">{cards[0].title}</h3>
@@ -65,13 +65,13 @@ export function StabilityGrid() {
 
             <Reveal delay={100}>
               <div
-                className="group flex w-full flex-col justify-between gap-8 rounded-[30px] p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-10px_var(--color-accent-cyan)] lg:w-110"
+                className="group flex w-full flex-col justify-between gap-8 rounded-[30px] p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-10px_var(--color-accent-bronze-tint)] lg:w-110"
                 style={{
                   backgroundImage:
                     'linear-gradient(137deg, rgba(114,74,52,0.05) 4%, rgba(23,8,0,0.05) 95%)',
                 }}
               >
-                <span className="flex size-12 items-center justify-center rounded-sm border border-accent-cyan bg-white/4 transition-transform duration-300 group-hover:scale-110">
+                <span className="flex size-12 items-center justify-center rounded-sm border border-accent-bronze-tint bg-white/4 transition-transform duration-300 group-hover:scale-110">
                   <img src="/figma/bento/refresh-cw.svg" alt="" className="size-6" />
                 </span>
                 <div className="flex flex-col gap-4">
@@ -79,7 +79,7 @@ export function StabilityGrid() {
                   <p className="text-sm leading-relaxed text-text-muted">{cards[1].description}</p>
                 </div>
                 <div className="flex flex-col gap-1 opacity-60">
-                  <span className="text-[10px] text-accent-blue">{cards[1].transRoute}</span>
+                  <span className="text-[10px] text-accent-bronze-tint">{cards[1].transRoute}</span>
                   <span className="text-sm font-bold text-text-heading">{cards[1].ready}</span>
                 </div>
               </div>
@@ -88,8 +88,8 @@ export function StabilityGrid() {
 
           <div className="flex flex-col gap-8 lg:flex-row">
             <Reveal delay={0}>
-              <div className="group flex w-full flex-col justify-between gap-8 rounded-3xl border border-border bg-black/[0.02] p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-accent-cyan/40 hover:shadow-[0_0_40px_-10px_var(--color-accent-cyan)] lg:w-110">
-                <span className="flex size-12 items-center justify-center rounded-sm border border-accent-cyan bg-white/4 transition-transform duration-300 group-hover:scale-110">
+              <div className="group flex w-full flex-col justify-between gap-8 rounded-3xl border border-border bg-black/[0.02] p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-accent-bronze-tint/40 hover:shadow-[0_0_40px_-10px_var(--color-accent-bronze-tint)] lg:w-110">
+                <span className="flex size-12 items-center justify-center rounded-sm border border-accent-bronze-tint bg-white/4 transition-transform duration-300 group-hover:scale-110">
                   <img src="/figma/bento/zap.svg" alt="" className="size-6" />
                 </span>
                 <div className="flex flex-col gap-4">
@@ -97,25 +97,22 @@ export function StabilityGrid() {
                   <p className="text-sm leading-relaxed text-text-muted">{cards[2].description}</p>
                 </div>
                 <div className="flex gap-2">
-                  {(cards[2].tags ?? []).map((label, i) => {
-                    const colors = ['text-accent-cyan', 'text-accent-blue', 'text-accent-orange']
-                    return (
-                      <span
-                        key={label}
-                        className={`rounded-xs bg-white/6 px-2.5 py-1 text-[11px] transition-colors duration-200 hover:bg-white/12 ${colors[i]}`}
-                      >
-                        {label}
-                      </span>
-                    )
-                  })}
+                  {(cards[2].tags ?? []).map((label) => (
+                    <span
+                      key={label}
+                      className="rounded-xs bg-white/6 px-2.5 py-1 text-[11px] text-accent-bronze-tint transition-colors duration-200 hover:bg-white/12"
+                    >
+                      {label}
+                    </span>
+                  ))}
                 </div>
               </div>
             </Reveal>
 
             <Reveal className="flex flex-1" delay={100}>
-              <div className="group flex w-full flex-1 flex-col gap-8 rounded-3xl border border-border bg-black/50 p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-accent-blue/40 hover:shadow-[0_0_40px_-8px_var(--color-accent-blue)]">
+              <div className="group flex w-full flex-1 flex-col gap-8 rounded-3xl border border-border bg-black/50 p-10 text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-accent-bronze-tint/40 hover:shadow-[0_0_40px_-8px_var(--color-accent-bronze-tint)]">
                 <div className="flex flex-col items-start gap-4">
-                  <span className="flex size-12 items-center justify-center rounded-sm border border-accent-blue bg-white/4 transition-transform duration-300 group-hover:scale-110">
+                  <span className="flex size-12 items-center justify-center rounded-sm border border-accent-bronze-tint bg-white/4 transition-transform duration-300 group-hover:scale-110">
                     <img src="/figma/bento/shield.svg" alt="" className="size-6" />
                   </span>
                   <h3 className="text-xl font-bold text-text-heading">{cards[3].title}</h3>

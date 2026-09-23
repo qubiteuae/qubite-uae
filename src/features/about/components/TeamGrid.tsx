@@ -120,9 +120,17 @@ export function TeamGrid() {
           <p className="mt-2 text-sm text-text-subtle">{t('about.team.paragraph')}</p>
         </Reveal>
 
-        <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* flex-wrap + justify-center rather than a fixed-column grid: the
+            team's size isn't a multiple of any column count, and a grid
+            leaves an orphaned card stranded on the left in the last row —
+            this centers whatever's left over instead. */}
+        <div className="flex w-full flex-wrap justify-center gap-5">
           {team.map((member, i) => (
-            <Reveal key={member.name} delay={(i % 4) * 80} className="h-full">
+            <Reveal
+              key={member.name}
+              delay={(i % 4) * 80}
+              className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)]"
+            >
               <div className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-white/8 bg-white/3 p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-white/15">
                 <img
                   src={member.photo}

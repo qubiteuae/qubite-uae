@@ -38,7 +38,7 @@ export function StabilityHighlight() {
       <Container className="relative flex flex-col items-center gap-16 py-30 text-center">
         <div className="flex flex-col items-center gap-6">
           <Reveal>
-            <Badge tone="blue">Built for resilience</Badge>
+            <Badge>Built for resilience</Badge>
           </Reveal>
           <Reveal delay={80}>
             <h2 className="max-w-[800px] text-[38px] leading-tight font-bold text-text-heading">

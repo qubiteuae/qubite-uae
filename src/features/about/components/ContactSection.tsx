@@ -109,7 +109,7 @@ export function ContactSection() {
     <section id="contact" className="relative bg-bg py-24 scroll-mt-20">
       <Container className="relative flex flex-col items-center gap-4 text-center">
         <Reveal>
-          <Badge tone="bronze">{t('about.contact.badge')}</Badge>
+          <Badge>{t('about.contact.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('about.contact.heading')}</h2>

@@ -29,7 +29,7 @@ export function EcosystemCategories() {
     <section className="relative overflow-hidden bg-bg">
       <Container className="relative flex flex-col items-center gap-4 py-24 text-center">
         <Reveal>
-          <Badge tone="bronze">{t('home.ecosystemCategories.badge')}</Badge>
+          <Badge>{t('home.ecosystemCategories.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="text-[40px] font-bold tracking-tight text-white">{t('home.ecosystemCategories.heading')}</h2>

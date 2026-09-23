@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 
@@ -71,9 +72,7 @@ export function WhatsIncluded() {
     <section className="relative overflow-hidden bg-black py-24">
       <Container className="relative flex flex-col items-center gap-4 text-center">
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(45,212,191,0.3)] bg-[rgba(20,60,55,0.4)] px-4 py-1.5 text-[10px] font-bold tracking-[0.08em] text-[#2dd4bf] uppercase">
-            {t('hosting.whatsIncluded.badge')}
-          </span>
+          <Badge>{t('hosting.whatsIncluded.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.whatsIncluded.heading')}</h2>
@@ -88,7 +87,7 @@ export function WhatsIncluded() {
             return (
               <Reveal key={item.title} delay={200 + i * 70}>
                 <div className="flex h-full flex-col items-start gap-3 rounded-2xl border border-white/8 bg-white/3 p-6 text-left">
-                  <span className="flex size-10 items-center justify-center rounded-xl border border-[rgba(45,212,191,0.35)] bg-[rgba(45,212,191,0.1)] text-[#2dd4bf]">
+                  <span className="flex size-10 items-center justify-center rounded-xl border border-accent-bronze-tint/35 bg-accent-bronze-tint/10 text-accent-bronze-tint">
                     <Icon />
                   </span>
                   <h3 className="text-sm font-bold text-white">{item.title}</h3>

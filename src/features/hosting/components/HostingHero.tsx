@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { trackWhatsAppClick } from '@/lib/analytics'
@@ -67,10 +68,7 @@ export function HostingHero() {
 
       <Container className="relative flex flex-col items-center gap-5 pt-30 pb-16 text-center md:pt-36">
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(45,212,191,0.3)] bg-[rgba(20,60,55,0.4)] px-4 py-1.5 text-[10px] font-bold tracking-[0.08em] text-[#2dd4bf] uppercase">
-            <span className="size-1.5 rounded-full bg-[#2dd4bf]" />
-            {t('hosting.hero.badge')}
-          </span>
+          <Badge>{t('hosting.hero.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
           <h1 className="max-w-[760px] text-[36px] leading-tight font-black text-white sm:text-[48px]">

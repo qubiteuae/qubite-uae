@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 
@@ -25,9 +26,7 @@ export function HostingFaq() {
     <section className="relative bg-bg py-24">
       <Container className="relative flex flex-col items-center gap-4 text-center">
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(232,167,101,0.3)] bg-[rgba(232,167,101,0.08)] px-4 py-1.5 text-[10px] font-bold tracking-[0.08em] text-[#e8a765] uppercase">
-            {t('hosting.faq.badge')}
-          </span>
+          <Badge>{t('hosting.faq.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.faq.heading')}</h2>

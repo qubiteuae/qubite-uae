@@ -203,7 +203,7 @@ export const en = {
       ],
     },
     globalInfrastructure: {
-      badge: 'Ecosystem Categories',
+      badge: 'Global Footprint',
       heading: 'Global Mining Infrastructure',
       paragraph:
         'Hosting infrastructure is available through selected facilities in the UAE, Germany and Switzerland, subject to capacity and service availability. Continuous infrastructure monitoring and technical support — actual uptime depends on site, network, maintenance and energy conditions.',

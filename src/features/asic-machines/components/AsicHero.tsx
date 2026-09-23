@@ -28,7 +28,7 @@ export function AsicHero() {
 
       <Container className="relative flex min-h-[660px] flex-col items-center justify-center gap-6 pt-32 pb-20 text-center">
         <Reveal>
-          <Badge tone="blue" className="backdrop-blur-sm">
+          <Badge className="backdrop-blur-sm">
             {t('asicMachines.hero.badge')}
           </Badge>
         </Reveal>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import { Badge } from '@/components/Badge'
@@ -33,19 +33,14 @@ function ChevronRightIcon({ className = 'size-3' }: { className?: string }) {
   )
 }
 
-const hostingTierRates = [0.065, 0.075, 0.08]
+const hostingTierRates = [0.065, 0.075, 0.085]
 const hostingTierRecommended = [false, true, false]
 // Mirrors each plan's "Machine Types" eligibility from /hosting (Low Rate
 // Hosted is Hydro-only there) so a product page never advertises a rate the
 // machine wouldn't actually qualify for.
 const hostingTierCooling: ('air' | 'hydro')[][] = [['hydro'], ['air', 'hydro'], ['air', 'hydro']]
 
-// TODO: hostingTierRates' Quick Start entry (0.08) is stale vs. the current
-// /hosting Quick Start rate (0.085) — the per-tier monthly cost calculator
-// below is commented out until the rates are reconciled and the 5.5¢
-// Turnkey Site eligibility note is added. See the "hosting plans" section
-// further down.
-// const currencyPrecise = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
+const currencyPrecise = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
 
 export function ProductDetailPage() {
   const { t, i18n } = useTranslation()
@@ -131,9 +126,9 @@ export function ProductDetailPage() {
     }))
     .filter((tier) => !product || tier.coolingTypes.includes(product.cooling))
 
-  // const [hostingRateIndex, setHostingRateIndex] = useState(
-  //   hostingTiers.findIndex((tier) => tier.recommended) === -1 ? 0 : hostingTiers.findIndex((tier) => tier.recommended),
-  // )
+  const [hostingRateIndex, setHostingRateIndex] = useState(
+    hostingTiers.findIndex((tier) => tier.recommended) === -1 ? 0 : hostingTiers.findIndex((tier) => tier.recommended),
+  )
 
   if (!product) {
     return (
@@ -181,7 +176,7 @@ export function ProductDetailPage() {
           <Reveal>
             <div
               className="relative aspect-square overflow-hidden rounded-[28px] border border-white/8"
-              style={{ background: 'radial-gradient(ellipse at center, #0d2b2e 0%, #0a1512 60%, #0a0a0a 100%)' }}
+              style={{ background: 'radial-gradient(ellipse at center, #2a1f16 0%, #150f0a 60%, #0a0a0a 100%)' }}
             >
               {product.media.type === 'image' ? (
                 <img src={product.media.src} alt={product.title} className="absolute inset-0 size-full object-cover" />
@@ -199,7 +194,7 @@ export function ProductDetailPage() {
           </Reveal>
 
           <Reveal delay={80} className="flex flex-col gap-5">
-            <Badge tone="bronze">
+            <Badge>
               {t('productDetail.hostingStartsFrom')} {(hostingTiers[0].rate * 100).toFixed(1)}
               {t('productDetail.perKwh')}
             </Badge>
@@ -230,17 +225,17 @@ export function ProductDetailPage() {
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-dim">
               <span className="flex items-center gap-1.5">
-                <HashrateIcon className="size-4 text-[#22d3ee]" />
+                <HashrateIcon className="size-4 text-accent-bronze-tint" />
                 {t('productDetail.hashrate')}: <span className="font-semibold text-white">{product.hashrate}</span>
               </span>
               <span className="text-text-faint">·</span>
               <span className="flex items-center gap-1.5">
-                <PowerIcon className="size-4 text-[#4ade80]" />
+                <PowerIcon className="size-4 text-accent-bronze-tint" />
                 {t('productDetail.power')}: <span className="font-semibold text-white">{product.power}</span>
               </span>
               <span className="text-text-faint">·</span>
               <span className="flex items-center gap-1.5">
-                <EfficiencyIcon className="size-4 text-[#facc15]" />
+                <EfficiencyIcon className="size-4 text-accent-bronze-tint" />
                 {t('productDetail.efficiency')}: <span className="font-semibold text-white">{product.efficiency}</span>
               </span>
             </div>
@@ -272,10 +267,7 @@ export function ProductDetailPage() {
         </Container>
       </section>
 
-      {/* hosting plans — commented out until hostingTierRates' stale Quick
-          Start rate (0.08 vs. the current /hosting rate of 0.085) is fixed
-          and the 5.5¢ Turnkey Site eligibility note is added; see the TODO
-          near hostingTierRates above.
+      {/* hosting plans */}
       <section className="py-12">
         <Container>
           <Reveal>
@@ -341,7 +333,6 @@ export function ProductDetailPage() {
           </Reveal>
         </Container>
       </section>
-      */}
 
       {/* description + specs */}
       <section className="py-12 pb-24">
@@ -397,7 +388,9 @@ export function ProductDetailPage() {
                     className={`flex items-center justify-between px-4 py-3 text-sm ${i % 2 === 0 ? 'bg-white/3' : 'bg-transparent'}`}
                   >
                     <span className="text-text-faint">{label}</span>
-                    <span className="font-semibold text-white">{value}</span>
+                    <span className={value === 'Not confirmed' ? 'text-text-faint italic' : 'font-semibold text-white'}>
+                      {value}
+                    </span>
                   </div>
                 ))}
               </div>

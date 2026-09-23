@@ -56,7 +56,7 @@ export function Footer() {
             loading="lazy"
             className="h-[42px] w-auto object-contain transition-transform duration-200 hover:scale-105"
           />
-          <p className="max-w-120 text-base leading-relaxed text-text-slate">{t('footer.tagline')}</p>
+          <p className="max-w-120 text-base leading-relaxed text-text-subtle">{t('footer.tagline')}</p>
           <div className="flex items-center gap-2">
             {[
               { label: 'IN', href: LINKEDIN_LINK },

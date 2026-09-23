@@ -65,7 +65,7 @@ export function StatsBar() {
 
       <Container className="relative flex flex-col items-center gap-6 pt-24 pb-16 text-center lg:absolute lg:inset-x-0 lg:top-[641px] lg:gap-7 lg:pt-0 lg:pb-0">
         <Reveal>
-          <Badge tone="bronze">Fastest Deployment in the Market</Badge>
+          <Badge>Fastest Deployment in the Market</Badge>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="text-[32px] font-black text-[#f0f2f5] sm:text-[40px] md:text-[64px]">

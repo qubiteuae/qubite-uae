@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { Badge } from '@/components/Badge'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { products as catalogProducts } from '@/features/asic-machines/products'
@@ -166,9 +167,7 @@ export function AsicComparison() {
           <TickMark />
         </Reveal>
         <Reveal delay={60}>
-          <span className="mt-1 inline-flex items-center gap-1.5 rounded-full border border-[rgba(96,165,250,0.3)] bg-[rgba(59,130,246,0.15)] px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-[#93c5fd] uppercase">
-            {t('home.asicComparison.badge')}
-          </span>
+          <Badge className="mt-1">{t('home.asicComparison.badge')}</Badge>
         </Reveal>
         <Reveal delay={120}>
           <h2 className="max-w-[700px] text-[28px] font-extrabold text-white sm:text-[34px]">
@@ -240,7 +239,11 @@ export function AsicComparison() {
                         </button>
                       </td>
                       <td className="max-w-[180px] truncate px-2 py-3 font-semibold text-white">{miner.model}</td>
-                      <td className="px-2 py-3 whitespace-nowrap text-[#2dd4bf]">{miner.release}</td>
+                      <td
+                        className={`px-2 py-3 whitespace-nowrap ${miner.release === 'Not confirmed' ? 'text-text-faint italic' : 'text-white'}`}
+                      >
+                        {miner.release}
+                      </td>
                       <td className="px-2 py-3 whitespace-nowrap tabular-nums text-white">{miner.hashrate}</td>
                       <td className="px-2 py-3 whitespace-nowrap tabular-nums text-text-dim">{miner.power}</td>
                       <td className="px-2 py-3">

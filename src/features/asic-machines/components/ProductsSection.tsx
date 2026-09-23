@@ -80,7 +80,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
           to={toLang(`/asic-machines/${product.slug}`)}
           className="relative h-[220px] overflow-hidden rounded-2xl"
           style={{
-            background: 'radial-gradient(ellipse at center, #0d2b2e 0%, #0a1512 60%, #0a0a0a 100%)',
+            background: 'radial-gradient(ellipse at center, #2a1f16 0%, #150f0a 60%, #0a0a0a 100%)',
           }}
         >
           {/* faint tech-grid texture */}
@@ -88,16 +88,11 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
             className="pointer-events-none absolute inset-0 opacity-[0.06]"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(34,211,238,1) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,1) 1px, transparent 1px)',
+                'linear-gradient(rgba(232,167,101,1) 1px, transparent 1px), linear-gradient(90deg, rgba(232,167,101,1) 1px, transparent 1px)',
               backgroundSize: '18px 18px',
             }}
             aria-hidden="true"
           />
-
-          {/* watermark */}
-          <span className="absolute top-3 left-3 text-[9px] font-medium tracking-[0.1em] text-[#22d3ee]/40 uppercase">
-            Lumina
-          </span>
 
           {/* stock badge — omitted when stock status isn't known */}
           {product.status ? (
@@ -114,12 +109,12 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
 
           {/* glowing diamond platform */}
           <div
-            className="pointer-events-none absolute bottom-10 left-1/2 size-24 -translate-x-1/2 rotate-45 rounded-md bg-[#22d3ee]/25"
+            className="pointer-events-none absolute bottom-10 left-1/2 size-24 -translate-x-1/2 rotate-45 rounded-md bg-[#e8a765]/25"
             style={{ filter: 'blur(32px)' }}
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute bottom-11 left-1/2 size-16 -translate-x-1/2 rotate-45 rounded-sm border border-[#22d3ee]/30 bg-[#22d3ee]/10"
+            className="pointer-events-none absolute bottom-11 left-1/2 size-16 -translate-x-1/2 rotate-45 rounded-sm border border-[#e8a765]/30 bg-[#e8a765]/10"
             aria-hidden="true"
           />
 
@@ -142,7 +137,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
 
         {/* tag + price */}
         <div className="mt-2.5 flex items-center justify-between">
-          <span className="rounded-full bg-[rgba(165,180,252,0.15)] px-3 py-1 text-[10px] font-bold tracking-[0.04em] text-[#a5b4fc] uppercase">
+          <span className="rounded-full bg-[rgba(232,167,101,0.12)] px-3 py-1 text-[10px] font-bold tracking-[0.04em] text-accent-bronze-tint uppercase">
             {product.tag}
           </span>
           <span
@@ -163,21 +158,21 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
         <div className="grid grid-cols-3">
           <div className="relative flex flex-col items-center gap-1 after:absolute after:top-[15%] after:right-0 after:h-[70%] after:w-px after:bg-[rgba(255,255,255,0.08)] after:content-['']">
             <span className="flex items-center gap-1 text-[10px] font-medium tracking-[0.04em] text-[#6b7280] uppercase">
-              <HashrateIcon className="size-3 text-[#22d3ee]" />
+              <HashrateIcon className="size-3 text-accent-bronze-tint" />
               {t('asicMachines.products.hashrate')}
             </span>
             <span className="mt-1 text-[14px] font-semibold tabular-nums text-white">{product.hashrate}</span>
           </div>
           <div className="relative flex flex-col items-center gap-1 after:absolute after:top-[15%] after:right-0 after:h-[70%] after:w-px after:bg-[rgba(255,255,255,0.08)] after:content-['']">
             <span className="flex items-center gap-1 text-[10px] font-medium tracking-[0.04em] text-[#6b7280] uppercase">
-              <EfficiencyIcon className="size-3 text-[#facc15]" />
+              <EfficiencyIcon className="size-3 text-accent-bronze-tint" />
               {t('asicMachines.products.efficiency')}
             </span>
             <span className="mt-1 text-[14px] font-semibold tabular-nums text-white">{product.efficiency}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
             <span className="flex items-center gap-1 text-[10px] font-medium tracking-[0.04em] text-[#6b7280] uppercase">
-              <PowerIcon className="size-3 text-[#4ade80]" />
+              <PowerIcon className="size-3 text-accent-bronze-tint" />
               {t('asicMachines.products.power')}
             </span>
             <span className="mt-1 text-[14px] font-semibold tabular-nums text-white">{product.power}</span>

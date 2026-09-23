@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Badge } from '@/components/Badge'
 import { Reveal } from '@/components/Reveal'
 import { trackWhatsAppClick } from '@/lib/analytics'
 import { WHATSAPP_LINK } from '@/lib/links'
@@ -88,15 +89,15 @@ function HeadsetIcon({ className = 'size-3.5' }: { className?: string }) {
 }
 
 const featureStyles = [
-  { icon: ReceiptIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(33,48,44,0.72)]' },
-  { icon: TrendIcon, tone: 'text-[#2dd4bf] border-[#2dd4bf]/30 bg-[#2dd4bf]/10', surface: 'bg-[rgba(0,58,57,0.62)]' },
-  { icon: ShieldIcon, tone: 'text-[#2dd4bf] border-[#2dd4bf]/30 bg-[#2dd4bf]/10', surface: 'bg-[rgba(0,68,64,0.72)]' },
-  { icon: WalletIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(33,48,44,0.72)]' },
+  { icon: ReceiptIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
+  { icon: TrendIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
+  { icon: ShieldIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
+  { icon: WalletIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
 ]
 
 const verticalStyles = [
-  { icon: PickaxeIcon, tone: 'text-[#2dd4bf] border-[#2dd4bf]/30' },
-  { icon: CloudIcon, tone: 'text-[#60a5fa] border-[#60a5fa]/30' },
+  { icon: PickaxeIcon, tone: 'text-[#e8a765] border-[#e8a765]/30' },
+  { icon: CloudIcon, tone: 'text-[#e8a765] border-[#e8a765]/30' },
 ]
 
 export function WhyChooseUs() {
@@ -118,7 +119,7 @@ export function WhyChooseUs() {
         className="pointer-events-none absolute inset-x-0 top-[284px] bottom-0 lg:top-[clamp(420px,31vw,590px)]"
         style={{
           background:
-            'linear-gradient(180deg, #000 0%, rgba(0,0,0,0) 18%), linear-gradient(105deg, #3a2118 0%, #17110d 28%, #030a09 52%, #003d39 100%)',
+            'linear-gradient(180deg, #000 0%, rgba(0,0,0,0) 18%), linear-gradient(105deg, #3a2118 0%, #17110d 28%, #030a09 52%, #0d0704 100%)',
         }}
         aria-hidden="true"
       />
@@ -127,9 +128,7 @@ export function WhyChooseUs() {
         <Reveal>
           <div className="flex flex-col items-center gap-2">
             <TickMark />
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(45,212,191,0.3)] bg-[rgba(20,60,55,0.4)] px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-[#2dd4bf] uppercase">
-              {t('home.whyChooseUs.badge')}
-            </span>
+            <Badge>{t('home.whyChooseUs.badge')}</Badge>
           </div>
         </Reveal>
         <Reveal delay={80}>
@@ -149,7 +148,7 @@ export function WhyChooseUs() {
         <Reveal className="flex justify-center sm:justify-start">
           <div
             className="relative w-full max-w-[440px] overflow-hidden rounded-3xl border border-white/10"
-            style={{ boxShadow: '0 0 46px rgba(0,229,255,0.18)' }}
+            style={{ boxShadow: '0 0 46px rgba(232,167,101,0.18)' }}
           >
             <img
               src="/facilities/facility-hallway.webp"

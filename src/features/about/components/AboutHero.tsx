@@ -19,7 +19,7 @@ export function AboutHero() {
 
       <Container className="relative flex flex-col items-center gap-5 pt-30 pb-20 text-center md:pt-36">
         <Reveal>
-          <Badge tone="bronze">{t('about.hero.badge')}</Badge>
+          <Badge>{t('about.hero.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
           <h1 className="max-w-[760px] text-[36px] leading-tight font-black text-white sm:text-[48px]">
