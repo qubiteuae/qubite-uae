@@ -114,7 +114,7 @@ export function MiningProcess() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mt-5 text-[28px] leading-tight font-extrabold text-white sm:text-[32px] md:text-[36px]">
+          <h2 className="font-display mt-5 text-[28px] leading-tight font-extrabold text-white sm:text-[32px] md:text-[36px]">
             {t('home.miningProcess.heading1')}{' '}
             <span style={{ backgroundImage: GRADIENT }} className="bg-clip-text text-transparent">
               {t('home.miningProcess.heading2')}
@@ -172,9 +172,9 @@ export function MiningProcess() {
                   <div
                     className="absolute -top-4 left-1/2 flex size-9 -translate-x-1/2 items-center justify-center rounded-full border border-[rgba(232,167,101,0.4)] bg-[#0c0a08]"
                   >
-                    <Icon className="size-3.5 text-[#e8a765]" />
+                    <Icon className="size-3.5 text-accent-bronze-tint" />
                   </div>
-                  <span className="mt-2 text-[11px] font-bold tracking-[0.05em] text-[#e8a765]">{step.num}</span>
+                  <span className="mt-2 text-[11px] font-bold tracking-[0.05em] text-accent-bronze-tint">{step.num}</span>
                   <h3 className="mt-3 text-[13px] font-bold tracking-[0.05em] text-white uppercase">{step.title}</h3>
                   <p className="mt-2 line-clamp-3 text-[12px] leading-[1.5] text-[#8a8a8a]">{step.description}</p>
                 </div>

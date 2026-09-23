@@ -204,8 +204,8 @@ export function ProductDetailPage() {
               <span
                 className={
                   product.priceUsd === null
-                    ? 'text-lg font-bold text-[#e8a765]'
-                    : 'text-[34px] font-black tabular-nums text-[#e8a765]'
+                    ? 'font-mono text-lg font-bold text-[#e8a765]'
+                    : 'font-mono text-[34px] font-black tabular-nums text-[#e8a765]'
                 }
               >
                 {product.price}
@@ -225,18 +225,18 @@ export function ProductDetailPage() {
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-dim">
               <span className="flex items-center gap-1.5">
-                <HashrateIcon className="size-4 text-accent-bronze-tint" />
-                {t('productDetail.hashrate')}: <span className="font-semibold text-white">{product.hashrate}</span>
+                <HashrateIcon className="size-4 text-accent-steel" />
+                {t('productDetail.hashrate')}: <span className="font-mono font-semibold text-white">{product.hashrate}</span>
               </span>
               <span className="text-text-faint">·</span>
               <span className="flex items-center gap-1.5">
-                <PowerIcon className="size-4 text-accent-bronze-tint" />
-                {t('productDetail.power')}: <span className="font-semibold text-white">{product.power}</span>
+                <PowerIcon className="size-4 text-accent-steel" />
+                {t('productDetail.power')}: <span className="font-mono font-semibold text-white">{product.power}</span>
               </span>
               <span className="text-text-faint">·</span>
               <span className="flex items-center gap-1.5">
-                <EfficiencyIcon className="size-4 text-accent-bronze-tint" />
-                {t('productDetail.efficiency')}: <span className="font-semibold text-white">{product.efficiency}</span>
+                <EfficiencyIcon className="size-4 text-accent-steel" />
+                {t('productDetail.efficiency')}: <span className="font-mono font-semibold text-white">{product.efficiency}</span>
               </span>
             </div>
 
@@ -304,12 +304,12 @@ export function ProductDetailPage() {
                       <p className="text-xs text-text-dim">{tier.tagline}</p>
                     </div>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-2xl font-black text-[#e8a765]">{(tier.rate * 100).toFixed(1)}¢</span>
+                      <span className="font-mono text-2xl font-black text-[#e8a765]">{(tier.rate * 100).toFixed(1)}¢</span>
                       <span className="text-xs text-text-faint">{t('productDetail.hostingPlans.perKwh')}</span>
                     </div>
                     <div className="flex flex-col gap-0.5 border-t border-white/8 pt-3">
                       <span className="text-[10px] tracking-wide text-text-faint uppercase">{t('productDetail.hostingPlans.estMonthlyCost')}</span>
-                      <span className="text-lg font-bold text-white">{currencyPrecise.format(monthlyCost)}</span>
+                      <span className="font-mono text-lg font-bold text-white">{currencyPrecise.format(monthlyCost)}</span>
                     </div>
                     {selected ? (
                       <span className="text-[10px] font-bold tracking-wide text-[#e8a765] uppercase">{t('productDetail.hostingPlans.selected')}</span>
@@ -388,7 +388,7 @@ export function ProductDetailPage() {
                     className={`flex items-center justify-between px-4 py-3 text-sm ${i % 2 === 0 ? 'bg-white/3' : 'bg-transparent'}`}
                   >
                     <span className="text-text-faint">{label}</span>
-                    <span className={value === 'Not confirmed' ? 'text-text-faint italic' : 'font-semibold text-white'}>
+                    <span className={value === 'Not confirmed' ? 'text-text-faint italic' : 'font-mono font-semibold text-white'}>
                       {value}
                     </span>
                   </div>

@@ -25,7 +25,7 @@ export function LocationsSection() {
           <Badge>{t('about.locations.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('about.locations.heading')}</h2>
+          <h2 className="font-display text-[28px] font-bold text-white sm:text-[34px]">{t('about.locations.heading')}</h2>
         </Reveal>
         <Reveal delay={140}>
           <p className="max-w-[640px] text-sm text-text-dim">{t('about.locations.paragraph')}</p>
@@ -75,7 +75,7 @@ export function LocationsSection() {
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={340 + i * 60}>
               <div className="flex flex-col items-center gap-1 rounded-2xl border border-white/8 bg-white/3 py-5">
-                <span className="text-xl font-black text-[#e8a765]">{stat.value}</span>
+                <span className="font-mono text-xl font-black text-[#e8a765]">{stat.value}</span>
                 <span className="text-[10px] font-medium tracking-wide text-text-faint uppercase">{stat.label}</span>
               </div>
             </Reveal>

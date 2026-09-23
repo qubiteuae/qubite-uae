@@ -80,7 +80,7 @@ export function HostingHero() {
         </Reveal>
         <Reveal delay={140}>
           <p className="max-w-[620px] text-base text-text-dim md:text-lg">
-            {t('hosting.hero.paragraphPrefix')} <span className="font-semibold text-white">5.5¢ to 8.5¢</span>{' '}
+            {t('hosting.hero.paragraphPrefix')} <span className="font-mono font-semibold text-white">5.5¢ to 8.5¢</span>{' '}
             {t('hosting.hero.paragraphSuffix')}
           </p>
         </Reveal>
@@ -114,7 +114,7 @@ export function HostingHero() {
             return (
               <Reveal key={item.title} delay={260 + i * 90}>
                 <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-white/8 bg-white/3 p-6 text-center backdrop-blur-sm">
-                  <span className="flex size-11 items-center justify-center rounded-xl border border-[rgba(232,167,101,0.35)] bg-[rgba(232,167,101,0.1)] text-[#e8a765]">
+                  <span className="flex size-11 items-center justify-center rounded-xl border border-accent-bronze-tint/35 bg-accent-bronze-tint/10 text-accent-bronze-tint">
                     <Icon />
                   </span>
                   <h3 className="text-sm font-bold text-white">{item.title}</h3>

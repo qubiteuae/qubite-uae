@@ -116,7 +116,7 @@ export function TeamGrid() {
     <section className="relative bg-bg py-24">
       <Container className="relative flex flex-col items-center gap-8">
         <Reveal className="text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-[28px]">{t('about.team.heading')}</h2>
+          <h2 className="font-display text-2xl font-bold text-white sm:text-[28px]">{t('about.team.heading')}</h2>
           <p className="mt-2 text-sm text-text-subtle">{t('about.team.paragraph')}</p>
         </Reveal>
 

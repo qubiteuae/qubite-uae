@@ -22,7 +22,7 @@ function StatItem({ value, label, icon, isLast }: (typeof stats)[number] & { isL
           <img src={icon} alt="" className="h-6 w-[22px]" />
         </span>
         <span className="flex flex-col items-center gap-4">
-          <span className="text-[36px] font-bold tracking-tight whitespace-nowrap tabular-nums text-[#f0f2f5] md:text-[48px]">
+          <span className="font-mono text-[36px] font-bold tracking-tight whitespace-nowrap tabular-nums text-[#f0f2f5] md:text-[48px]">
             {display}
           </span>
           <span className="text-[13px] tracking-wide text-accent-copper">{label}</span>
@@ -68,7 +68,7 @@ export function StatsBar() {
           <Badge>Fastest Deployment in the Market</Badge>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="text-[32px] font-black text-[#f0f2f5] sm:text-[40px] md:text-[64px]">
+          <h2 className="font-display text-[32px] font-black text-[#f0f2f5] sm:text-[40px] md:text-[64px]">
             Go Live in{' '}
             <span className="bg-gradient-to-r from-accent-bronze-tint to-accent-copper bg-clip-text text-transparent">
               24 Hours

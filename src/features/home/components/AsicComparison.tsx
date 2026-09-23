@@ -170,7 +170,7 @@ export function AsicComparison() {
           <Badge className="mt-1">{t('home.asicComparison.badge')}</Badge>
         </Reveal>
         <Reveal delay={120}>
-          <h2 className="max-w-[700px] text-[28px] font-extrabold text-white sm:text-[34px]">
+          <h2 className="font-display max-w-[700px] text-[28px] font-extrabold text-white sm:text-[34px]">
             {t('home.asicComparison.heading')}
           </h2>
         </Reveal>
@@ -232,7 +232,7 @@ export function AsicComparison() {
                             e.stopPropagation()
                             toggleFavorite(miner.id)
                           }}
-                          className={`transition-colors ${favorites.has(miner.id) ? 'text-[#e8a765]' : 'text-text-faint hover:text-white'}`}
+                          className={`transition-colors ${favorites.has(miner.id) ? 'text-accent-bronze-tint' : 'text-text-faint hover:text-white'}`}
                           aria-label="Toggle favorite"
                         >
                           <StarIcon filled={favorites.has(miner.id)} />
@@ -244,8 +244,8 @@ export function AsicComparison() {
                       >
                         {miner.release}
                       </td>
-                      <td className="px-2 py-3 whitespace-nowrap tabular-nums text-white">{miner.hashrate}</td>
-                      <td className="px-2 py-3 whitespace-nowrap tabular-nums text-text-dim">{miner.power}</td>
+                      <td className="px-2 py-3 whitespace-nowrap font-mono tabular-nums text-white">{miner.hashrate}</td>
+                      <td className="px-2 py-3 whitespace-nowrap font-mono tabular-nums text-text-dim">{miner.power}</td>
                       <td className="px-2 py-3">
                         <span
                           className="flex size-6 items-center justify-center rounded-full text-[10px] font-bold text-white"
@@ -257,7 +257,7 @@ export function AsicComparison() {
                       <td className="px-2 py-3 whitespace-nowrap text-text-dim">{miner.algorithm}</td>
                       <td className="px-2 py-3 whitespace-nowrap">
                         <div className="flex flex-col">
-                          <span className="font-bold tabular-nums text-[#f5a623]">{miner.priceDisplay}</span>
+                          <span className="font-mono font-bold tabular-nums text-[#f5a623]">{miner.priceDisplay}</span>
                         </div>
                       </td>
                     </tr>

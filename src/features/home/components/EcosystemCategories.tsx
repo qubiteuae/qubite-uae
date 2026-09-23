@@ -32,7 +32,7 @@ export function EcosystemCategories() {
           <Badge>{t('home.ecosystemCategories.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="text-[40px] font-bold tracking-tight text-white">{t('home.ecosystemCategories.heading')}</h2>
+          <h2 className="font-display text-[40px] font-bold tracking-tight text-white">{t('home.ecosystemCategories.heading')}</h2>
         </Reveal>
         <Reveal delay={160}>
           <p className="max-w-[640px] text-base font-bold text-text-subtle">{t('home.ecosystemCategories.paragraph')}</p>

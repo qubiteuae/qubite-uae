@@ -29,7 +29,7 @@ export function HostingFaq() {
           <Badge>{t('hosting.faq.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.faq.heading')}</h2>
+          <h2 className="font-display text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.faq.heading')}</h2>
         </Reveal>
 
         <div className="mt-8 flex w-full max-w-[720px] flex-col gap-3 text-left">

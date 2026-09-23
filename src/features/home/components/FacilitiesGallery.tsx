@@ -43,7 +43,7 @@ export function FacilitiesGallery() {
           <Badge>{t('home.facilitiesGallery.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('home.facilitiesGallery.heading')}</h2>
+          <h2 className="font-display text-[28px] font-bold text-white sm:text-[34px]">{t('home.facilitiesGallery.heading')}</h2>
         </Reveal>
 
         <Reveal delay={160} className="mt-10 w-full">

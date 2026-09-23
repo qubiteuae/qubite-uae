@@ -41,7 +41,7 @@ export function StabilityHighlight() {
             <Badge>Built for resilience</Badge>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="max-w-[800px] text-[38px] leading-tight font-bold text-text-heading">
+            <h2 className="font-display max-w-[800px] text-[38px] leading-tight font-bold text-text-heading">
               Designed for Stability in a Changing World
             </h2>
           </Reveal>

@@ -144,7 +144,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
             className={
               product.priceUsd === null
                 ? 'text-[13px] font-bold text-[#f5a623]'
-                : 'text-[20px] font-bold tabular-nums text-[#f5a623]'
+                : 'font-mono text-[20px] font-bold tabular-nums text-[#f5a623]'
             }
           >
             {product.price}
@@ -158,35 +158,35 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
         <div className="grid grid-cols-3">
           <div className="relative flex flex-col items-center gap-1 after:absolute after:top-[15%] after:right-0 after:h-[70%] after:w-px after:bg-[rgba(255,255,255,0.08)] after:content-['']">
             <span className="flex items-center gap-1 text-[10px] font-medium tracking-[0.04em] text-[#6b7280] uppercase">
-              <HashrateIcon className="size-3 text-accent-bronze-tint" />
+              <HashrateIcon className="size-3 text-accent-steel" />
               {t('asicMachines.products.hashrate')}
             </span>
-            <span className="mt-1 text-[14px] font-semibold tabular-nums text-white">{product.hashrate}</span>
+            <span className="mt-1 font-mono text-[14px] font-semibold tabular-nums text-white">{product.hashrate}</span>
           </div>
           <div className="relative flex flex-col items-center gap-1 after:absolute after:top-[15%] after:right-0 after:h-[70%] after:w-px after:bg-[rgba(255,255,255,0.08)] after:content-['']">
             <span className="flex items-center gap-1 text-[10px] font-medium tracking-[0.04em] text-[#6b7280] uppercase">
-              <EfficiencyIcon className="size-3 text-accent-bronze-tint" />
+              <EfficiencyIcon className="size-3 text-accent-steel" />
               {t('asicMachines.products.efficiency')}
             </span>
-            <span className="mt-1 text-[14px] font-semibold tabular-nums text-white">{product.efficiency}</span>
+            <span className="mt-1 font-mono text-[14px] font-semibold tabular-nums text-white">{product.efficiency}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
             <span className="flex items-center gap-1 text-[10px] font-medium tracking-[0.04em] text-[#6b7280] uppercase">
-              <PowerIcon className="size-3 text-accent-bronze-tint" />
+              <PowerIcon className="size-3 text-accent-steel" />
               {t('asicMachines.products.power')}
             </span>
-            <span className="mt-1 text-[14px] font-semibold tabular-nums text-white">{product.power}</span>
+            <span className="mt-1 font-mono text-[14px] font-semibold tabular-nums text-white">{product.power}</span>
           </div>
         </div>
 
         {/* buttons */}
-        <div className="mt-3.5 flex items-center gap-2.5">
+        <div className="mt-3.5 flex flex-col items-center gap-2">
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick(`products_section_card:${product.slug}`, i18n.language)}
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-gradient-to-b from-[#22c55e] to-[#16a34a] py-3 text-[13px] font-bold tracking-[0.03em] text-white uppercase transition-all duration-200 hover:brightness-110 active:scale-95"
+            className="flex w-full items-center justify-center gap-1.5 rounded-full bg-gradient-to-b from-[#22c55e] to-[#16a34a] py-3 text-[13px] font-bold tracking-[0.03em] text-white uppercase transition-all duration-200 hover:brightness-110 active:scale-95"
             style={{ boxShadow: '0 4px 14px rgba(34,197,94,0.3)' }}
           >
             <WhatsAppIcon className="size-3.5" />
@@ -194,7 +194,7 @@ function ProductCard({ product, delay }: { product: Product; delay: number }) {
           </a>
           <Link
             to={toLang(`/asic-machines/${product.slug}`)}
-            className="flex-1 rounded-full border border-white/15 py-3 text-center text-[13px] font-bold tracking-[0.03em] text-white uppercase transition-all duration-200 hover:border-white/40 hover:bg-white/5 active:scale-95"
+            className="text-[12px] font-semibold text-text-faint underline-offset-2 transition-colors hover:text-accent-bronze-tint hover:underline"
           >
             {t('asicMachines.products.viewDetails')}
           </Link>
@@ -262,7 +262,7 @@ export function ProductsSection() {
       <Container className="relative flex flex-col gap-8 py-16">
         <Reveal>
           <div className="flex flex-col gap-1 text-left">
-            <h2 className="text-2xl font-bold text-white">{t('asicMachines.products.heading')}</h2>
+            <h2 className="font-display text-2xl font-bold text-white">{t('asicMachines.products.heading')}</h2>
             <p className="text-sm text-text-subtle">{t('asicMachines.products.subheading')}</p>
           </div>
         </Reveal>

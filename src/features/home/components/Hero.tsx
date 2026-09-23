@@ -8,6 +8,8 @@ import { WHATSAPP_LINK } from '@/lib/links'
 
 const avatars = ['/figma/hero/avatar-1.webp', '/figma/hero/avatar-2.webp', '/figma/hero/avatar-3.webp']
 
+const GRADIENT = 'linear-gradient(90deg, #e8a765 0%, #b8794a 100%)'
+
 function HeadsetIcon({ className = 'size-3.5' }: { className?: string }) {
   return (
     <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden="true">
@@ -94,7 +96,9 @@ export function Hero() {
             <h1 className="animate-fade-in-up font-display text-[44px] leading-[1.05] font-black tracking-tight text-white md:text-[64px]">
               {t('home.hero.heading1')}
               <br />
-              {t('home.hero.heading2')}
+              <span style={{ backgroundImage: GRADIENT }} className="bg-clip-text text-transparent">
+                {t('home.hero.heading2')}
+              </span>
             </h1>
             <p
               className="animate-fade-in-up max-w-[520px] text-base leading-relaxed text-white md:text-18"

@@ -112,7 +112,7 @@ export function ContactSection() {
           <Badge>{t('about.contact.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('about.contact.heading')}</h2>
+          <h2 className="font-display text-[28px] font-bold text-white sm:text-[34px]">{t('about.contact.heading')}</h2>
         </Reveal>
         <Reveal delay={140}>
           <p className="max-w-[560px] text-sm text-text-dim">{t('about.contact.paragraph')}</p>
@@ -124,7 +124,7 @@ export function ContactSection() {
               const Icon = item.icon
               const content = (
                 <div className="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/3 p-4">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-[rgba(232,167,101,0.35)] bg-[rgba(232,167,101,0.1)] text-[#e8a765]">
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-accent-bronze-tint/35 bg-accent-bronze-tint/10 text-accent-bronze-tint">
                     <Icon />
                   </span>
                   <div className="flex flex-col">

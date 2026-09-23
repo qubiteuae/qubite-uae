@@ -34,7 +34,7 @@ export function HostingCta() {
               className="pointer-events-none absolute inset-0"
               style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 0%, rgba(232,167,101,0.15), transparent 70%)' }}
             />
-            <h2 className="relative text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.cta.heading')}</h2>
+            <h2 className="font-display relative text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.cta.heading')}</h2>
             <p className="relative max-w-[520px] text-sm text-text-dim">{t('hosting.cta.paragraph')}</p>
             <div className="relative flex flex-wrap items-center justify-center gap-3.5">
               <a

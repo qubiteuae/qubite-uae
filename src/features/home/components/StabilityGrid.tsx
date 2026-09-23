@@ -34,7 +34,7 @@ export function StabilityGrid() {
             <Badge>{t('home.stabilityGrid.badge')}</Badge>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="max-w-[800px] text-[38px] leading-tight font-extrabold text-text-heading">
+            <h2 className="font-display max-w-[800px] text-[38px] leading-tight font-extrabold text-text-heading">
               {t('home.stabilityGrid.heading')}
             </h2>
           </Reveal>

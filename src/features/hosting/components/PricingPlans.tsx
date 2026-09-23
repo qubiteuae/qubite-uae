@@ -32,7 +32,7 @@ export function PricingPlans() {
           <Badge>{t('hosting.pricingPlans.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.pricingPlans.heading')}</h2>
+          <h2 className="font-display text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.pricingPlans.heading')}</h2>
         </Reveal>
         <Reveal delay={140}>
           <p className="max-w-[560px] text-sm text-text-dim">{t('hosting.pricingPlans.paragraph')}</p>
@@ -60,7 +60,7 @@ export function PricingPlans() {
                 </div>
 
                 <div className="flex items-baseline gap-1">
-                  <span className="text-[32px] font-black text-[#e8a765]">{plan.rate}</span>
+                  <span className="font-mono text-[32px] font-black text-[#e8a765]">{plan.rate}</span>
                   <span className="text-xs text-text-faint">{t('hosting.pricingPlans.perKwh')}</span>
                 </div>
 

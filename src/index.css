@@ -34,6 +34,7 @@
   --color-accent-orange: #994300;   /* solar energy-mix tag */
   --color-accent-copper: #a46a4b;   /* stats icons/labels, resilience bullets, step-03 accent */
   --color-accent-amber: #ffa000;    /* active tab (global-infrastructure) */
+  --color-accent-steel: #9a9791;    /* warm-neutral tone for technical/spec data icons, distinct from marketing bronze */
 
   /* ---------------------------------------------------------------------
    * Font families
@@ -44,7 +45,7 @@
    * designer confirmation before final implementation.
    * ------------------------------------------------------------------- */
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;      /* nav, body copy, buttons, badges */
-  --font-display: "Unbounded", "Geist", sans-serif;                /* section headlines, bento titles */
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;   /* section headlines, bento titles */
   --font-mono: "Geist Mono", ui-monospace, monospace;              /* deployment step numbers (01/02/03) */
   --font-footer: "Inter", ui-sans-serif, system-ui, sans-serif;    /* footer copy, technical-spec micro text */
 

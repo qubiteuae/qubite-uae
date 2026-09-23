@@ -89,15 +89,15 @@ function HeadsetIcon({ className = 'size-3.5' }: { className?: string }) {
 }
 
 const featureStyles = [
-  { icon: ReceiptIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
-  { icon: TrendIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
-  { icon: ShieldIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
-  { icon: WalletIcon, tone: 'text-[#e8a765] border-[#e8a765]/30 bg-[#e8a765]/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
+  { icon: ReceiptIcon, tone: 'text-accent-bronze-tint border-accent-bronze-tint/30 bg-accent-bronze-tint/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
+  { icon: TrendIcon, tone: 'text-accent-bronze-tint border-accent-bronze-tint/30 bg-accent-bronze-tint/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
+  { icon: ShieldIcon, tone: 'text-accent-bronze-tint border-accent-bronze-tint/30 bg-accent-bronze-tint/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
+  { icon: WalletIcon, tone: 'text-accent-bronze-tint border-accent-bronze-tint/30 bg-accent-bronze-tint/10', surface: 'bg-[rgba(40,32,26,0.72)]' },
 ]
 
 const verticalStyles = [
-  { icon: PickaxeIcon, tone: 'text-[#e8a765] border-[#e8a765]/30' },
-  { icon: CloudIcon, tone: 'text-[#e8a765] border-[#e8a765]/30' },
+  { icon: PickaxeIcon, tone: 'text-accent-bronze-tint border-accent-bronze-tint/30' },
+  { icon: CloudIcon, tone: 'text-accent-bronze-tint border-accent-bronze-tint/30' },
 ]
 
 export function WhyChooseUs() {
@@ -132,7 +132,7 @@ export function WhyChooseUs() {
           </div>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="max-w-[760px] text-[28px] leading-[1.12] font-extrabold text-white sm:max-w-[clamp(400px,55.6vw,760px)] sm:text-[clamp(21px,2.93vw,40px)]">
+          <h2 className="font-display max-w-[760px] text-[28px] leading-[1.12] font-extrabold text-white sm:max-w-[clamp(400px,55.6vw,760px)] sm:text-[clamp(21px,2.93vw,40px)]">
             {t('home.whyChooseUs.heading1')}{' '}
             <span style={{ backgroundImage: GRADIENT }} className="bg-clip-text text-transparent">
               {t('home.whyChooseUs.heading2')}

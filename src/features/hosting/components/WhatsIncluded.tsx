@@ -75,7 +75,7 @@ export function WhatsIncluded() {
           <Badge>{t('hosting.whatsIncluded.badge')}</Badge>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.whatsIncluded.heading')}</h2>
+          <h2 className="font-display text-[28px] font-bold text-white sm:text-[34px]">{t('hosting.whatsIncluded.heading')}</h2>
         </Reveal>
         <Reveal delay={140}>
           <p className="max-w-[560px] text-sm text-text-dim">{t('hosting.whatsIncluded.paragraph')}</p>
