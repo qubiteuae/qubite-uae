@@ -9,6 +9,7 @@ import { useLocalizedPath } from '@/hooks/useLocalizedPath'
 import { SITE_URL, usePageSeo } from '@/hooks/usePageSeo'
 import { pushDataLayerEvent, trackWhatsAppClick } from '@/lib/analytics'
 import { localizePath } from '@/lib/i18nPaths'
+import { WHATSAPP_LINK } from '@/lib/links'
 import { EfficiencyIcon, HashrateIcon, PowerIcon, WhatsAppIcon } from './components/icons'
 
 function HeadsetIcon({ className = 'size-4' }: { className?: string }) {
@@ -148,11 +149,6 @@ export function ProductDetailPage() {
   }
 
   const inStock = product.status === 'In Stock'
-  const productWhatsAppLink =
-    'https://wa.me/971556615745?text=' +
-    encodeURIComponent(
-      `Hello Qubite, I'm interested in the ${product.title} (${product.hashrate}). Could you share current pricing and hosting options? ${actualProductUrl}`,
-    )
 
   return (
     <div className="bg-bg pt-24">
@@ -242,7 +238,7 @@ export function ProductDetailPage() {
 
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <a
-                href={productWhatsAppLink}
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick(`product_detail_request_price:${product.slug}`, i18n.language)}
@@ -253,7 +249,7 @@ export function ProductDetailPage() {
                 {t('productDetail.requestPrice')}
               </a>
               <a
-                href={productWhatsAppLink}
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick(`product_detail_talk_to_human:${product.slug}`, i18n.language)}
