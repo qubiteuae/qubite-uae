@@ -8,8 +8,24 @@ import { HomePage } from '@/features/home/HomePage'
 import { HostingPage } from '@/features/hosting/HostingPage'
 import { PrivacyPolicyPage } from '@/features/legal/PrivacyPolicyPage'
 import { TermsPage } from '@/features/legal/TermsPage'
+import { MaintenancePage } from '@/features/maintenance/MaintenancePage'
+
+// Build-time flag (Vite bakes VITE_-prefixed vars into the bundle), so
+// toggling it requires setting VITE_MAINTENANCE_MODE in Vercel's Environment
+// Variables and triggering a redeploy — see .env.example.
+const MAINTENANCE_MODE = import.meta.env.VITE_MAINTENANCE_MODE === 'true'
 
 function App() {
+  if (MAINTENANCE_MODE) {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<MaintenancePage />} />
+        </Routes>
+      </BrowserRouter>
+    )
+  }
+
   return (
     <BrowserRouter>
       <Routes>

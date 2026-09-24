@@ -90,6 +90,10 @@ export const en = {
       title: 'Product Not Found | Qubite International',
       description: 'This machine is not in our current catalog. Browse our current ASIC miner lineup instead.',
     },
+    maintenance: {
+      title: 'Site Under Maintenance | Qubite International',
+      description: 'Qubite International is temporarily undergoing scheduled maintenance. We will be back online shortly.',
+    },
   },
   home: {
     hero: {
@@ -730,6 +734,12 @@ export const en = {
         },
       ],
     },
+  },
+  maintenance: {
+    badge: 'Under Maintenance',
+    heading1: "We're making",
+    heading2: 'some improvements',
+    body: "Qubite International is temporarily offline for scheduled maintenance. We'll be back online shortly.",
   },
 } as const
 

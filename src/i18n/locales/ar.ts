@@ -89,6 +89,10 @@ export const ar: TranslationSchema = {
       title: 'المنتج غير موجود | Qubite International',
       description: 'هذا الجهاز غير متوفر في كتالوجنا الحالي. تصفح مجموعة أجهزة تعدين ASIC المتاحة حاليًا بدلاً من ذلك.',
     },
+    maintenance: {
+      title: 'الموقع تحت الصيانة | Qubite International',
+      description: 'موقع Qubite International متوقف مؤقتًا لأعمال صيانة مجدولة. سنعود قريبًا.',
+    },
   },
   home: {
     hero: {
@@ -728,5 +732,11 @@ export const ar: TranslationSchema = {
         },
       ],
     },
+  },
+  maintenance: {
+    badge: 'الموقع تحت الصيانة',
+    heading1: 'نعمل حاليًا على',
+    heading2: 'بعض التحسينات',
+    body: 'موقع Qubite International متوقف مؤقتًا لأعمال صيانة مجدولة. سنعود قريبًا.',
   },
 }
