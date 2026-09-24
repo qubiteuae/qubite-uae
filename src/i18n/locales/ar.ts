@@ -738,5 +738,6 @@ export const ar: TranslationSchema = {
     heading1: 'نعمل حاليًا على',
     heading2: 'بعض التحسينات',
     body: 'موقع Qubite International متوقف مؤقتًا لأعمال صيانة مجدولة. سنعود قريبًا.',
+    talkToHuman: 'تحدث مع أحد ممثلينا',
   },
 }

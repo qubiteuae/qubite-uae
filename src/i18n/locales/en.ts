@@ -740,6 +740,7 @@ export const en = {
     heading1: "We're making",
     heading2: 'some improvements',
     body: "Qubite International is temporarily offline for scheduled maintenance. We'll be back online shortly.",
+    talkToHuman: 'Talk to a human',
   },
 } as const
 
